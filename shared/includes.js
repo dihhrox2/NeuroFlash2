@@ -10,8 +10,8 @@ const FOOTER_CONTACT_LINKS = [
   { href: "https://wa.me/5511999999999", icon: "whatsapp.png", label: "(11) 99999-9999", width: 316, height: 316 },
 ];
 const FOOTER_COMPANY_LINES = [
-  "CNPJ: 00.000.000/0001-00",
-  "Endere&ccedil;o: Av. Paulista, 1000 - Bela Vista, S&atilde;o Paulo - SP",
+  "CNPJ: 66.907.199/0001-44",
+  "Endere&ccedil;o: Av. Papa Jo&atilde;o Paulo II, 650, apto. 44 - Urbanova VI, S&atilde;o Jos&eacute; dos Campos - SP",
   "Atendimento: seg. a sex., 9h &agrave;s 18h",
 ];
 const SHARED_INCLUDE_SELECTORS = [

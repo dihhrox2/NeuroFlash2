@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Coisas A Fazer - NeuroFlash | Documentacao Interna NeuroFlash</title>
+  <link rel="stylesheet" href="doc-layout.css">
+</head>
+<body>
+  <main class="doc-shell" id="topo">
+    <header class="doc-header">
+      <p class="doc-kicker">Documentacao interna NeuroFlash</p>
+      <h1>Coisas A Fazer - NeuroFlash</h1>
+      <p class="doc-meta">Arquivo interno de manutencao. Nao faz parte da navegacao publica do site.</p>
+    </header>
+    <div class="doc-layout">
+      <article class="doc-content">
+<h1 id="coisas-a-fazer-neuroflash">Coisas A Fazer - NeuroFlash</h1>
+<p>Use este arquivo para registrar ideias, pendencias e melhorias futuras. Mantenha cada item curto, objetivo e acionavel.</p>
+<h2 id="formato-sugerido">Formato Sugerido</h2>
+<pre><code>
+- [ ] Categoria: descricao da tarefa | contexto: detalhe opcional | prioridade: baixa/media/alta
+</code></pre>
+<h2 id="tarefas">Tarefas</h2>
+<ul>
+<li>[ ] Governanca legal: registrar aprovacao externa antes de qualquer alteracao de texto publico | contexto: todo texto visivel ao publico esta bloqueado para edicao interna em refatoracoes, atualizacoes, otimizacoes, SEO, acessibilidade, performance ou manutencao | prioridade: alta</li>
+<li>[x] SEO: definir URL publica final do projeto | contexto: dominio oficial definido como <code>https://essentiahealth.com.br/</code> | prioridade: alta</li>
+<li>[ ] SEO: validar propriedade no Google Search Console/Search Engine usando <code>googlef8f43337a075e3ac.html</code> | contexto: arquivo tecnico ja esta na raiz do projeto e deve ser mantido enquanto a verificacao depender dele | prioridade: alta</li>
+<li>[x] SEO: criar sitemap.xml e robots.txt para o dominio oficial | contexto: arquivos criados na raiz com sitemap absoluto em <code>https://essentiahealth.com.br/sitemap.xml</code> | prioridade: alta</li>
+<li>[x] SEO: adicionar canonical e og:url nas paginas oficiais | contexto: Home, Quem Somos e FAQ usam URLs absolutas oficiais; fallback <code>home/index.html</code> aponta para a Home raiz | prioridade: alta</li>
+<li>[ ] SEO: validar JSON-LD no Rich Results Test apos publicacao | contexto: verificar Product basico e ajustar apenas dados visiveis na pagina | prioridade: media</li>
+<li>[ ] SEO: avaliar FAQPage schema somente se a marca/site atender aos criterios atuais do Google | contexto: rich results de FAQ sao restritos e nao garantidos | prioridade: baixa</li>
+<li>[ ] SEO: avaliar referencias externas confiaveis para ingredientes | contexto: adicionar apenas fontes tecnicas reais, sem links decorativos | prioridade: media</li>
+<li>[ ] Conteudo: submeter copy publica a curadoria legal externa antes de qualquer publicacao ou alteracao | contexto: agentes internos nao devem editar textos visiveis ao publico sem aprovacao externa previa | prioridade: alta</li>
+<li>[ ] Conteudo: submeter texto institucional da pagina Quem Somos a curadoria legal externa antes de qualquer ajuste publico | contexto: tom, nomes e detalhes pessoais nao devem ser alterados internamente sem aprovacao | prioridade: alta</li>
+<li>[ ] Empresa: substituir dados ficticios restantes do rodape por informacoes reais | contexto: CNPJ e endereco oficiais ja atualizados; telefone, WhatsApp, Instagram, horarios e politicas seguem pendentes antes da publicacao | prioridade: alta</li>
+<li>[ ] Visual: tornar constante a transparencia dos elementos no mobile em todas as paginas | contexto: corrigir a percepcao de escurecimento gradual durante a rolagem | prioridade: alta</li>
+<li>[ ] Assets: limpar os metadados embutidos de todas as imagens do projeto | contexto: padronizar os arquivos antes da publicacao e evitar carregar informacoes desnecessarias | prioridade: media</li>
+<li>[ ] Visual: compactar o rodape para reduzir espacos em branco | contexto: otimizar a densidade do bloco institucional sem perder legibilidade | prioridade: media</li>
+<li>[ ] Encoding: revisar textos nao visiveis do site e do projeto para evitar acentuacao quebrada | contexto: ajustar metadados, textos tecnicos e strings auxiliares para escrita estavel, com versao sem acentos quando fizer sentido | prioridade: media</li>
+<li>[ ] Performance: estudar uma estrategia para aliviar a renderizacao de elementos fora da viewport | contexto: avaliar recursos nativos ou abordagem leve compativel com site estatico e <code>file:///</code> | prioridade: baixa</li>
+</ul>
+      </article>
+      <aside class="doc-toc" aria-label="Indice do documento">
+        <h2>Indice</h2>
+        <ol>
+<li class="toc-level-2"><a href="#formato-sugerido">Formato Sugerido</a></li>
+<li class="toc-level-2"><a href="#tarefas">Tarefas</a></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,283 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Guia Tecnico De Imagens Do Site | Documentacao Interna NeuroFlash</title>
+  <link rel="stylesheet" href="doc-layout.css">
+</head>
+<body>
+  <main class="doc-shell" id="topo">
+    <header class="doc-header">
+      <p class="doc-kicker">Documentacao interna NeuroFlash</p>
+      <h1>Guia Tecnico De Imagens Do Site</h1>
+      <p class="doc-meta">Arquivo interno de manutencao. Nao faz parte da navegacao publica do site.</p>
+    </header>
+    <div class="doc-layout">
+      <article class="doc-content">
+<h1 id="guia-tecnico-de-imagens-do-site">Guia Tecnico De Imagens Do Site</h1>
+<p>Este documento mapeia as imagens usadas no site NeuroFlash e define orientacoes para substituicao, proporcao, crop e nomenclatura.</p>
+<h2 id="indice">Indice</h2>
+<ol>
+<li><a href="#1-visao-geral">Visao Geral</a></li>
+<li><a href="#2-imagens-compartilhadas">Imagens Compartilhadas</a></li>
+<li><a href="#3-home">Home</a></li>
+<li><a href="#4-quem-somos">Quem Somos</a></li>
+<li><a href="#5-faq">FAQ</a></li>
+<li><a href="#6-regras-gerais-de-producao">Regras Gerais De Producao</a></li>
+</ol>
+<h2 id="1-visao-geral">1. Visao Geral</h2>
+<ul>
+<li>O site e estatico e nao usa pipeline de otimizacao automatica.</li>
+<li>Todas as imagens devem ser salvas ja otimizadas antes de entrar no projeto.</li>
+<li>Nomes de arquivos devem ser ASCII, sem acentos, cedilha ou espacos.</li>
+<li>Preferir JPG para fotos e PNG apenas para icones, transparencias ou artefatos especificos.</li>
+<li>Sempre declarar <code>width</code> e <code>height</code> no HTML quando a imagem aparecer como <code>&lt;img&gt;</code>.</li>
+<li>Imagens abaixo da dobra devem usar <code>loading=&quot;lazy&quot;</code> e <code>decoding=&quot;async&quot;</code>.</li>
+<li>Imagens criticas do primeiro impacto visual nao devem usar lazy loading.</li>
+</ul>
+<h2 id="2-imagens-compartilhadas">2. Imagens Compartilhadas</h2>
+<h3 id="2-1-background-global">2.1 Background Global</h3>
+<ul>
+<li>Arquivo: <code>shared/background-neuroflash.jpg</code></li>
+<li>Uso: fundo canonico compartilhado aplicado no <code>body</code> de Home, Quem Somos e FAQ.</li>
+<li>Dimensao real: 843 x 1264 px</li>
+<li>Orientacao: vertical</li>
+<li>Crop: usado como <code>background-size: cover</code>; deve manter o ponto de interesse no centro.</li>
+<li>Observacao: por ser imagem de identidade global, evitar substituicoes que mudem drasticamente a atmosfera escura, energetica e premium.</li>
+</ul>
+<h3 id="2-2-icones-de-suporte-e-contato">2.2 Icones De Suporte E Contato</h3>
+<ul>
+<li>Arquivo: <code>shared/essentia-health-logo.png</code></li>
+<li>Uso: logo institucional da Essentia Health no rodape compartilhado.</li>
+<li>Dimensao HTML: 1504 x 768 px</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>Preservar legibilidade do nome e do subtitulo em tamanho reduzido.</li>
+<li>Se trocar o arquivo, manter nome estavel ou atualizar <code>shared/includes.js</code>.</li>
+<li>Revisar Home, Quem Somos e FAQ, porque o rodape e compartilhado.</li>
+</ul>
+<ul>
+<li>Arquivo: <code>shared/icons/email.png</code></li>
+<li>Uso: icone de e-mail no rodape.</li>
+<li>Dimensao HTML: 18 x 18 px</li>
+</ul>
+<ul>
+<li>Arquivo: <code>shared/icons/instagram.png</code></li>
+<li>Uso: icone de Instagram no rodape.</li>
+<li>Dimensao HTML: 18 x 18 px</li>
+</ul>
+<ul>
+<li>Arquivo: <code>shared/icons/whatsapp.png</code></li>
+<li>Uso: icone de WhatsApp no rodape.</li>
+<li>Dimensao HTML: 18 x 18 px</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>Manter icones simples, legiveis em tamanho pequeno e com contraste adequado.</li>
+<li>Se trocar arquivos, preservar nomes e dimensoes visuais equivalentes.</li>
+</ul>
+<h2 id="3-home">3. Home</h2>
+<h3 id="3-1-hero-principal">3.1 Hero Principal</h3>
+<ul>
+<li>Arquivo: <code>home/hero-focus.jpg</code></li>
+<li>Uso: primeira imagem do carrossel desktop da hero.</li>
+<li>Dimensao real: 2200 x 1400 px</li>
+<li>Dimensao HTML: 2200 x 1400 px</li>
+<li>Proporcao: 11:7</li>
+<li>Prioridade: imagem critica, carregamento imediato.</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/hero-focus2.jpg</code></li>
+<li>Uso: slide adicional do carrossel desktop da hero.</li>
+<li>Dimensao real: 2200 x 1400 px</li>
+<li>Dimensao HTML: 2200 x 1400 px</li>
+<li>Proporcao: 11:7</li>
+<li>Prioridade: carregamento sob demanda via JavaScript.</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/hero-focus3.jpg</code></li>
+<li>Uso: slide adicional do carrossel desktop da hero.</li>
+<li>Dimensao real: 2200 x 1400 px</li>
+<li>Dimensao HTML: 2200 x 1400 px</li>
+<li>Proporcao: 11:7</li>
+<li>Prioridade: carregamento sob demanda via JavaScript.</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>O carrossel e desktop-only em tempo de rede.</li>
+<li>As tres imagens devem manter enquadramento compativel, com assunto principal seguro no centro.</li>
+<li>Evitar texto embutido nas imagens.</li>
+<li>A primeira imagem deve continuar sendo a mais forte para o primeiro impacto visual.</li>
+</ul>
+<h3 id="3-2-packshot-do-produto">3.2 Packshot Do Produto</h3>
+<ul>
+<li>Arquivo: <code>home/product-packshot2.jpg</code></li>
+<li>Uso: imagem principal do produto na Home.</li>
+<li>Dimensao real: 1400 x 2333 px</li>
+<li>Dimensao HTML: 1400 x 2333 px</li>
+<li>Orientacao: vertical</li>
+<li>Prioridade: imagem critica, carregamento imediato.</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>Manter a embalagem inteira visivel.</li>
+<li>Evitar crop agressivo nas bordas.</li>
+<li>Fundo pode ser transparente visualmente ou escuro, mas precisa preservar contraste com o layout.</li>
+<li>Esta imagem tambem serve como referencia principal para criativos, kits comerciais e posts sociais.</li>
+</ul>
+<h3 id="3-3-cards-de-destaques">3.3 Cards De Destaques</h3>
+<ul>
+<li>Arquivo: <code>home/mental-ignition.jpg</code></li>
+<li>Uso: card de conceito visual.</li>
+<li>Dimensao real: 1600 x 1200 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao HTML: 4:3</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/focus-lock.jpg</code></li>
+<li>Uso: card de conceito visual.</li>
+<li>Dimensao real: 1024 x 1024 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao HTML: 4:3</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/pressure-mode.jpg</code></li>
+<li>Uso: card de conceito visual.</li>
+<li>Dimensao real: 1264 x 843 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao HTML: 4:3</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/clarity-rush.jpg</code></li>
+<li>Uso: card de conceito visual.</li>
+<li>Dimensao real: 1365 x 768 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao HTML: 4:3</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>As imagens sao exibidas em cards com crop controlado.</li>
+<li>Manter assunto principal em area central.</li>
+<li>Evitar detalhes importantes muito proximos das bordas.</li>
+</ul>
+<h3 id="3-4-cards-de-modos-de-uso">3.4 Cards De Modos De Uso</h3>
+<ul>
+<li>Arquivo: <code>home/treino.jpg</code></li>
+<li>Uso: contexto de treino intenso.</li>
+<li>Dimensao real: 1364 x 768 px</li>
+<li>Dimensao HTML: 1600 x 1000 px</li>
+<li>Proporcao HTML: 8:5</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/estudo.jpg</code></li>
+<li>Uso: contexto de estudos, provas e concentracao.</li>
+<li>Dimensao real: 1365 x 768 px</li>
+<li>Dimensao HTML: 1600 x 1000 px</li>
+<li>Proporcao HTML: 8:5</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/game-competicao.jpg</code></li>
+<li>Uso: contexto de jogos, competicao e alta pressao.</li>
+<li>Dimensao real: 1264 x 842 px</li>
+<li>Dimensao HTML: 1600 x 1000 px</li>
+<li>Proporcao HTML: 8:5</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>Imagens devem comunicar uso sem sugerir promessa medica ou resultado garantido.</li>
+<li>Usar cenas de rotina intensa, foco e pressao de forma comercialmente cuidadosa.</li>
+<li>Manter compatibilidade com textos sobrepostos quando necessario.</li>
+</ul>
+<h3 id="3-5-galeria-visual">3.5 Galeria Visual</h3>
+<ul>
+<li>Arquivo: <code>home/motocross.jpg</code></li>
+<li>Uso: galeria de intensidade e acao.</li>
+<li>Dimensao real: 1200 x 900 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao: 4:3</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/homem-terno.jpg</code></li>
+<li>Uso: galeria de rotina profissional e alta demanda.</li>
+<li>Dimensao real: 1200 x 900 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao: 4:3</li>
+</ul>
+<ul>
+<li>Arquivo: <code>home/mulher-ufc.jpg</code></li>
+<li>Uso: galeria de intensidade e esporte.</li>
+<li>Dimensao real: 1200 x 900 px</li>
+<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Proporcao: 4:3</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>Preservar proporcao 4:3 quando substituir.</li>
+<li>Manter diversidade visual entre esporte, trabalho e acao.</li>
+<li>Evitar imagens genericas sem relacao clara com alta demanda, foco ou energia.</li>
+</ul>
+<h2 id="4-quem-somos">4. Quem Somos</h2>
+<h3 id="4-1-imagem-dos-fundadores">4.1 Imagem Dos Fundadores</h3>
+<ul>
+<li>Arquivo: <code>quem-somos/fundadores.jpg</code></li>
+<li>Uso: imagem institucional dos fundadores.</li>
+<li>Dimensao real: 944 x 1124 px</li>
+<li>Orientacao: vertical</li>
+</ul>
+<p>Orientacoes:</p>
+<ul>
+<li>Manter os rostos bem enquadrados.</li>
+<li>Evitar cortes no topo da cabeca e nos ombros.</li>
+<li>Priorizar imagem real e institucional, sem aparencia de banco de imagens.</li>
+<li>Ao substituir, revisar a pagina em desktop e mobile.</li>
+</ul>
+<h2 id="5-faq">5. FAQ</h2>
+<h3 id="5-1-imagem-social-da-faq">5.1 Imagem Social Da FAQ</h3>
+<ul>
+<li>Arquivo de referencia: <code>shared/background-neuroflash.jpg</code></li>
+<li>Uso: imagem social nos metadados Open Graph/Twitter da FAQ.</li>
+<li>Dimensao real: 843 x 1264 px</li>
+<li>Observacao: manter metadados de tipo, largura e altura alinhados ao arquivo real.</li>
+</ul>
+<h2 id="6-regras-gerais-de-producao">6. Regras Gerais De Producao</h2>
+<ul>
+<li>Exportar fotos em JPG com compressao visualmente limpa.</li>
+<li>Evitar arquivos pesados sem necessidade.</li>
+<li>Remover metadados embutidos antes da publicacao publica quando possivel.</li>
+<li>Confirmar que o nome do arquivo no HTML corresponde exatamente ao arquivo real.</li>
+<li>Usar nomes descritivos, curtos e estaveis.</li>
+<li>Nao trocar extensoes sem atualizar HTML, CSS, metadados e documentacao.</li>
+<li>Revisar crop em mobile e desktop apos qualquer troca.</li>
+<li>Nao inserir promessas comerciais ou medicas dentro das imagens.</li>
+<li>Para criativos externos ao site, usar este guia como referencia de assets, nao como lista obrigatoria de layout.</li>
+</ul>
+      </article>
+      <aside class="doc-toc" aria-label="Indice do documento">
+        <h2>Indice</h2>
+        <ol>
+<li class="toc-level-2"><a href="#indice">Indice</a></li>
+<li class="toc-level-2"><a href="#1-visao-geral">1. Visao Geral</a></li>
+<li class="toc-level-2"><a href="#2-imagens-compartilhadas">2. Imagens Compartilhadas</a></li>
+<li class="toc-level-3"><a href="#2-1-background-global">2.1 Background Global</a></li>
+<li class="toc-level-3"><a href="#2-2-icones-de-suporte-e-contato">2.2 Icones De Suporte E Contato</a></li>
+<li class="toc-level-2"><a href="#3-home">3. Home</a></li>
+<li class="toc-level-3"><a href="#3-1-hero-principal">3.1 Hero Principal</a></li>
+<li class="toc-level-3"><a href="#3-2-packshot-do-produto">3.2 Packshot Do Produto</a></li>
+<li class="toc-level-3"><a href="#3-3-cards-de-destaques">3.3 Cards De Destaques</a></li>
+<li class="toc-level-3"><a href="#3-4-cards-de-modos-de-uso">3.4 Cards De Modos De Uso</a></li>
+<li class="toc-level-3"><a href="#3-5-galeria-visual">3.5 Galeria Visual</a></li>
+<li class="toc-level-2"><a href="#4-quem-somos">4. Quem Somos</a></li>
+<li class="toc-level-3"><a href="#4-1-imagem-dos-fundadores">4.1 Imagem Dos Fundadores</a></li>
+<li class="toc-level-2"><a href="#5-faq">5. FAQ</a></li>
+<li class="toc-level-3"><a href="#5-1-imagem-social-da-faq">5.1 Imagem Social Da FAQ</a></li>
+<li class="toc-level-2"><a href="#6-regras-gerais-de-producao">6. Regras Gerais De Producao</a></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
+

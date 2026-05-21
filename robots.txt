@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://essentiahealth.com.br/sitemap.xml

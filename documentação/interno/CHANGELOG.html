@@ -1,0 +1,290 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CHANGELOG | Documentacao Interna NeuroFlash</title>
+  <link rel="stylesheet" href="doc-layout.css">
+</head>
+<body>
+  <main class="doc-shell" id="topo">
+    <header class="doc-header">
+      <p class="doc-kicker">Documentacao interna NeuroFlash</p>
+      <h1>CHANGELOG</h1>
+      <p class="doc-meta">Arquivo interno de manutencao. Nao faz parte da navegacao publica do site.</p>
+    </header>
+    <div class="doc-layout">
+      <article class="doc-content">
+<h1 id="changelog">CHANGELOG</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Este arquivo registra os marcos relevantes da evolucao do site Neuroflash. Ele deve permanecer curto, legivel e focado em mudancas que alteram estrutura, comportamento, documentacao ou direcao de manutencao.</p>
+<h2 id="como-registrar-novas-entradas">Como Registrar Novas Entradas</h2>
+<p>Use sempre o formato abaixo:</p>
+<pre><code>
+## YYYY-MM-DD - Titulo da mudanca
+
+- Mudanca: resumo objetivo do que foi alterado.
+- Impacto: efeito da mudanca no projeto, na manutencao ou na experiencia.
+</code></pre>
+<p>Regras:</p>
+<ul>
+<li>agrupar microajustes do mesmo dia e do mesmo tema em uma unica entrada</li>
+<li>separar entradas apenas quando a natureza da mudanca for diferente</li>
+<li>usar o <code>SITE_ARCHITECTURE.html</code> para o estado atual e este arquivo para a trilha historica</li>
+</ul>
+<h2 id="historico-consolidado">Historico Consolidado</h2>
+<h2 id="2026-05-21-seo-com-dominio-oficial">2026-05-21 - SEO com dominio oficial</h2>
+<ul>
+<li>Mudanca: o dominio publico final foi registrado como <code>https://essentiahealth.com.br/</code>, com canonical, <code>og:url</code>, imagens sociais absolutas, URLs tecnicas no JSON-LD, <code>robots.txt</code> e <code>sitemap.xml</code>.</li>
+<li>Impacto: libera os artefatos tecnicos de indexacao que estavam pendentes enquanto o dominio publico nao existia, sem alterar copy publica, CTAs, FAQ, claims ou canais de compra.</li>
+</ul>
+<h2 id="2026-05-21-atualizacao-do-endereco-oficial-no-rodape">2026-05-21 - Atualizacao do endereco oficial no rodape</h2>
+<ul>
+<li>Mudanca: o endereco ficticio do rodape compartilhado foi substituido pelo endereco oficial <code>Av. Papa Joao Paulo II, 650, apto. 44 - Urbanova VI, Sao Jose dos Campos - SP</code>.</li>
+<li>Impacto: o bloco institucional passa a exibir o endereco oficial informado, mantendo telefone, WhatsApp, Instagram, horarios e politicas como pendencias ate confirmacao dos dados reais.</li>
+</ul>
+<h2 id="2026-05-21-atualizacao-do-cnpj-oficial-no-rodape">2026-05-21 - Atualizacao do CNPJ oficial no rodape</h2>
+<ul>
+<li>Mudanca: o CNPJ ficticio do rodape compartilhado foi substituido pelo CNPJ oficial <code>66.907.199/0001-44</code>.</li>
+<li>Impacto: o bloco institucional passa a exibir o identificador oficial informado, mantendo telefone, WhatsApp, endereco, horarios e politicas como pendencias ate confirmacao dos dados reais.</li>
+</ul>
+<h2 id="2026-05-12-verificacao-do-google-search-console">2026-05-12 - Verificacao do Google Search Console</h2>
+<ul>
+<li>Mudanca: adicionado <code>googlef8f43337a075e3ac.html</code> na raiz do projeto como arquivo tecnico de verificacao do Google Search Console/Search Engine.</li>
+<li>Impacto: permite validar a propriedade do site no Google sem alterar textos publicos, navegacao, layout ou conteudo editorial.</li>
+</ul>
+<h2 id="2026-05-12-bloqueio-de-edicao-de-texto-publico">2026-05-12 - Bloqueio de edicao de texto publico</h2>
+<ul>
+<li>Mudanca: a documentacao interna passou a registrar que todo texto visivel ao publico depende de curadoria legal externa e nao pode ser alterado em refatoracoes, atualizacoes, otimizacoes, SEO, acessibilidade, performance ou manutencao sem aprovacao previa.</li>
+<li>Impacto: agentes e mantenedores devem limitar trabalhos tecnicos a estrutura, comportamento, estilos e assets quando nao houver aprovacao legal, deixando qualquer mudanca textual publica como pendencia formal.</li>
+</ul>
+<h2 id="2026-05-12-documentacao-html-interna">2026-05-12 - Documentacao HTML interna</h2>
+<ul>
+<li>Mudanca: a documentacao oficial foi convertida de Markdown para HTML interno em <code>documentação/interno/</code>, com layout proprio de leitura, CSS isolado do site publico e referencias documentais atualizadas para <code>.html</code>.</li>
+<li>Impacto: melhora a leitura humana dos registros do projeto sem expor a documentacao na navegacao publica do site e deixa o historico em ordem decrescente, com as atualizacoes mais recentes no topo.</li>
+</ul>
+<h2 id="2026-05-11-logo-institucional-no-rodape-compartilhado">2026-05-11 - Logo institucional no rodape compartilhado</h2>
+<ul>
+<li>Mudanca: o texto <code>Essentia Health</code> do rodape compartilhado foi substituido por imagem institucional em <code>shared/essentia-health-logo.png</code>, sem texto descritivo abaixo e com estilos dedicados para controlar proporcao e ocupacao do card.</li>
+<li>Impacto: o rodape de Home, Quem Somos e FAQ passa a exibir a marca institucional com maior fidelidade visual, mantendo o include compartilhado como ponto unico de manutencao.</li>
+</ul>
+<h2 id="2026-05-11-atualizacao-de-orientacoes-de-uso-e-advertencias-da-faq">2026-05-11 - Atualizacao de orientacoes de uso e advertencias da FAQ</h2>
+<ul>
+<li>Mudanca: a FAQ recebeu textos revisados para modo de uso, consumo das 3 capsulas em dose unica, contraindica&#231;&#245;es e advertencias do NeuroFlash.</li>
+<li>Impacto: deixou as orientacoes de uso e seguranca mais completas e explicitas para o usuario, mantendo o conteudo dentro da estrutura estatica atual do site.</li>
+</ul>
+<h2 id="2026-05-11-conversao-de-documentos-texto-para-markdown">2026-05-11 - Conversao de documentos texto para Markdown</h2>
+<ul>
+<li>Mudanca: <code>COISAS_A_FAZER.html</code> e <code>SITE_IMAGE_GUIDE.html</code> passaram a substituir os antigos arquivos de texto puro, com referencias internas atualizadas para HTML.</li>
+<li>Impacto: manteve o conteudo tecnico e a fila de pendencias em formato editavel e versionavel, reduzindo duplicidade entre documentos <code>.txt</code> e <code>.html</code>.</li>
+</ul>
+<h2 id="2026-05-11-guia-de-uso-do-canva-para-criativos">2026-05-11 - Guia de uso do Canva para criativos</h2>
+<ul>
+<li>Mudanca: criado <code>CANVA_CRIATIVOS_GUIDE.html</code> com diretrizes para o Codex usar Canva na producao de criativos, imagens de apoio e materiais comerciais alinhados a identidade visual, assets, copy e restricoes do NeuroFlash.</li>
+<li>Impacto: documenta o fluxo recomendado de geracao, revisao e salvamento de pecas no Canva, reduzindo risco de ingles indesejado, acentuacao quebrada, dados inventados ou promessas inadequadas em criativos futuros.</li>
+</ul>
+<h2 id="2026-05-10-ajustes-visuais-da-pagina-quem-somos">2026-05-10 - Ajustes visuais da pagina Quem Somos</h2>
+<ul>
+<li>Mudanca: a pagina Quem Somos recebeu ajustes visuais no marcador colorido do titulo em desktop, no alinhamento e espacamento do bloco contextual da FAQ e na ordem editorial, com o CTA de FAQ posicionado abaixo da imagem dos fundadores.</li>
+<li>Impacto: melhorou a hierarquia visual da pagina e deixou o fluxo de leitura narrativa, foto e CTA mais consistente entre desktop e mobile.</li>
+</ul>
+<h2 id="2026-05-10-ajustes-finos-de-seo-on-page-sem-dependencia-de-dominio">2026-05-10 - Ajustes finos de SEO on-page sem dependencia de dominio</h2>
+<ul>
+<li>Mudanca: FAQ e Quem Somos deixaram de se apresentar como <code>article</code> no Open Graph, as paginas com imagem social ganharam metadados de tipo e dimensoes, a Home trocou o CTA hero sem destino por links internos reais e a pagina Quem Somos passou a incluir um link contextual para a FAQ.</li>
+<li>Impacto: melhorou a coerencia semantica dos compartilhamentos, fortaleceu a malha interna de navegacao e removeu placeholders de CTA sem antecipar <code>canonical</code>, <code>og:url</code>, <code>robots.txt</code> ou <code>sitemap.xml</code>.</li>
+</ul>
+<h2 id="2026-05-10-otimizacao-do-caminho-critico-e-da-hidratacao-da-home">2026-05-10 - Otimizacao do caminho critico e da hidrata&#231;&#227;o da Home</h2>
+<ul>
+<li>Mudanca: as paginas publicas passaram a pedir apenas os pesos de fonte realmente usados, os icones do rodape receberam dimensoes explicitas para reduzir pequenos saltos de layout e o carrossel desktop da Hero passou a registrar <code>hero-focus2.jpg</code> e <code>hero-focus3.jpg</code> apenas apos a primeira pintura util, com hidrata&#231;&#227;o adiada e fallback compativel.</li>
+<li>Impacto: reduziu o custo inicial de rede e trabalho imediato de renderizacao sem mexer nos assets nem na arquitetura estatica, preservando a compatibilidade com <code>file:///</code> e o comportamento publico do site.</li>
+</ul>
+<h2 id="2026-05-10-consolidacao-da-camada-visual-compartilhada">2026-05-10 - Consolidacao da camada visual compartilhada</h2>
+<ul>
+<li>Mudanca: <code>shared/styles.css</code> passou a concentrar primitivas nomeadas de secao, painel, midia e tipografia compartilhada, enquanto Home, FAQ e Quem Somos foram alinhadas para consumir essas classes de forma mais explicita e a hero-card da Home passou a reutilizar a base de painel compartilhado sem alterar o comportamento publico.</li>
+<li>Impacto: reduziu densidade e repeticao residual entre CSS local e compartilhado, deixou a fronteira de ownership mais clara e manteve a arquitetura estatica do site com menor custo de manutencao.</li>
+</ul>
+<h2 id="2026-05-10-carrossel-automatico-na-hero">2026-05-10 - Carrossel automatico na Hero</h2>
+<ul>
+<li>Mudanca: a imagem principal da Hero desktop virou um carrossel com <code>hero-focus.jpg</code>, <code>hero-focus2.jpg</code> e <code>hero-focus3.jpg</code>, com troca automatica, setas laterais, indicadores inferiores e controle dedicado em <code>home/hero-carousel.js</code>, respeitando <code>prefers-reduced-motion</code>.</li>
+<li>Impacto: ampliou a variacao visual do destaque principal sem mexer no layout mobile da Home, mantendo a arquitetura estatica do site com uma excecao controlada de JavaScript proprio para a Hero.</li>
+</ul>
+<h2 id="2026-05-10-guia-geral-de-imagens-do-site">2026-05-10 - Guia geral de imagens do site</h2>
+<ul>
+<li>Mudanca: o guia tecnico de imagens da Home foi renomeado para <code>SITE_IMAGE_GUIDE.html</code> e expandido para cobrir Home, Quem Somos, FAQ, background compartilhado e icones do rodape, com dimensoes reais, dimensoes declaradas e orientacoes de substituicao.</li>
+<li>Impacto: a documentacao de assets ficou alinhada ao site multi-page atual e evita manter informacoes de mockups limitadas apenas a Home.</li>
+</ul>
+<h2 id="2026-05-10-refinos-visuais-da-home-e-rodape">2026-05-10 - Refinos visuais da Home e rodape</h2>
+<ul>
+<li>Mudanca: o titulo principal da Home passou a separar a cor de <code>Neuro</code> e <code>Flash</code>, o bloco de destaques ganhou respiro superior mais equilibrado, a imagem principal do hero foi substituida preservando <code>home/hero-focus.jpg</code> e o rodape compartilhado foi reequilibrado com fonte maior, espacamento controlado, alinhamento de topo no grid, titulo <code>Essentia Health</code> todo branco, sem o subgrupo legal e com icones PNG compartilhados nos contatos.</li>
+<li>Impacto: melhorou a leitura visual da Home e a legibilidade do rodape sem voltar ao excesso de area vazia nem alterar a arquitetura estatica ou a navegacao compartilhada.</li>
+</ul>
+<h2 id="2026-05-10-reestruturacao-da-home-canonica-e-reforco-de-seo">2026-05-10 - Reestruturacao da Home canonica e reforco de SEO</h2>
+<ul>
+<li>Mudanca: a Home passou a ser servida pela raiz em <code>index.html</code>, <code>home/index.html</code> virou fallback tecnico com <code>noindex</code>, a navegacao compartilhada passou a apontar para a raiz e as paginas publicas ganharam Open Graph/Twitter mais completos, JSON-LD minimo por tipo de pagina e copy estrutural da Home mais alinhada a <code>pt-BR</code>.</li>
+<li>Impacto: fortaleceu a arquitetura de indexacao do site, melhorou a coerencia entre snippet, compartilhamento social e semantica on-page e preparou a base para <code>canonical</code>, <code>og:url</code>, <code>robots.txt</code> e <code>sitemap.xml</code> assim que o dominio publico for definido.</li>
+</ul>
+<h2 id="2026-05-10-ajustes-de-performance-em-carregamento-e-navegacao">2026-05-10 - Ajustes de performance em carregamento e navegacao</h2>
+<ul>
+<li>Mudanca: a Home passou a evitar o download da hero desktop no mobile, o CSS compartilhado ganhou um perfil de performance mobile com menos efeitos caros e blocos estaticos abaixo da dobra passaram a usar adiamento de renderizacao.</li>
+<li>Impacto: reduziu custo de rede desnecessario no mobile e aliviou pintura/composicao durante a navegacao, preservando o site estatico e a compatibilidade com <code>file:///</code>.</li>
+</ul>
+<h2 id="2026-05-10-refatoracao-conservadora-para-limpeza-e-clareza">2026-05-10 - Refatoracao conservadora para limpeza e clareza</h2>
+<ul>
+<li>Mudanca: a camada compartilhada ganhou primitivas de secao interna, o <code>shared/includes.js</code> foi reorganizado com helpers menores, a Home passou a usar utilitarios locais de midia e o acordeao da FAQ deixou de repetir consultas e indices durante a inicializacao.</li>
+<li>Impacto: reduziu duplicacao real de CSS e JavaScript, deixou a manutencao mais clara e preservou o comportamento publico estatico e compativel com <code>file:///</code>.</li>
+</ul>
+<h2 id="2026-05-10-normalizacao-do-nome-institucional">2026-05-10 - Normalizacao do nome institucional</h2>
+<ul>
+<li>Mudanca: o nome institucional e os identificadores temporarios exibidos no site foram alinhados para <code>Essentia Health</code>, incluindo rodape compartilhado, e-mail, Instagram e referencia historica anterior no changelog.</li>
+<li>Impacto: removeu inconsistencias publicas de naming institucional, deixando a identidade temporaria coerente em todo o projeto.</li>
+</ul>
+<h2 id="2026-05-09-rodape-institucional-compartilhado">2026-05-09 - Rodape institucional compartilhado</h2>
+<ul>
+<li>Mudanca: o rodape simples foi substituido por um componente compartilhado com mini mapa do site, contatos temporarios, dados ficticios da Essentia Health e bloco legal.</li>
+<li>Impacto: melhorou a navegacao inferior e preparou espaco institucional para informacoes reais da empresa sem duplicar HTML nas paginas.</li>
+</ul>
+<h2 id="2026-05-09-pagina-quem-somos">2026-05-09 - Pagina Quem Somos</h2>
+<ul>
+<li>Mudanca: criada a pagina institucional <code>quem-somos/</code>, com narrativa dos fundadores, imagem dedicada, CSS local e link no menu compartilhado.</li>
+<li>Impacto: ampliou o site para tres paginas oficiais mantendo arquitetura estatica, includes compartilhados, visual consistente e compatibilidade com <code>file:///</code>.</li>
+</ul>
+<h2 id="2026-05-09-base-seo-conservadora">2026-05-09 - Base SEO conservadora</h2>
+<ul>
+<li>Mudanca: foram adicionados metadados por pagina, JSON-LD basico sem URLs finais, H1 semantico na FAQ, lista de ingredientes em HTML semantico e textos alternativos mais descritivos nas imagens da Home.</li>
+<li>Impacto: melhorou a leitura do site por buscadores e acessibilidade sem criar promessas comerciais ou dependencias de dominio ainda nao definido.</li>
+</ul>
+<h2 id="2026-05-09-lazy-loading-nativo-de-imagens">2026-05-09 - Lazy loading nativo de imagens</h2>
+<ul>
+<li>Mudanca: as imagens abaixo da dobra da Home passaram a usar <code>loading=&quot;lazy&quot;</code> e <code>decoding=&quot;async&quot;</code>, as imagens criticas do topo foram priorizadas e o script proprio da FAQ passou a carregar com <code>defer</code>.</li>
+<li>Impacto: melhorou o carregamento percebido em desktop e mobile sem adicionar build step, framework ou JavaScript customizado para imagens.</li>
+</ul>
+<h2 id="2026-05-09-ajuste-de-transparencia-mobile">2026-05-09 - Ajuste de transparencia mobile</h2>
+<ul>
+<li>Mudanca: a opacidade da <code>page-shell</code>, do overlay compartilhado e dos paineis foi reduzida no mobile para revelar mais o background entre os objetos.</li>
+<li>Impacto: melhorou a presenca visual do fundo em telas pequenas sem alterar a camada desktop ja validada.</li>
+</ul>
+<h2 id="2026-05-09-ajuste-de-visibilidade-do-background-desktop">2026-05-09 - Ajuste de visibilidade do background desktop</h2>
+<ul>
+<li>Mudanca: a opacidade da <code>page-shell</code> e do overlay compartilhado foi reduzida no desktop para revelar o background fixo aplicado ao <code>body</code>.</li>
+<li>Impacto: restaurou a presenca visual do fundo em telas largas sem alterar a camada mobile mais escura.</li>
+</ul>
+<h2 id="2026-05-09-fundo-fixo-com-efeito-parallax">2026-05-09 - Fundo fixo com efeito parallax</h2>
+<ul>
+<li>Mudanca: o background compartilhado passou a ser aplicado no <code>body</code> com <code>background-attachment: fixed</code>, enquanto a <code>page-shell</code> ficou translucida e rola com o conteudo.</li>
+<li>Impacto: criou o efeito parallax simples em Home e FAQ, mantendo o fundo parado e os elementos de frente em movimento.</li>
+</ul>
+<h2 id="2026-05-09-correcao-do-contorno-superior-mobile">2026-05-09 - Correcao do contorno superior mobile</h2>
+<ul>
+<li>Mudanca: o <code>border-top</code> da <code>page-shell</code> foi promovido para a regra base de <code>shared/styles.css</code>, removendo a dependencia exclusiva do bloco desktop.</li>
+<li>Impacto: restaurou a linha de contorno superior no mobile sem alterar o visual desktop.</li>
+</ul>
+<h2 id="2026-05-09-correcao-do-menu-fixo-e-cta-da-home">2026-05-09 - Correcao do menu fixo e CTA da Home</h2>
+<ul>
+<li>Mudanca: o comportamento sticky do menu superior foi movido para o wrapper <code>data-shared-header</code>, e o CTA <code>COMPRAR AGORA</code> da Home foi deixado sem link enquanto a compra nao estiver liberada.</li>
+<li>Impacto: restaurou a navegacao sempre visivel durante a rolagem e evitou abertura indevida de e-mail no CTA principal da Home.</li>
+</ul>
+<h2 id="2026-05-09-centralizacao-de-arquivos-compartilhados">2026-05-09 - Centralizacao de arquivos compartilhados</h2>
+<ul>
+<li>Mudanca: <code>shared.css</code> foi movido para <code>shared/styles.css</code> e <code>background-neuroflash.jpg</code> foi movido para <code>shared/background-neuroflash.jpg</code>, com Home e FAQ atualizadas para os novos caminhos.</li>
+<li>Impacto: deixou a pasta <code>shared/</code> como ponto unico para estilos, scripts e assets compartilhados, reduzindo arquivos soltos na raiz do projeto.</li>
+</ul>
+<h2 id="2026-05-09-centralizacao-da-documentacao">2026-05-09 - Centralizacao da documentacao</h2>
+<ul>
+<li>Mudanca: a pasta <code>logs/</code> foi renomeada para <code>documentação/</code>, o guia tecnico de imagens da Home foi movido para a pasta documental e foi criado <code>COISAS_A_FAZER.html</code> para registrar tarefas futuras em Markdown simples.</li>
+<li>Impacto: centralizou a documentacao permanente do projeto, deixou a Home focada em pagina e assets e criou uma fila leve de pendencias legivel por humanos e agentes de IA.</li>
+</ul>
+<h2 id="2026-05-09-refatoracao-compartilhada-sem-build">2026-05-09 - Refatoracao compartilhada sem build</h2>
+<ul>
+<li>Mudanca: header e footer foram extraidos para <code>shared/includes.js</code>, CTAs sem destino foram substituidos por contato por e-mail, o acordeao da FAQ ganhou relacao ARIA mais clara, duplicatas do background foram removidas, o asset <code>game-competicao.jpg</code> passou a usar nome ASCII e a documentacao foi reescrita em texto UTF-8 limpo.</li>
+<li>Impacto: reduziu duplicacao entre Home e FAQ, preservou compatibilidade com GitHub Pages e <code>file:///</code>, diminuiu risco de links mortos e deixou a manutencao de componentes e assets mais previsivel.</li>
+</ul>
+<h2 id="2026-05-08-consolidacao-do-topo-e-da-navegacao-entre-home-e-faq">2026-05-08 - Consolidacao do topo e da navegacao entre Home e FAQ</h2>
+<ul>
+<li>Mudanca: unificado o header das paginas, alinhados branding, menu, contornos e linhas estruturais, corrigindo diferencas entre mobile e desktop e removendo elementos duplicados na FAQ.</li>
+<li>Impacto: reduziu inconsistencias visuais entre as paginas oficiais e estabilizou o comportamento do topo em diferentes larguras de tela.</li>
+</ul>
+<h2 id="2026-05-08-refatoracao-da-base-compartilhada-de-estilo-e-comportamento">2026-05-08 - Refatoracao da base compartilhada de estilo e comportamento</h2>
+<ul>
+<li>Mudanca: consolidada a base comum em <code>shared.css</code>, padronizados componentes visuais compartilhados, simplificado o JavaScript do acordeao da FAQ e centralizado o background oficial em <code>background-neuroflash.jpg</code> na raiz.</li>
+<li>Impacto: reduziu duplicacao entre Home e FAQ, deixou ownership mais claro entre estilos compartilhados e locais e diminuiu o custo de manutencao da interface.</li>
+</ul>
+<h2 id="2026-05-08-compatibilidade-local-e-compartilhamento-do-aviso-legal">2026-05-08 - Compatibilidade local e compartilhamento do aviso legal</h2>
+<ul>
+<li>Mudanca: o aviso legal foi extraido para uma estrategia compartilhada via <code>shared/includes.js</code>, primeiro como include client-side e depois ajustado para injecao direta compativel com <code>file:///</code>.</li>
+<li>Impacto: eliminou duplicacao de markup entre Home e FAQ e garantiu funcionamento consistente tanto no GitHub Pages quanto na abertura local no Windows.</li>
+</ul>
+<h2 id="2026-05-08-enxugamento-da-documentacao-arquitetural">2026-05-08 - Enxugamento da documentacao arquitetural</h2>
+<ul>
+<li>Mudanca: o <code>SITE_ARCHITECTURE.html</code> foi reescrito em formato operacional curto, com correcao de encoding, remocao de repeticoes e consolidacao das informacoes de estrutura, ownership, comportamento e manutencao.</li>
+<li>Impacto: tornou a documentacao mais estavel, rapida de atualizar e menos propensa a erros de edicao ou ruido de codificacao.</li>
+</ul>
+<h2 id="2026-05-08-enxugamento-estrutural-do-changelog">2026-05-08 - Enxugamento estrutural do CHANGELOG</h2>
+<ul>
+<li>Mudanca: o proprio <code>CHANGELOG.html</code> foi consolidado em blocos tematicos curtos, com agrupamento por dia e assunto, remocao de redundancias e padronizacao em portugues UTF-8.</li>
+<li>Impacto: deixou o historico mais facil de consultar, reduziu ruido de microcorrecoes e estabeleceu um formato mais sustentavel para futuras entradas.</li>
+</ul>
+<h2 id="2026-05-07-criacao-da-documentacao-base-e-limpeza-estrutural-inicial">2026-05-07 - Criacao da documentacao-base e limpeza estrutural inicial</h2>
+<ul>
+<li>Mudanca: criados o <code>CHANGELOG.html</code> e o mapeamento inicial da arquitetura, removidos arquivos legados da raiz e simplificada a estrutura oficial do projeto em torno de <code>index.html</code>, <code>home/</code> e <code>faq/</code>.</li>
+<li>Impacto: estabeleceu uma base documental para evolucao futura e reduziu o risco de manutencao sobre codigo e arquivos que ja nao participavam das paginas oficiais.</li>
+</ul>
+<h2 id="2026-05-07-ajustes-visuais-da-home-da-faq-e-do-guia-tecnico-de-imagens">2026-05-07 - Ajustes visuais da home, da FAQ e do guia tecnico de imagens</h2>
+<ul>
+<li>Mudanca: refinados topo, packshot, galeria e enquadramentos da home, removida a animacao de abertura da FAQ e criado/ajustado o guia tecnico de imagens para orientar manutencao de imagens.</li>
+<li>Impacto: melhorou a consistencia visual entre mobile e desktop, estabilizou a leitura da embalagem do produto e deixou uma referencia tecnica pratica para futuras trocas de assets.</li>
+</ul>
+      </article>
+      <aside class="doc-toc" aria-label="Indice do documento">
+        <h2>Indice</h2>
+        <ol>
+<li class="toc-level-2"><a href="#objetivo">Objetivo</a></li>
+<li class="toc-level-2"><a href="#como-registrar-novas-entradas">Como Registrar Novas Entradas</a></li>
+<li class="toc-level-2"><a href="#historico-consolidado">Historico Consolidado</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-seo-com-dominio-oficial">2026-05-21 - SEO com dominio oficial</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-atualizacao-do-endereco-oficial-no-rodape">2026-05-21 - Atualizacao do endereco oficial no rodape</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-atualizacao-do-cnpj-oficial-no-rodape">2026-05-21 - Atualizacao do CNPJ oficial no rodape</a></li>
+<li class="toc-level-2"><a href="#2026-05-12-verificacao-do-google-search-console">2026-05-12 - Verificacao do Google Search Console</a></li>
+<li class="toc-level-2"><a href="#2026-05-12-bloqueio-de-edicao-de-texto-publico">2026-05-12 - Bloqueio de edicao de texto publico</a></li>
+<li class="toc-level-2"><a href="#2026-05-12-documentacao-html-interna">2026-05-12 - Documentacao HTML interna</a></li>
+<li class="toc-level-2"><a href="#2026-05-11-logo-institucional-no-rodape-compartilhado">2026-05-11 - Logo institucional no rodape compartilhado</a></li>
+<li class="toc-level-2"><a href="#2026-05-11-atualizacao-de-orientacoes-de-uso-e-advertencias-da-faq">2026-05-11 - Atualizacao de orientacoes de uso e advertencias da FAQ</a></li>
+<li class="toc-level-2"><a href="#2026-05-11-conversao-de-documentos-texto-para-markdown">2026-05-11 - Conversao de documentos texto para Markdown</a></li>
+<li class="toc-level-2"><a href="#2026-05-11-guia-de-uso-do-canva-para-criativos">2026-05-11 - Guia de uso do Canva para criativos</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-ajustes-visuais-da-pagina-quem-somos">2026-05-10 - Ajustes visuais da pagina Quem Somos</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-ajustes-finos-de-seo-on-page-sem-dependencia-de-dominio">2026-05-10 - Ajustes finos de SEO on-page sem dependencia de dominio</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-otimizacao-do-caminho-critico-e-da-hidratacao-da-home">2026-05-10 - Otimizacao do caminho critico e da hidrata&#231;&#227;o da Home</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-consolidacao-da-camada-visual-compartilhada">2026-05-10 - Consolidacao da camada visual compartilhada</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-carrossel-automatico-na-hero">2026-05-10 - Carrossel automatico na Hero</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-guia-geral-de-imagens-do-site">2026-05-10 - Guia geral de imagens do site</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-refinos-visuais-da-home-e-rodape">2026-05-10 - Refinos visuais da Home e rodape</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-reestruturacao-da-home-canonica-e-reforco-de-seo">2026-05-10 - Reestruturacao da Home canonica e reforco de SEO</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-ajustes-de-performance-em-carregamento-e-navegacao">2026-05-10 - Ajustes de performance em carregamento e navegacao</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-refatoracao-conservadora-para-limpeza-e-clareza">2026-05-10 - Refatoracao conservadora para limpeza e clareza</a></li>
+<li class="toc-level-2"><a href="#2026-05-10-normalizacao-do-nome-institucional">2026-05-10 - Normalizacao do nome institucional</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-rodape-institucional-compartilhado">2026-05-09 - Rodape institucional compartilhado</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-pagina-quem-somos">2026-05-09 - Pagina Quem Somos</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-base-seo-conservadora">2026-05-09 - Base SEO conservadora</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-lazy-loading-nativo-de-imagens">2026-05-09 - Lazy loading nativo de imagens</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-ajuste-de-transparencia-mobile">2026-05-09 - Ajuste de transparencia mobile</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-ajuste-de-visibilidade-do-background-desktop">2026-05-09 - Ajuste de visibilidade do background desktop</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-fundo-fixo-com-efeito-parallax">2026-05-09 - Fundo fixo com efeito parallax</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-correcao-do-contorno-superior-mobile">2026-05-09 - Correcao do contorno superior mobile</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-correcao-do-menu-fixo-e-cta-da-home">2026-05-09 - Correcao do menu fixo e CTA da Home</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-centralizacao-de-arquivos-compartilhados">2026-05-09 - Centralizacao de arquivos compartilhados</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-centralizacao-da-documentacao">2026-05-09 - Centralizacao da documentacao</a></li>
+<li class="toc-level-2"><a href="#2026-05-09-refatoracao-compartilhada-sem-build">2026-05-09 - Refatoracao compartilhada sem build</a></li>
+<li class="toc-level-2"><a href="#2026-05-08-consolidacao-do-topo-e-da-navegacao-entre-home-e-faq">2026-05-08 - Consolidacao do topo e da navegacao entre Home e FAQ</a></li>
+<li class="toc-level-2"><a href="#2026-05-08-refatoracao-da-base-compartilhada-de-estilo-e-comportamento">2026-05-08 - Refatoracao da base compartilhada de estilo e comportamento</a></li>
+<li class="toc-level-2"><a href="#2026-05-08-compatibilidade-local-e-compartilhamento-do-aviso-legal">2026-05-08 - Compatibilidade local e compartilhamento do aviso legal</a></li>
+<li class="toc-level-2"><a href="#2026-05-08-enxugamento-da-documentacao-arquitetural">2026-05-08 - Enxugamento da documentacao arquitetural</a></li>
+<li class="toc-level-2"><a href="#2026-05-08-enxugamento-estrutural-do-changelog">2026-05-08 - Enxugamento estrutural do CHANGELOG</a></li>
+<li class="toc-level-2"><a href="#2026-05-07-criacao-da-documentacao-base-e-limpeza-estrutural-inicial">2026-05-07 - Criacao da documentacao-base e limpeza estrutural inicial</a></li>
+<li class="toc-level-2"><a href="#2026-05-07-ajustes-visuais-da-home-da-faq-e-do-guia-tecnico-de-imagens">2026-05-07 - Ajustes visuais da home, da FAQ e do guia tecnico de imagens</a></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
+

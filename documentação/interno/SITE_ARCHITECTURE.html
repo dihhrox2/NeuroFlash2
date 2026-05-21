@@ -1,0 +1,220 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Arquitetura do Site Neuroflash | Documentacao Interna NeuroFlash</title>
+  <link rel="stylesheet" href="doc-layout.css">
+</head>
+<body>
+  <main class="doc-shell" id="topo">
+    <header class="doc-header">
+      <p class="doc-kicker">Documentacao interna NeuroFlash</p>
+      <h1>Arquitetura do Site Neuroflash</h1>
+      <p class="doc-meta">Arquivo interno de manutencao. Nao faz parte da navegacao publica do site.</p>
+    </header>
+    <div class="doc-layout">
+      <article class="doc-content">
+<h1 id="arquitetura-do-site-neuroflash">Arquitetura do Site Neuroflash</h1>
+<h2 id="visao-geral">Visao Geral</h2>
+<p>O projeto Neuroflash e uma landing page estatica multi-page, sem backend, sem build e sem pipeline automatizado. O fluxo publico e:</p>
+<ol>
+<li><code>index.html</code> funciona como Home canonica e pagina principal indexavel</li>
+<li><code>home/index.html</code> redireciona para <code>../index.html</code> como fallback de legado</li>
+<li><code>quem-somos/index.html</code> apresenta a historia e motivacao dos fundadores</li>
+<li><code>faq/index.html</code> cobre duvidas, protocolos e alertas complementares</li>
+</ol>
+<p>Regras centrais:</p>
+<ul>
+<li>hospedagem-alvo: GitHub Pages</li>
+<li>dominio publico oficial: <code>https://essentiahealth.com.br/</code></li>
+<li>compatibilidade local: as paginas devem funcionar em <code>file:///</code></li>
+<li>curadoria legal externa: todo texto visivel ao publico e bloqueado para edicao interna; nenhuma refatoracao, atualizacao, otimizacao, ajuste de SEO, acessibilidade, performance ou manutencao pode alterar copy, labels, CTAs, metadados textuais visiveis em compartilhamento, avisos, FAQ, conteudo institucional ou qualquer texto exibido ao usuario sem aprovacao legal externa previa</li>
+<li>base visual compartilhada: <code>shared/styles.css</code></li>
+<li>componentes compartilhados: <code>shared/includes.js</code></li>
+<li>logicas interativas de pagina: <code>faq/script.js</code> e <code>home/hero-carousel.js</code></li>
+<li>fundo canonico compartilhado: <code>shared/background-neuroflash.jpg</code>, aplicado no <code>body</code> com comportamento fixo</li>
+<li>estrategia SEO atual: metadados por pagina, canonical, Open Graph/Twitter completos com URLs absolutas, headings semanticos, alt text descritivo, JSON-LD conservador e arquivos <code>robots.txt</code>/<code>sitemap.xml</code></li>
+<li>trilha oficial de mudancas: <code>CHANGELOG.html</code></li>
+<li>fila simples de tarefas futuras: <code>COISAS_A_FAZER.html</code></li>
+</ul>
+<p>Stack real:</p>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript vanilla</li>
+<li>Google Fonts (<code>Barlow Condensed</code> e <code>Inter</code>, carregadas com pesos realmente usados e <code>display=swap</code>)</li>
+</ul>
+<p>O projeto nao usa Node.js, framework frontend, backend, build step, CI/CD, banco de dados ou variaveis de ambiente.</p>
+<h2 id="estrutura-atual">Estrutura Atual</h2>
+<ul>
+<li><code>index.html</code>: Home canonica, indexavel e servida a partir da raiz.</li>
+<li><code>googlef8f43337a075e3ac.html</code>: arquivo tecnico de verificacao do Google Search Console/Search Engine, mantido na raiz para validacao de propriedade; nao faz parte da navegacao publica nem do conteudo editorial do site.</li>
+<li><code>robots.txt</code>: arquivo tecnico de orientacao para crawlers, com referencia para o sitemap absoluto.</li>
+<li><code>sitemap.xml</code>: mapa XML com Home, Quem Somos e FAQ como paginas oficiais indexaveis.</li>
+<li><code>home/</code>: assets visuais da Home, <code>home/styles.css</code>, <code>home/hero-carousel.js</code> e fallback tecnico de redirecionamento para a raiz.</li>
+<li><code>quem-somos/</code>: pagina institucional, historia dos fundadores e asset <code>fundadores.jpg</code>.</li>
+<li><code>faq/</code>: pagina de FAQ, protocolos e acordeao interativo.</li>
+<li><code>shared/</code>: estilos, scripts, includes client-side sem <code>fetch</code> e assets compartilhados.</li>
+<li><code>documentação/interno/</code>: documentacao permanente, historico, arquitetura, guia tecnico de imagens e lista de tarefas futuras.</li>
+</ul>
+<p>Ownership por area:</p>
+<ul>
+<li><code>shared/styles.css</code>: tokens, shell translucida, background fixo, header, superficies, CTA base, warning box, footer e primitivas compartilhadas nomeadas como <code>section-title</code>, <code>surface-section</code>, <code>surface-panel</code> e <code>media-block</code>.</li>
+<li><code>shared/includes.js</code>: injeta header, footer e aviso legal em marcadores <code>data-shared-*</code>, com helpers para links e blocos institucionais e com Home apontando para <code>index.html</code> na raiz.</li>
+<li><code>shared/background-neuroflash.jpg</code>: fundo visual canonico compartilhado por Home, Quem Somos e FAQ, fixo no viewport para efeito parallax.</li>
+<li><code>shared/icons/</code>: icones PNG compartilhados usados nos links de suporte e contato do rodape.</li>
+<li><code>index.html</code> + <code>home/styles.css</code> + <code>home/hero-carousel.js</code>: hero, carrossel desktop, grids especificos da Home, ajustes de layout da Home e CTA principal.</li>
+<li><code>home/index.html</code>: redirecionamento de compatibilidade para a Home canonica na raiz.</li>
+<li><code>quem-somos/index.html</code> + <code>quem-somos/styles.css</code>: narrativa institucional, imagem dos fundadores e layout editorial.</li>
+<li><code>faq/index.html</code> + <code>faq/styles.css</code> + <code>faq/script.js</code>: acordeao, protocolos e suporte complementar.</li>
+<li><code>CHANGELOG.html</code>: historico tecnico.</li>
+<li><code>SITE_ARCHITECTURE.html</code>: fotografia arquitetural atual e guia de manutencao.</li>
+<li><code>SITE_IMAGE_GUIDE.html</code>: guia tecnico de imagens do site.</li>
+<li><code>COISAS_A_FAZER.html</code>: lista simples de tarefas futuras para humanos e agentes de IA.</li>
+</ul>
+<h2 id="componentes-e-comportamento">Componentes E Comportamento</h2>
+<h3 id="includes-compartilhados">Includes Compartilhados</h3>
+<p><code>shared/includes.js</code> centraliza:</p>
+<ul>
+<li>header compartilhado via <code>data-shared-header</code></li>
+<li>footer compartilhado via <code>data-shared-footer</code>, com mapa do site, contatos e dados empresariais temporarios</li>
+<li>aviso legal via <code>data-shared-legal-warning</code></li>
+</ul>
+<p>O script calcula caminhos relativos para raiz, <code>home/</code>, <code>quem-somos/</code> e <code>faq/</code>, preserva <code>aria-current</code> na pagina ativa e evita <code>fetch</code>, mantendo compatibilidade com GitHub Pages e abertura local no Windows.</p>
+<h3 id="css-compartilhado">CSS Compartilhado</h3>
+<p><code>shared/styles.css</code> deve receber apenas regras literalmente compartilhadas entre Home, Quem Somos e FAQ:</p>
+<ul>
+<li>tokens de cor</li>
+<li>shell da pagina</li>
+<li>navegacao e marca</li>
+<li>superficies reutilizaveis (<code>surface-panel</code>)</li>
+<li>botoes e links de acao (<code>cta-button</code> e <code>ghost-link</code>)</li>
+<li>titulos de secao (<code>section-title</code>)</li>
+<li>casca compartilhada de secoes internas (<code>surface-section</code>)</li>
+<li>blocos de midia reutilizaveis com crop opcional (<code>media-block</code>)</li>
+<li>aviso legal</li>
+<li>footer institucional compartilhado</li>
+</ul>
+<p>Regras especificas de layout permanecem em <code>home/styles.css</code>, <code>faq/styles.css</code> ou <code>quem-somos/styles.css</code>. Em especial, <code>home/styles.css</code> deve ficar restrito ao hero, carrossel, grids e ajustes que so existem na Home.</p>
+<h3 id="home">Home</h3>
+<p>A Home segue majoritariamente estatica, mas agora possui um JavaScript proprio e pequeno para hidratar o carrossel desktop da hero. O CSS local da Home concentra hero, carrossel, grids e ajustes de layout exclusivos da Home, enquanto <code>shared/styles.css</code> fornece as primitivas visuais base e <code>home/hero-carousel.js</code> controla troca automatica, setas laterais, indicadores inferiores e pausa por hover/focus apenas na imagem principal da hero.</p>
+<p>Assets da Home:</p>
+<ul>
+<li><code>clarity-rush.jpg</code></li>
+<li><code>estudo.jpg</code></li>
+<li><code>focus-lock.jpg</code></li>
+<li><code>game-competicao.jpg</code></li>
+<li><code>hero-focus.jpg</code></li>
+<li><code>hero-focus2.jpg</code></li>
+<li><code>hero-focus3.jpg</code></li>
+<li><code>homem-terno.jpg</code></li>
+<li><code>mental-ignition.jpg</code></li>
+<li><code>motocross.jpg</code></li>
+<li><code>mulher-ufc.jpg</code></li>
+<li><code>pressure-mode.jpg</code></li>
+<li><code>product-packshot2.jpg</code></li>
+<li><code>treino.jpg</code></li>
+</ul>
+<p><code>SITE_IMAGE_GUIDE.html</code> orienta enquadramento, dimensoes reais, dimensoes recomendadas, proporcoes e convencao de nomes para assets da Home, Quem Somos, FAQ, background compartilhado e icones do rodape. Novos assets devem usar nomes ASCII, sem acentos, cedilha ou espacos.</p>
+<p>Politica de performance de imagens:</p>
+<ul>
+<li>a hero desktop usa <code>hero-focus.jpg</code>, <code>hero-focus2.jpg</code> e <code>hero-focus3.jpg</code> em carrossel com fade; a primeira imagem permanece prioritaria e os slides adicionais entram via JavaScript somente depois da primeira pintura util, com hidrata&#231;&#227;o adiada e carregamento sob demanda.</li>
+<li><code>hero-focus.jpg</code> e <code>product-packshot2.jpg</code> carregam de forma imediata por participarem do primeiro impacto visual.</li>
+<li>imagens abaixo da dobra usam lazy loading nativo com <code>decoding=&quot;async&quot;</code> e dimensoes declaradas no HTML.</li>
+<li>a imagem principal da hero e seu carrossel devem permanecer desktop-only em tempo de rede, evitando download desnecessario no mobile.</li>
+<li>o background compartilhado permanece em CSS no <code>body</code>, sem lazy loading, porque faz parte da identidade visual global.</li>
+</ul>
+<h3 id="quem-somos">Quem Somos</h3>
+<p>A pagina <code>quem-somos/</code> nao possui JavaScript proprio. Ela reutiliza header, footer, shell, fundo fixo e superficies compartilhadas, com CSS local para a narrativa institucional, a imagem <code>fundadores.jpg</code>, a proporcao do titulo de pagina no desktop e o posicionamento do CTA contextual da FAQ abaixo da foto dos fundadores.</p>
+<h3 id="faq">FAQ</h3>
+<p>O acordeao em <code>faq/script.js</code>:</p>
+<ul>
+<li>normaliza cada item uma vez antes de ligar os eventos</li>
+<li>controla abertura e fechamento de cada item</li>
+<li>fecha os demais itens ao abrir um novo</li>
+<li>sincroniza <code>aria-expanded</code></li>
+<li>associa botoes e respostas com <code>aria-controls</code></li>
+<li>recalcula altura em <code>load</code> e agrupa o <code>resize</code> em <code>requestAnimationFrame</code></li>
+</ul>
+<h3 id="navegacao-e-renderizacao">Navegacao E Renderizacao</h3>
+<ul>
+<li>o mobile usa um perfil de performance mais leve, sem <code>background-attachment: fixed</code> e sem <code>backdrop-filter</code> nos blocos compartilhados mais caros.</li>
+<li>blocos estaticos abaixo da dobra podem usar <code>content-visibility: auto</code> via utilitario compartilhado, sem aplicar essa tecnica ao acordeao da FAQ.</li>
+<li>a imagem institucional de <code>quem-somos/</code> e o rodape compartilhado podem participar desse adiamento de renderizacao por serem blocos estaticos abaixo da dobra.</li>
+</ul>
+<h3 id="seo">SEO</h3>
+<p>A estrategia SEO usa o dominio publico oficial <code>https://essentiahealth.com.br/</code> para artefatos tecnicos de indexacao:</p>
+<ul>
+<li><code>index.html</code> e a Home canonica; <code>home/index.html</code> funciona apenas como fallback tecnico com <code>noindex, follow</code>.</li>
+<li><code>googlef8f43337a075e3ac.html</code> deve permanecer na raiz enquanto a propriedade do site depender dessa verificacao no Google Search Console/Search Engine.</li>
+<li>Home, Quem Somos, FAQ e fallback de <code>home/</code> devem ter <code>title</code>, <code>description</code> e <code>robots</code> unicos.</li>
+<li>Home, Quem Somos e FAQ usam <code>canonical</code>, <code>og:url</code> e imagens sociais absolutas com o dominio oficial.</li>
+<li>A Home usa JSON-LD basico para <code>Organization</code>, <code>Brand</code>, <code>WebSite</code>, <code>WebPage</code> e <code>Product</code>, com URLs tecnicas absolutas, mas sem preco, <code>Offer</code> ou disponibilidade enquanto a venda nao estiver liberada.</li>
+<li>FAQ usa JSON-LD minimo de <code>WebPage</code> sobre o produto, e Quem Somos usa <code>AboutPage</code>, ambos com URLs tecnicas absolutas.</li>
+<li>Home, Quem Somos e FAQ devem manter Open Graph e Twitter cards com imagem e texto alternativo coerentes.</li>
+<li>Sempre que a imagem social for conhecida, manter tambem <code>og:image:type</code>, <code>og:image:width</code> e <code>og:image:height</code>.</li>
+<li><code>robots.txt</code> e <code>sitemap.xml</code> ficam na raiz do projeto e apontam para o dominio oficial.</li>
+<li><code>FAQPage</code> schema deve ser avaliado com cautela, porque rich results de FAQ sao restritos e nao devem ser tratados como ganho garantido.</li>
+<li>Imagens editoriais devem manter <code>alt</code> descritivo, natural e sem excesso de palavras-chave.</li>
+<li>CTAs editoriais principais devem apontar para paginas reais do site ou destinos reais de contato, evitando botoes sem destino util.</li>
+</ul>
+<h2 id="manutencao">Manutencao</h2>
+<h3 id="bloqueio-de-texto-publico">Bloqueio De Texto Publico</h3>
+<p>Todo texto visivel ao publico agora passa por curadoria legal externa. Por isso, agentes e mantenedores nao devem alterar, reescrever, corrigir, otimizar ou localizar nenhum texto publico do site durante qualquer procedimento tecnico.</p>
+<p>Esse bloqueio vale para refatoracao, atualizacao visual, melhoria de performance, SEO, acessibilidade, correcao de bugs, limpeza de codigo, revisao de encoding, troca de assets, ajustes de componentes compartilhados e qualquer outro tipo de manutencao. Se uma tarefa tecnica exigir mudanca textual publica para ser concluida, a parte textual deve ficar pendente ate existir aprovacao legal externa explicita.</p>
+<p>Entram no bloqueio: titulos, paragrafos, labels, CTAs, textos de botoes, FAQ, avisos legais, alt text, aria-label, metadados com copy publica, Open Graph/Twitter text, JSON-LD textual, dados institucionais exibidos, mensagens de suporte e qualquer string que possa aparecer para usuarios, buscadores ou previews sociais.</p>
+<p>Regras de atualizacao:</p>
+<ul>
+<li>registrar mudancas relevantes em <code>CHANGELOG.html</code></li>
+<li>registrar pendencias futuras em <code>COISAS_A_FAZER.html</code></li>
+<li>atualizar este arquivo quando mudar estrutura, ownership, fluxo de entrada, assets canonicos ou estrategia compartilhada</li>
+<li>nao alterar texto visivel ao publico sem aprovacao legal externa previa, mesmo quando a alteracao parecer pequena, corretiva ou benefica</li>
+<li>tratar Home, Quem Somos e FAQ como um unico sistema visual</li>
+<li>preferir <code>shared/styles.css</code> para regras realmente identicas entre paginas</li>
+<li>manter includes sem <code>fetch</code> enquanto <code>file:///</code> for requisito</li>
+<li>substituir os dados ficticios do footer antes da publicacao publica</li>
+</ul>
+<p>Checklist rapido pos-alteracao:</p>
+<ul>
+<li>validar <code>index.html -&gt; quem-somos/ -&gt; faq/</code></li>
+<li>validar <code>home/index.html -&gt; index.html</code></li>
+<li>validar navegacao entre Home, Quem Somos e FAQ</li>
+<li>validar retorno da FAQ para a Home</li>
+<li>revisar visual em mobile e desktop</li>
+<li>conferir hero, galeria e CTAs da Home</li>
+<li>revisar autoplay, setas e indicadores da hero no desktop</li>
+<li>revisar funcionamento do acordeao da FAQ</li>
+<li>confirmar que nao ha referencias quebradas de assets</li>
+<li>confirmar que <code>googlef8f43337a075e3ac.html</code> permanece na raiz se a verificacao do Google ainda estiver ativa</li>
+<li>confirmar que CTAs nao usam <code>href=&quot;#&quot;</code></li>
+<li>confirmar que nenhum texto publico foi alterado sem aprovacao legal externa registrada</li>
+<li>atualizar <code>CHANGELOG.html</code> se a mudanca for estrutural, visual relevante ou comportamental</li>
+</ul>
+<h2 id="notas-de-evolucao">Notas De Evolucao</h2>
+<p>A evolucao recomendada continua leve. Introduzir Node.js, build, framework, CI/CD ou backend apenas quando houver necessidade real de conteudo dinamico, automacao de publicacao, testes automatizados robustos ou multiplos fluxos de distribuicao.</p>
+      </article>
+      <aside class="doc-toc" aria-label="Indice do documento">
+        <h2>Indice</h2>
+        <ol>
+<li class="toc-level-2"><a href="#visao-geral">Visao Geral</a></li>
+<li class="toc-level-2"><a href="#estrutura-atual">Estrutura Atual</a></li>
+<li class="toc-level-2"><a href="#componentes-e-comportamento">Componentes E Comportamento</a></li>
+<li class="toc-level-3"><a href="#includes-compartilhados">Includes Compartilhados</a></li>
+<li class="toc-level-3"><a href="#css-compartilhado">CSS Compartilhado</a></li>
+<li class="toc-level-3"><a href="#home">Home</a></li>
+<li class="toc-level-3"><a href="#quem-somos">Quem Somos</a></li>
+<li class="toc-level-3"><a href="#faq">FAQ</a></li>
+<li class="toc-level-3"><a href="#navegacao-e-renderizacao">Navegacao E Renderizacao</a></li>
+<li class="toc-level-3"><a href="#seo">SEO</a></li>
+<li class="toc-level-2"><a href="#manutencao">Manutencao</a></li>
+<li class="toc-level-3"><a href="#bloqueio-de-texto-publico">Bloqueio De Texto Publico</a></li>
+<li class="toc-level-2"><a href="#notas-de-evolucao">Notas De Evolucao</a></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
+
