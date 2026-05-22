@@ -4,9 +4,15 @@
     <loc>https://essentiahealth.com.br/</loc>
   </url>
   <url>
-    <loc>https://essentiahealth.com.br/quem-somos/</loc>
+    <loc>https://essentiahealth.com.br/neuroflash/</loc>
   </url>
   <url>
-    <loc>https://essentiahealth.com.br/faq/</loc>
+    <loc>https://essentiahealth.com.br/neuroflash/quem-somos/</loc>
+  </url>
+  <url>
+    <loc>https://essentiahealth.com.br/neuroflash/faq/</loc>
+  </url>
+  <url>
+    <loc>https://essentiahealth.com.br/obsidian/</loc>
   </url>
 </urlset>

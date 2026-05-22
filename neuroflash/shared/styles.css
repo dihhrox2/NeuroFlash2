@@ -396,6 +396,10 @@ body {
   object-position: center;
 }
 
+.footer-brand-link {
+  display: block;
+}
+
 .footer-brand h2,
 .footer-column h3,
 .footer-subgroup h4 {
@@ -424,6 +428,10 @@ body {
   font-size: 0.9rem;
   line-height: 1.55;
   overflow-wrap: anywhere;
+}
+
+.footer-subgroup p {
+  font-weight: 700;
 }
 
 .footer-brand h2 + p,

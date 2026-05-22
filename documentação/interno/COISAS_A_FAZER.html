@@ -25,19 +25,25 @@
 <h2 id="tarefas">Tarefas</h2>
 <ul>
 <li>[ ] Governanca legal: registrar aprovacao externa antes de qualquer alteracao de texto publico | contexto: todo texto visivel ao publico esta bloqueado para edicao interna em refatoracoes, atualizacoes, otimizacoes, SEO, acessibilidade, performance ou manutencao | prioridade: alta</li>
+<li>[x] Integracao: promover a pagina Essentia Health para a raiz e conectar NeuroFlash como produto | contexto: Home institucional agora vive em <code>index.html</code>, e NeuroFlash foi movido para <code>neuroflash/</code> com entrada pelo card de produto | prioridade: media</li>
 <li>[x] SEO: definir URL publica final do projeto | contexto: dominio oficial definido como <code>https://essentiahealth.com.br/</code> | prioridade: alta</li>
 <li>[ ] SEO: validar propriedade no Google Search Console/Search Engine usando <code>googlef8f43337a075e3ac.html</code> | contexto: arquivo tecnico ja esta na raiz do projeto e deve ser mantido enquanto a verificacao depender dele | prioridade: alta</li>
 <li>[x] SEO: criar sitemap.xml e robots.txt para o dominio oficial | contexto: arquivos criados na raiz com sitemap absoluto em <code>https://essentiahealth.com.br/sitemap.xml</code> | prioridade: alta</li>
-<li>[x] SEO: adicionar canonical e og:url nas paginas oficiais | contexto: Home, Quem Somos e FAQ usam URLs absolutas oficiais; fallback <code>home/index.html</code> aponta para a Home raiz | prioridade: alta</li>
+<li>[x] SEO: adicionar canonical e og:url nas paginas oficiais | contexto: Home Essentia Health usa a raiz; Home, Quem Somos e FAQ do NeuroFlash usam URLs absolutas sob <code>/neuroflash/</code>; Obsidian usa URL absoluta sob <code>/obsidian/</code> | prioridade: alta</li>
+<li>[ ] SEO: validar indexacao apos migracao estrutural | contexto: conferir sitemap, canonical, Open Graph e JSON-LD da raiz, de <code>/neuroflash/</code> e de <code>/obsidian/</code> apos publicacao | prioridade: alta</li>
 <li>[ ] SEO: validar JSON-LD no Rich Results Test apos publicacao | contexto: verificar Product basico e ajustar apenas dados visiveis na pagina | prioridade: media</li>
 <li>[ ] SEO: avaliar FAQPage schema somente se a marca/site atender aos criterios atuais do Google | contexto: rich results de FAQ sao restritos e nao garantidos | prioridade: baixa</li>
 <li>[ ] SEO: avaliar referencias externas confiaveis para ingredientes | contexto: adicionar apenas fontes tecnicas reais, sem links decorativos | prioridade: media</li>
 <li>[ ] Conteudo: submeter copy publica a curadoria legal externa antes de qualquer publicacao ou alteracao | contexto: agentes internos nao devem editar textos visiveis ao publico sem aprovacao externa previa | prioridade: alta</li>
 <li>[ ] Conteudo: submeter texto institucional da pagina Quem Somos a curadoria legal externa antes de qualquer ajuste publico | contexto: tom, nomes e detalhes pessoais nao devem ser alterados internamente sem aprovacao | prioridade: alta</li>
+<li>[x] Obsidian: consolidar a pagina unica estatica do novo produto | contexto: <code>obsidian/index.html</code> usa intro preta logo-only, banner visual, secoes de produto espelhadas, manifesto, assets proprios, metadados publicos, canonical e inclusao em sitemap | prioridade: alta</li>
+<li>[x] Obsidian: liberar indexacao publica | contexto: <code>noindex</code> removido, canonical avaliado, <code>/obsidian/</code> incluido no sitemap e metadados finais revisados para publicacao | prioridade: alta</li>
+<li>[ ] Obsidian: definir venda, checkout, analytics e pixels | contexto: a pagina atual nao possui backend, checkout, carrinho, Meta/TikTok Pixel ou Google Analytics | prioridade: media</li>
+<li>[ ] Obsidian: validar regulatorio final | contexto: antes de venda, confirmar composicao, rotulagem, descarte, advertencias e claims como antibacteriano, dermatologicamente testado, hipoalergenico ou flushable | prioridade: alta</li>
 <li>[ ] Empresa: substituir dados ficticios restantes do rodape por informacoes reais | contexto: CNPJ e endereco oficiais ja atualizados; telefone, WhatsApp, Instagram, horarios e politicas seguem pendentes antes da publicacao | prioridade: alta</li>
 <li>[ ] Visual: tornar constante a transparencia dos elementos no mobile em todas as paginas | contexto: corrigir a percepcao de escurecimento gradual durante a rolagem | prioridade: alta</li>
 <li>[ ] Assets: limpar os metadados embutidos de todas as imagens do projeto | contexto: padronizar os arquivos antes da publicacao e evitar carregar informacoes desnecessarias | prioridade: media</li>
-<li>[ ] Visual: compactar o rodape para reduzir espacos em branco | contexto: otimizar a densidade do bloco institucional sem perder legibilidade | prioridade: media</li>
+<li>[x] Visual: compactar o rodape para reduzir espacos em branco | contexto: rodape da raiz refinado com mecanica dimensional do NeuroFlash, mapa simplificado, copyright institucional e linha inferior em largura total sem perder legibilidade | prioridade: media</li>
 <li>[ ] Encoding: revisar textos nao visiveis do site e do projeto para evitar acentuacao quebrada | contexto: ajustar metadados, textos tecnicos e strings auxiliares para escrita estavel, com versao sem acentos quando fizer sentido | prioridade: media</li>
 <li>[ ] Performance: estudar uma estrategia para aliviar a renderizacao de elementos fora da viewport | contexto: avaliar recursos nativos ou abordagem leve compativel com site estatico e <code>file:///</code> | prioridade: baixa</li>
 </ul>

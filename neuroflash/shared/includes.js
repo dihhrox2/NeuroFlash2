@@ -23,6 +23,7 @@ const SHARED_INCLUDE_SELECTORS = [
 const getNormalizedPath = () => window.location.pathname.replace(/\\/g, "/");
 
 const getSharedPathPrefix = () => (NESTED_PAGE_PATTERN.test(getNormalizedPath()) ? "../" : "./");
+const getSiteRootPrefix = () => (NESTED_PAGE_PATTERN.test(getNormalizedPath()) ? "../../" : "../");
 
 const getCurrentPage = () => {
   const path = getNormalizedPath();
@@ -77,12 +78,15 @@ const buildHeader = () => {
 
 const buildFooter = () => {
   const prefix = getSharedPathPrefix();
+  const siteRootPrefix = getSiteRootPrefix();
 
   return `
     <footer class="footer deferred-render">
       <div class="footer-shell">
         <section class="footer-brand" aria-label="Essentia Health">
-          <img class="footer-brand-logo" src="${prefix}shared/essentia-health-logo.png" alt="Essentia Health - Solu&ccedil;&otilde;es inteligentes em sa&uacute;de e bem-estar" width="1504" height="768" loading="lazy" decoding="async">
+          <a class="footer-brand-link" href="${siteRootPrefix}index.html">
+            <img class="footer-brand-logo" src="${prefix}shared/essentia-health-logo.png" alt="Essentia Health - Solu&ccedil;&otilde;es inteligentes em sa&uacute;de e bem-estar" width="1504" height="768" loading="lazy" decoding="async">
+          </a>
         </section>
 
         <nav class="footer-column footer-column--centered-title" aria-label="Mapa do site">

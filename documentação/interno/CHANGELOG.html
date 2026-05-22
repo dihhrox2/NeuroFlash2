@@ -34,6 +34,206 @@
 <li>usar o <code>SITE_ARCHITECTURE.html</code> para o estado atual e este arquivo para a trilha historica</li>
 </ul>
 <h2 id="historico-consolidado">Historico Consolidado</h2>
+<h2 id="2026-05-22-integracao-publica-obsidian">2026-05-22 - Integracao publica Obsidian ao site</h2>
+<ul>
+<li>Mudanca: <code>obsidian/index.html</code> passou de pre-publicacao para pagina publica indexavel, com <code>robots</code> indexavel, canonical, <code>og:url</code>, JSON-LD de organizacao/site/pagina/produto, inclusao de <code>/obsidian/</code> no <code>sitemap.xml</code>, marca Obsidian no JSON-LD da Home e link no mapa do site do rodape da Home.</li>
+<li>Impacto: Obsidian fica integrado ao site publico da Essentia Health como produto oficial ao lado de NeuroFlash, mantendo a estrutura estatica, compatibilidade local e documentacao interna sincronizadas.</li>
+</ul>
+<h2 id="2026-05-22-rodape-home-padrao-neuroflash">2026-05-22 - Rodape da Home alinhado ao padrao NeuroFlash</h2>
+<ul>
+<li>Mudanca: o rodape da Home raiz teve padding, gaps, largura do logo, familia tipografica, escala de texto e estilo normalizado dos contatos ajustados para seguir o enquadramento compacto do rodape NeuroFlash; os titulos de contato foram centralizados pelo mesmo criterio e o texto institucional passou a negrito nos rodapes Home, Obsidian e NeuroFlash.</li>
+<li>Impacto: Home, NeuroFlash e Obsidian ficam mais consistentes no fechamento institucional, com leitura mais equilibrada, menor ocupacao vertical e hierarquia de informacoes padronizada.</li>
+</ul>
+<h2 id="2026-05-22-copy-html-sobre-o-banner-obsidian">2026-05-22 - Copy HTML sobre o banner Obsidian</h2>
+<ul>
+<li>Mudanca: a frase visual do banner de <code>obsidian/index.html</code> foi recriada como texto HTML sobreposto em <code>figcaption.hero-banner-copy</code>, com subcopy menor abaixo; as secoes inferiores passaram a centralizar imagens e copy no mobile, as linhas de contorno visiveis foram removidas do corpo da pagina, o espacamento vertical anterior foi restaurado, a sombra da copy <code>Preparo</code> foi removida, o banner, <code>Preparo</code> e <code>Formatos</code> receberam fade progressivo por scroll, o logo clicavel do header passou a usar <code>logo-mini.png</code>, ganhou fade de entrada sem deslocamento, teve o enquadramento ajustado para nao cortar a base, o rodape institucional da Home foi incorporado, as linhas superior e inferior do rodape foram habilitadas, o link <code>Home</code> do mapa do site passou a apontar para <code>#intro-completa</code> e o enquadramento do rodape foi compactado seguindo o padrao NeuroFlash.</li>
+<li>Impacto: prepara o banner para receber futuramente uma versao limpa da imagem sem depender de nova alteracao estrutural, melhora a leitura mobile das secoes inferiores, recupera respiro entre as secoes sem alterar o ponto de entrada do banner apos a intro, faz banner e produtos surgirem gradualmente, deixa o logo fixo aparecer inteiro apenas por opacidade sem alterar o efeito inicial do logo grande e alinha o fechamento institucional com a Home.</li>
+</ul>
+<h2 id="2026-05-22-consolidacao-da-pagina-estatica-obsidian">2026-05-22 - Consolidacao da pagina estatica Obsidian</h2>
+<ul>
+<li>Mudanca: a documentacao interna foi sincronizada com o estado atual de <code>obsidian/index.html</code>, que agora usa intro preta logo-only, header reduzido, banner <code>hero-baner.jpg</code>, duas secoes de produto espelhadas com <code>produto-large.png</code> e <code>produto-small.png</code>, manifesto e rodape.</li>
+<li>Impacto: o estado atual deixa de ser documentado como experiencia cinematografica de scroll ou pagina com situacoes, FAQ, lista VIP e cards de formato; Obsidian permanece pagina unica, conectada pela Home, <code>noindex</code>, fora do sitemap e sem subpaginas.</li>
+</ul>
+<h2 id="2026-05-22-obsidian-com-conteudo-estatico">2026-05-22 - Obsidian com conteudo estatico</h2>
+<ul>
+<li>Mudanca: <code>obsidian/index.html</code> deixou o motor cinematografico de cenas por rolagem e passou a usar apenas a intro preta com logo que some no primeiro scroll, seguida por conteudo estatico em fluxo normal com hero, produto, preparo, situacoes, formatos, manifesto, FAQ e lista VIP.</li>
+<li>Impacto: prioriza previsibilidade, leitura e estabilidade visual, mantendo os assets Obsidian, <code>file:///</code>, <code>noindex</code>, sitemap e <code>robots.txt</code> inalterados.</li>
+</ul>
+<h2 id="2026-05-22-suavizacao-ux-scroll-obsidian">2026-05-22 - Suavizacao UX scroll Obsidian</h2>
+<ul>
+<li>Mudanca: a experiencia de rolagem de <code>obsidian/index.html</code> foi suavizada com area maior de leitura, cenas com plato, menos blur, menos rotacao, menor deslocamento lateral, parallax discreto e reducao da presenca do produto durante blocos densos.</li>
+<li>Impacto: a pagina mantem a entrada premium e cinematografica, mas prioriza legibilidade e conforto de navegacao, preservando <code>file:///</code>, <code>noindex</code>, sitemap e <code>robots.txt</code> inalterados.</li>
+</ul>
+<h2 id="2026-05-22-ritmo-de-scroll-obsidian">2026-05-22 - Ritmo de scroll Obsidian</h2>
+<ul>
+<li>Mudanca: o motor de rolagem de <code>obsidian/index.html</code> foi recalibrado com area total mais curta, intro mais rapida e cenas em faixas sequenciais para reduzir sobreposicoes entre textos, produto, cards e manifesto.</li>
+<li>Impacto: a experiencia animada responde com menos gestos de scroll e fica mais legivel, mantendo a abertura logo-only, <code>file:///</code>, <code>noindex</code>, sitemap e <code>robots.txt</code> inalterados.</li>
+</ul>
+<h2 id="2026-05-22-intro-preta-logo-only-obsidian">2026-05-22 - Intro preta logo-only Obsidian</h2>
+<ul>
+<li>Mudanca: a abertura de <code>obsidian/index.html</code> passou a carregar primeiro uma tela preta com apenas o logo centralizado, reservando o primeiro trecho de rolagem para revelar menu, fundos, produto, textos, indice e progresso da composicao cinematografica.</li>
+<li>Impacto: reforca a entrada premium da pagina Obsidian e impede que conteudo, menu ou fallback aparecam antes da interacao inicial, mantendo <code>file:///</code>, <code>noindex</code>, sitemap e <code>robots.txt</code> inalterados.</li>
+</ul>
+<h2 id="2026-05-22-rework-obsidian-com-slider-cinematografico">2026-05-22 - Rework Obsidian com slider cinematografico</h2>
+<ul>
+<li>Mudanca: a experiencia <code>obsidian/index.html</code> foi reformulada em uma estrutura unica de scroll-slider com <code>section.motion-page</code>, palco sticky, cenas <code>data-frame</code>, produto flutuante, backgrounds em crossfade, indice de cena e trilha de progresso controlados por JavaScript leve.</li>
+<li>Impacto: a pagina se afasta de vez do modelo NeuroFlash e passa a se comportar como uma composicao animada inspirada por templates cinematograficos tipo Slider Revolution, mantendo <code>file:///</code>, <code>noindex</code>, sitemap e <code>robots.txt</code> inalterados.</li>
+</ul>
+<h2 id="2026-05-22-obsidian-com-motor-cinematografico-de-scroll">2026-05-22 - Obsidian com motor cinematografico de scroll</h2>
+<ul>
+<li>Mudanca: a pagina <code>obsidian/index.html</code> deixou o modelo de secoes com revelacao pontual e passou a usar uma composicao cinematografica presa na tela, com cenas sobrepostas, fundos em crossfade, produto em movimento, paineis e tipografia dirigidos por progresso global de rolagem.</li>
+<li>Impacto: aproxima a experiencia Obsidian de uma landing filmica controlada pelo scroll, bem diferente da estrutura NeuroFlash, sem adicionar bibliotecas, build step, indexacao publica, sitemap ou mudancas em <code>robots.txt</code>.</li>
+</ul>
+<h2 id="2026-05-22-animacoes-de-montagem-no-scroll-obsidian">2026-05-22 - Animacoes de montagem no scroll Obsidian</h2>
+<ul>
+<li>Mudanca: a pagina <code>obsidian/index.html</code> recebeu marcadores de revelacao, montagem progressiva por secao, stagger de cards e itens, parallax leve em imagens, microtransicoes na hero sticky e fallback de movimento reduzido.</li>
+<li>Impacto: a experiencia Obsidian passa a se construir conforme a rolagem sem adicionar bibliotecas ou build step, preservando compatibilidade com <code>file:///</code>, <code>noindex</code>, sitemap e robots inalterados.</li>
+</ul>
+<h2 id="2026-05-22-pagina-unica-obsidian-com-scroll-experimental">2026-05-22 - Pagina unica Obsidian com scroll experimental</h2>
+<ul>
+<li>Mudanca: criada <code>obsidian/index.html</code> como pagina unica conectada pelo card Obsidian da Home Essentia Health, com CSS e JavaScript proprios, assets locais, scroll sticky experimental, lista VIP por e-mail, metadados sociais e <code>noindex, follow</code>.</li>
+<li>Impacto: Obsidian passa a ter uma experiencia navegavel dentro do site sem entrar no <code>sitemap.xml</code> e sem alterar <code>robots.txt</code>, preservando a publicacao indexavel apenas para Home Essentia Health e NeuroFlash enquanto a indexacao final do novo produto fica pendente.</li>
+</ul>
+<h2 id="2026-05-22-estrutura-inicial-do-produto-obsidian">2026-05-22 - Estrutura inicial do produto Obsidian</h2>
+<ul>
+<li>Mudanca: criada a pasta <code>obsidian/</code> como reserva estrutural vazia para o futuro produto Obsidian, planejado inicialmente como pagina unica, sem subpaginas, arquivos publicos funcionais, copy, metadados, sitemap ou links publicos.</li>
+<li>Impacto: prepara o projeto para a construcao futura do novo produto sem publicar conteudo nao aprovado e sem alterar a Home Essentia Health, <code>sitemap.xml</code>, <code>robots.txt</code> ou a estrutura publicada do NeuroFlash.</li>
+</ul>
+<h2 id="2026-05-22-ajustes-finais-da-home-essentia">2026-05-22 - Ajustes finais da Home Essentia</h2>
+<ul>
+<li>Mudanca: a Home Essentia Health recebeu Obsidian no segundo card do carrossel, logo do header apontando para <code>./index.html</code>, mapa do site da raiz limitado a <code>Home</code>, copyright institucional sem NeuroFlash, remocao das linhas verticais laterais e linha inferior do rodape em largura total.</li>
+<li>Impacto: documenta o estado final dos refinamentos visuais e de navegacao da raiz sem alterar URLs publicas, SEO tecnico ou a estrutura do subsite NeuroFlash.</li>
+</ul>
+<h2 id="2026-05-22-rodape-essentia-pelo-modelo-neuroflash">2026-05-22 - Rodape Essentia pelo modelo NeuroFlash</h2>
+<ul>
+<li>Mudanca: o rodape da Home Essentia Health passou a reaplicar a mecanica dimensional real do rodape NeuroFlash, incluindo margem superior, padding base e desktop, escala de logo, icones, textos e barra inferior.</li>
+<li>Impacto: aproxima novamente o fechamento da raiz ao produto sem copiar a paleta escura do NeuroFlash, mantendo fundo transparente, copy publica, navegacao e SEO preservados.</li>
+</ul>
+<h2 id="2026-05-22-ajuste-fino-de-margens-e-rodape">2026-05-22 - Ajuste fino de margens e rodape</h2>
+<ul>
+<li>Mudanca: a Home Essentia Health passou a usar casca externa full-width com regua interna de <code>1180px</code>, gutters equivalentes aos do NeuroFlash e rodape com o mesmo grid, tamanho de logo, escala de fontes e padding do rodape do produto.</li>
+<li>Impacto: reduz a discrepancia de margens e enquadramento entre a raiz Essentia Health e <code>neuroflash/index.html</code>, mantendo paleta clara, fundo transparente no rodape, SEO, navegacao e copy publica preservados.</li>
+</ul>
+<h2 id="2026-05-22-refatoracao-conservadora-da-home-essentia-health">2026-05-22 - Refatoracao conservadora da Home Essentia Health</h2>
+<ul>
+<li>Mudanca: a Home Essentia Health ganhou uma casca clara <code>site-shell</code>, largura de referencia de <code>1180px</code>, gutters internos compartilhados e linhas laterais sutis, alinhando header, secoes, carrossel, missao e rodape na mesma regua visual.</li>
+<li>Impacto: aproxima a raiz do padrao estrutural do NeuroFlash sem redesenhar a identidade clara da Essentia Health, reduzindo excecoes de largura e mantendo copy, SEO e navegacao publica preservados.</li>
+</ul>
+<h2 id="2026-05-22-rodape-transparente-na-home-essentia-health">2026-05-22 - Rodape transparente na Home Essentia Health</h2>
+<ul>
+<li>Mudanca: o rodape completo da Home Essentia Health passou a usar fundo transparente, com cores ajustadas para leitura sobre o fundo claro da pagina.</li>
+<li>Impacto: preserva a composicao espelhada do rodape NeuroFlash, mas reduz o peso visual do bloco na pagina institucional da Essentia Health.</li>
+</ul>
+<h2 id="2026-05-22-rodape-completo-na-home-essentia-health">2026-05-22 - Rodape completo na Home Essentia Health</h2>
+<ul>
+<li>Mudanca: o rodape simples da Home Essentia Health foi substituido por composicao espelhada do rodape NeuroFlash, com logo, mapa do site, suporte/contato, dados institucionais e barra inferior.</li>
+<li>Impacto: a raiz passa a ter fechamento institucional consistente com o subsite NeuroFlash, preservando caminhos locais para assets e navegacao.</li>
+</ul>
+<h2 id="2026-05-22-migracao-essentia-health-para-raiz">2026-05-22 - Migracao Essentia Health para raiz</h2>
+<ul>
+<li>Mudanca: a landing institucional Essentia Health foi promovida para <code>index.html</code>, e a experiencia NeuroFlash foi movida para <code>neuroflash/</code>, com Home, FAQ, Quem Somos, assets, includes e estilos do produto dentro do novo subsite.</li>
+<li>Impacto: o dominio <code>https://essentiahealth.com.br/</code> passa a representar a empresa, enquanto o produto NeuroFlash passa a responder em <code>https://essentiahealth.com.br/neuroflash/</code>; sitemap, canonical, Open Graph, Twitter cards, JSON-LD e documentacao interna foram sincronizados com a nova estrutura.</li>
+</ul>
+<h2 id="2026-05-21-referencia-de-imagens-da-pagina-essentia-health">2026-05-21 - Referencia de imagens da pagina Essentia Health</h2>
+<ul>
+<li>Mudanca: o <code>SITE_IMAGE_GUIDE.html</code> passou a documentar os tamanhos e proporcoes recomendados para <code>neuroflash.jpg</code> e <code>em-breve.jpg</code> na pagina isolada <code>essentia-health/</code>.</li>
+<li>Impacto: futuras trocas de imagens do carrossel passam a ter referencia tecnica de <code>1500 x 2000 px</code>, proporcao <code>3:4</code> e <code>aspect-ratio: 3 / 4</code>, sem alterar arquivos publicos do site.</li>
+</ul>
+<h2 id="2026-05-21-troca-do-packshot-neuroflash">2026-05-21 - Troca do packshot NeuroFlash</h2>
+<ul>
+<li>Mudanca: o primeiro card do carrossel da pagina isolada <code>essentia-health/</code> passou a usar <code>essentia-health/assets/images/neuroflash.jpg</code> como packshot.</li>
+<li>Impacto: substitui a referencia anterior ao asset da Home por uma imagem local da pagina isolada, sem alterar cards restantes, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-remocao-do-zoom-do-packshot">2026-05-21 - Remocao do zoom do packshot</h2>
+<ul>
+<li>Mudanca: o zoom aplicado as imagens do carrossel da pagina isolada <code>essentia-health/</code> foi removido para validar o enquadramento natural do packshot em proporcao vertical.</li>
+<li>Impacto: permite revisar a imagem nova sem transformacao de escala, mantendo cards, sitemap, navegacao e logica JavaScript inalterados.</li>
+</ul>
+<h2 id="2026-05-21-alinhamento-mobile-do-rotulo-produtos">2026-05-21 - Alinhamento mobile do rotulo Produtos</h2>
+<ul>
+<li>Mudanca: o rotulo <code>Produtos</code> da pagina isolada <code>essentia-health/</code> passou a usar a mesma largura do carrossel tambem no breakpoint mobile.</li>
+<li>Impacto: corrige o alinhamento responsivo do rotulo sem alterar cards, imagens, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-alinhamento-do-rotulo-produtos">2026-05-21 - Alinhamento do rotulo Produtos</h2>
+<ul>
+<li>Mudanca: o rotulo <code>Produtos</code> da pagina isolada <code>essentia-health/</code> passou a usar a mesma largura e centralizacao do carrossel.</li>
+<li>Impacto: alinha o inicio do rotulo ao mockup do carrossel sem alterar cards, imagens, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-cards-em-breve-no-carrossel">2026-05-21 - Cards em breve no carrossel</h2>
+<ul>
+<li>Mudanca: os tres cards restantes do carrossel da pagina isolada <code>essentia-health/</code> foram convertidos para mockups de imagem usando <code>essentia-health/assets/images/em-breve.jpg</code>.</li>
+<li>Impacto: o carrossel passa a ter um packshot no primeiro card e tres cards visuais de produto em breve, mantendo a mesma configuracao visual dos mockups e sem alterar sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-zoom-leve-no-packshot">2026-05-21 - Zoom leve no packshot</h2>
+<ul>
+<li>Mudanca: a imagem do primeiro card do carrossel da pagina isolada <code>essentia-health/</code> recebeu zoom centralizado reforcado para eliminar as faixas laterais restantes do mockup.</li>
+<li>Impacto: melhora o enquadramento do packshot mantendo o card sem padding interno, sem alterar os demais placeholders, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-packshot-sem-borda-interna">2026-05-21 - Packshot sem borda interna</h2>
+<ul>
+<li>Mudanca: o primeiro card do carrossel da pagina isolada <code>essentia-health/</code> recebeu estilo especifico para remover padding e fundo interno, preservando a imagem inteira sem zoom.</li>
+<li>Impacto: elimina a moldura branca interna do packshot sem alterar os demais placeholders, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-packshot-preenchendo-o-mockup">2026-05-21 - Packshot preenchendo o mockup</h2>
+<ul>
+<li>Mudanca: a imagem do primeiro card do carrossel da pagina isolada <code>essentia-health/</code> passou a preencher o mockup com recorte centralizado.</li>
+<li>Impacto: remove as faixas vazias ao redor do packshot sem alterar HTML, textos, slides, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-packshot-no-primeiro-card-do-carrossel">2026-05-21 - Packshot no primeiro card do carrossel</h2>
+<ul>
+<li>Mudanca: o primeiro placeholder do carrossel de produtos da pagina isolada <code>essentia-health/</code> teve o texto substituido pela imagem <code>home/product-packshot2.jpg</code>.</li>
+<li>Impacto: aproxima o mockup de uma vitrine visual de produto sem alterar a logica do carrossel, sitemap, navegacao ou demais paginas publicas.</li>
+</ul>
+<h2 id="2026-05-21-proporcao-vertical-4-3-nos-cards-de-produto">2026-05-21 - Proporcao vertical 4:3 nos cards de produto</h2>
+<ul>
+<li>Mudanca: os placeholders de produto da pagina isolada <code>essentia-health/</code> passaram a usar proporcao visual vertical <code>4:3</code>, aplicada aos cards para manter leitura consistente entre desktop e mobile.</li>
+<li>Impacto: reforca a leitura de mockup de produto sem alterar HTML, textos, slides, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-compactacao-da-base-da-secao-produtos">2026-05-21 - Compactacao da base da secao Produtos</h2>
+<ul>
+<li>Mudanca: o espacamento inferior da secao <code>Produtos</code> da pagina isolada <code>essentia-health/</code> foi reduzido para terminar mais proximo do mockup do carrossel.</li>
+<li>Impacto: compacta a continuidade visual entre produtos e sobre a empresa sem alterar HTML, textos, cards, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-aproximacao-da-secao-sobre-do-carrossel">2026-05-21 - Aproximacao da secao Sobre do carrossel</h2>
+<ul>
+<li>Mudanca: o espacamento superior da secao <code>Sobre a empresa</code> da pagina isolada <code>essentia-health/</code> foi reduzido para espelhar a proximidade entre o logo e a secao <code>Produtos</code>.</li>
+<li>Impacto: melhora a continuidade visual entre carrossel, texto institucional e missao sem alterar textos, HTML estrutural, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-aproximacao-da-secao-produtos-do-logo">2026-05-21 - Aproximacao da secao Produtos do logo</h2>
+<ul>
+<li>Mudanca: o espacamento superior da secao <code>Produtos</code> da pagina isolada <code>essentia-health/</code> foi reduzido para aproximar o rotulo do corte inferior do logo principal.</li>
+<li>Impacto: melhora a continuidade visual entre a identidade Essentia Health e o carrossel de produtos sem alterar logo, cards, textos, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-ajuste-do-cabecalho-do-carrossel-essentia-health">2026-05-21 - Ajuste do cabecalho do carrossel Essentia Health</h2>
+<ul>
+<li>Mudanca: o titulo grande da secao de produtos da pagina isolada <code>essentia-health/</code> foi removido, mantendo apenas o rotulo compacto "Produtos" mais proximo do carrossel.</li>
+<li>Impacto: reduz a distancia visual entre o rotulo da secao e o mockup do carrossel sem alterar cards, textos dos placeholders, sitemap, navegacao ou logica JavaScript.</li>
+</ul>
+<h2 id="2026-05-21-rolagem-circular-no-carrossel-essentia-health">2026-05-21 - Rolagem circular no carrossel Essentia Health</h2>
+<ul>
+<li>Mudanca: o carrossel de produtos da pagina isolada <code>essentia-health/</code> passou a navegar de forma circular pelas setas anterior e proximo, sem autoplay.</li>
+<li>Impacto: o usuario pode continuar clicando em uma unica direcao e voltar ao inicio ou ao ultimo grupo sem encontrar uma seta bloqueada quando houver mais de um grupo disponivel.</li>
+</ul>
+<h2 id="2026-05-21-contornos-no-carrossel-essentia-health">2026-05-21 - Contornos no carrossel Essentia Health</h2>
+<ul>
+<li>Mudanca: o carrossel de produtos da pagina isolada <code>essentia-health/</code> recebeu moldura no conjunto, contorno interno na janela visivel e bordas nos placeholders de produto.</li>
+<li>Impacto: reforca visualmente que a area e um carrossel interativo sem alterar textos, links, sitemap, navegacao ou a logica de exibicao dos cards.</li>
+</ul>
+<h2 id="2026-05-21-reordenacao-da-pagina-essentia-health">2026-05-21 - Reordenacao da pagina Essentia Health</h2>
+<ul>
+<li>Mudanca: a secao <code>Sobre a empresa</code> da pagina isolada <code>essentia-health/</code> foi movida para baixo do carrossel de produtos, antes da secao <code>Missao</code>.</li>
+<li>Impacto: a pagina passa a apresentar primeiro a identidade visual e o carrossel de linhas de produto, preservando integralmente o texto institucional e mantendo a pagina isolada do restante do site.</li>
+</ul>
+<h2 id="2026-05-21-carrossel-manual-na-pagina-essentia-health">2026-05-21 - Carrossel manual na pagina Essentia Health</h2>
+<ul>
+<li>Mudanca: a secao de produtos da pagina isolada <code>essentia-health/</code> foi transformada em carrossel manual com quatro placeholders e exibicao responsiva de tres, dois ou um card por vez.</li>
+<li>Impacto: melhora a apresentacao dos placeholders de produtos sem autoplay e sem conectar a pagina ao menu, rodape compartilhado, sitemap ou demais paginas publicas.</li>
+</ul>
+<h2 id="2026-05-21-importacao-isolada-da-pagina-essentia-health">2026-05-21 - Importacao isolada da pagina Essentia Health</h2>
+<ul>
+<li>Mudanca: a landing institucional do projeto <code>D:\Documentos\Projetos\EssentiaHealth</code> foi importada para <code>essentia-health/</code>, junto com seu CSS e assets locais.</li>
+<li>Impacto: a pagina fica disponivel como copia operacional isolada dentro do projeto NeuroFlash, temporariamente com <code>noindex, follow</code>, fora do sitemap e sem conexao com menu, rodape compartilhado ou demais paginas publicas.</li>
+</ul>
 <h2 id="2026-05-21-seo-com-dominio-oficial">2026-05-21 - SEO com dominio oficial</h2>
 <ul>
 <li>Mudanca: o dominio publico final foi registrado como <code>https://essentiahealth.com.br/</code>, com canonical, <code>og:url</code>, imagens sociais absolutas, URLs tecnicas no JSON-LD, <code>robots.txt</code> e <code>sitemap.xml</code>.</li>
@@ -241,6 +441,38 @@
 <li class="toc-level-2"><a href="#objetivo">Objetivo</a></li>
 <li class="toc-level-2"><a href="#como-registrar-novas-entradas">Como Registrar Novas Entradas</a></li>
 <li class="toc-level-2"><a href="#historico-consolidado">Historico Consolidado</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-consolidacao-da-pagina-estatica-obsidian">2026-05-22 - Consolidacao da pagina estatica Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-obsidian-com-motor-cinematografico-de-scroll">2026-05-22 - Obsidian com motor cinematografico de scroll</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-animacoes-de-montagem-no-scroll-obsidian">2026-05-22 - Animacoes de montagem no scroll Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-pagina-unica-obsidian-com-scroll-experimental">2026-05-22 - Pagina unica Obsidian com scroll experimental</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-estrutura-inicial-do-produto-obsidian">2026-05-22 - Estrutura inicial do produto Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-ajustes-finais-da-home-essentia">2026-05-22 - Ajustes finais da Home Essentia</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-rodape-essentia-pelo-modelo-neuroflash">2026-05-22 - Rodape Essentia pelo modelo NeuroFlash</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-ajuste-fino-de-margens-e-rodape">2026-05-22 - Ajuste fino de margens e rodape</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-refatoracao-conservadora-da-home-essentia-health">2026-05-22 - Refatoracao conservadora da Home Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-rodape-transparente-na-home-essentia-health">2026-05-22 - Rodape transparente na Home Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-rodape-completo-na-home-essentia-health">2026-05-22 - Rodape completo na Home Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-22-migracao-essentia-health-para-raiz">2026-05-22 - Migracao Essentia Health para raiz</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-referencia-de-imagens-da-pagina-essentia-health">2026-05-21 - Referencia de imagens da pagina Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-troca-do-packshot-neuroflash">2026-05-21 - Troca do packshot NeuroFlash</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-remocao-do-zoom-do-packshot">2026-05-21 - Remocao do zoom do packshot</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-alinhamento-mobile-do-rotulo-produtos">2026-05-21 - Alinhamento mobile do rotulo Produtos</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-alinhamento-do-rotulo-produtos">2026-05-21 - Alinhamento do rotulo Produtos</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-cards-em-breve-no-carrossel">2026-05-21 - Cards em breve no carrossel</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-zoom-leve-no-packshot">2026-05-21 - Zoom leve no packshot</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-packshot-sem-borda-interna">2026-05-21 - Packshot sem borda interna</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-packshot-preenchendo-o-mockup">2026-05-21 - Packshot preenchendo o mockup</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-packshot-no-primeiro-card-do-carrossel">2026-05-21 - Packshot no primeiro card do carrossel</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-proporcao-vertical-4-3-nos-cards-de-produto">2026-05-21 - Proporcao vertical 4:3 nos cards de produto</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-compactacao-da-base-da-secao-produtos">2026-05-21 - Compactacao da base da secao Produtos</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-aproximacao-da-secao-sobre-do-carrossel">2026-05-21 - Aproximacao da secao Sobre do carrossel</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-aproximacao-da-secao-produtos-do-logo">2026-05-21 - Aproximacao da secao Produtos do logo</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-ajuste-do-cabecalho-do-carrossel-essentia-health">2026-05-21 - Ajuste do cabecalho do carrossel Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-rolagem-circular-no-carrossel-essentia-health">2026-05-21 - Rolagem circular no carrossel Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-contornos-no-carrossel-essentia-health">2026-05-21 - Contornos no carrossel Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-reordenacao-da-pagina-essentia-health">2026-05-21 - Reordenacao da pagina Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-carrossel-manual-na-pagina-essentia-health">2026-05-21 - Carrossel manual na pagina Essentia Health</a></li>
+<li class="toc-level-2"><a href="#2026-05-21-importacao-isolada-da-pagina-essentia-health">2026-05-21 - Importacao isolada da pagina Essentia Health</a></li>
 <li class="toc-level-2"><a href="#2026-05-21-seo-com-dominio-oficial">2026-05-21 - SEO com dominio oficial</a></li>
 <li class="toc-level-2"><a href="#2026-05-21-atualizacao-do-endereco-oficial-no-rodape">2026-05-21 - Atualizacao do endereco oficial no rodape</a></li>
 <li class="toc-level-2"><a href="#2026-05-21-atualizacao-do-cnpj-oficial-no-rodape">2026-05-21 - Atualizacao do CNPJ oficial no rodape</a></li>
