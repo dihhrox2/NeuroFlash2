@@ -26,6 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/header.css">
+  <link rel="stylesheet" href="../shared/footer.css">
   <link rel="stylesheet" href="./shared/styles.css">
   <link rel="stylesheet" href="./home/styles.css">
   <script type="application/ld+json">
@@ -57,19 +59,6 @@
           "name": "NeuroFlash | Foco Mental, Clareza e Energia Cognitiva",
           "inLanguage": "pt-BR",
           "description": "Suplemento de dose única para foco mental, clareza sob pressão e energia cognitiva em treinos, estudos e rotinas de alta demanda."
-        },
-        {
-          "@type": "Product",
-          "@id": "https://essentiahealth.com.br/neuroflash/#product",
-          "name": "NeuroFlash Instant",
-          "image": "https://essentiahealth.com.br/neuroflash/home/product-packshot2.jpg",
-          "brand": {
-            "@type": "Brand",
-            "@id": "https://essentiahealth.com.br/neuroflash/#brand",
-            "name": "NeuroFlash"
-          },
-          "category": "Suplemento alimentar",
-          "description": "Suplemento de dose única desenvolvido para suporte de foco mental, clareza e energia cognitiva em momentos de alta demanda."
         }
       ]
     }
@@ -226,8 +215,10 @@
       <a class="cta-button" href="./faq/index.html">CONFERIR INGREDIENTES E SEGURANÇA</a>
     </section>
 
-    <div data-shared-footer></div>
+    <div data-shared-footer data-footer-context="neuroflash" data-footer-root-prefix="../"></div>
   </main>
+  <script src="../shared/footer.js" defer></script>
+  <script src="../shared/header-utils.js" defer></script>
   <script src="./shared/includes.js" defer></script>
   <script src="./home/hero-carousel.js" defer></script>
 </body>

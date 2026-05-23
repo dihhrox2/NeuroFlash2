@@ -34,6 +34,31 @@
 <li>usar o <code>SITE_ARCHITECTURE.html</code> para o estado atual e este arquivo para a trilha historica</li>
 </ul>
 <h2 id="historico-consolidado">Historico Consolidado</h2>
+<h2 id="2026-05-23-remocao-temporaria-de-product-schema">2026-05-23 - Remocao temporaria de Product schema</h2>
+<ul>
+<li>Mudanca: os schemas <code>Product</code> foram removidos temporariamente de <code>obsidian/index.html</code>, <code>neuroflash/index.html</code> e <code>neuroflash/faq/index.html</code>, junto com referencias <code>#product</code> associadas.</li>
+<li>Impacto: evita itens de produto invalidos no Google Search Console enquanto nao houver oferta, review ou rating real e aprovado, mantendo as paginas indexaveis como paginas normais.</li>
+</ul>
+<h2 id="2026-05-23-area-clicavel-do-header-da-home">2026-05-23 - Area clicavel do header da Home</h2>
+<ul>
+<li>Mudanca: o slot estrutural <code>shared-header__inner</code> da Home raiz foi movido para um container neutro, deixando o link apenas ao redor do logo e do nome Essentia Health.</li>
+<li>Impacto: a regua compartilhada do header continua preservada, mas areas vazias do topo deixam de navegar para a Home.</li>
+</ul>
+<h2 id="2026-05-23-infraestrutura-compartilhada-de-header">2026-05-23 - Infraestrutura compartilhada de header</h2>
+<ul>
+<li>Mudanca: criada a camada <code>shared/header-utils.js</code> e <code>shared/header.css</code> para helpers, tokens e slots estruturais neutros de header; Home raiz e paginas NeuroFlash passaram a usar a ossatura comum sem trocar suas classes visuais.</li>
+<li>Impacto: permite reaproveitar largura, gutters, z-index, altura e alinhamento sem unificar visualmente os headers; Obsidian permanece preservado por depender da intro, de <code>intro-dismissed</code> e do fade inicial do logo.</li>
+</ul>
+<h2 id="2026-05-23-correcao-do-header-neuroflash-apos-rodape-global">2026-05-23 - Correcao do header NeuroFlash apos rodape global</h2>
+<ul>
+<li>Mudanca: <code>shared/footer.js</code> e <code>neuroflash/shared/includes.js</code> foram encapsulados em escopo proprio para evitar colisao global entre helpers de scripts compartilhados.</li>
+<li>Impacto: o include do header NeuroFlash volta a executar junto com o rodape global, preservando a barra superior do produto e deixando registrada a regra de encapsulamento para futuras camadas compartilhadas de header.</li>
+</ul>
+<h2 id="2026-05-23-rodape-global-em-shared-raiz">2026-05-23 - Rodape global em shared raiz</h2>
+<ul>
+<li>Mudanca: criada a camada global <code>shared/</code> com <code>footer.js</code>, <code>footer.css</code>, logo institucional e icones de contato; Home, Obsidian e paginas NeuroFlash passaram a renderizar o rodape por <code>data-shared-footer</code> com mapa do site por contexto.</li>
+<li>Impacto: reduz duplicacao de HTML/CSS de rodape entre os produtos, mantem <code>neuroflash/shared/</code> focado em header, aviso legal, fundo e primitivas do produto, e preserva compatibilidade com <code>file:///</code> e GitHub Pages sem <code>fetch</code> ou build.</li>
+</ul>
 <h2 id="2026-05-22-integracao-publica-obsidian">2026-05-22 - Integracao publica Obsidian ao site</h2>
 <ul>
 <li>Mudanca: <code>obsidian/index.html</code> passou de pre-publicacao para pagina publica indexavel, com <code>robots</code> indexavel, canonical, <code>og:url</code>, JSON-LD de organizacao/site/pagina/produto, inclusao de <code>/obsidian/</code> no <code>sitemap.xml</code>, marca Obsidian no JSON-LD da Home e link no mapa do site do rodape da Home.</li>
@@ -441,6 +466,10 @@
 <li class="toc-level-2"><a href="#objetivo">Objetivo</a></li>
 <li class="toc-level-2"><a href="#como-registrar-novas-entradas">Como Registrar Novas Entradas</a></li>
 <li class="toc-level-2"><a href="#historico-consolidado">Historico Consolidado</a></li>
+<li class="toc-level-2"><a href="#2026-05-23-area-clicavel-do-header-da-home">2026-05-23 - Area clicavel do header da Home</a></li>
+<li class="toc-level-2"><a href="#2026-05-23-infraestrutura-compartilhada-de-header">2026-05-23 - Infraestrutura compartilhada de header</a></li>
+<li class="toc-level-2"><a href="#2026-05-23-correcao-do-header-neuroflash-apos-rodape-global">2026-05-23 - Correcao do header NeuroFlash apos rodape global</a></li>
+<li class="toc-level-2"><a href="#2026-05-23-rodape-global-em-shared-raiz">2026-05-23 - Rodape global em shared raiz</a></li>
 <li class="toc-level-2"><a href="#2026-05-22-consolidacao-da-pagina-estatica-obsidian">2026-05-22 - Consolidacao da pagina estatica Obsidian</a></li>
 <li class="toc-level-2"><a href="#2026-05-22-obsidian-com-motor-cinematografico-de-scroll">2026-05-22 - Obsidian com motor cinematografico de scroll</a></li>
 <li class="toc-level-2"><a href="#2026-05-22-animacoes-de-montagem-no-scroll-obsidian">2026-05-22 - Animacoes de montagem no scroll Obsidian</a></li>

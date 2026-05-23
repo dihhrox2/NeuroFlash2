@@ -1,0 +1,62 @@
+:root {
+  --shared-header-content-width: 1180px;
+  --shared-header-gutter: 18px;
+  --shared-header-gutter-mobile: 14px;
+  --shared-header-z-index: 20;
+  --shared-header-sticky-top: 0;
+  --shared-header-height: 72px;
+  --shared-header-mobile-height: 66px;
+  --shared-header-gap: 16px;
+  --shared-header-nav-gap: 22px;
+}
+
+.shared-header {
+  width: 100%;
+  min-height: var(--shared-header-height);
+  margin: 0 auto;
+}
+
+.shared-header--sticky {
+  position: sticky;
+  top: var(--shared-header-sticky-top);
+  z-index: var(--shared-header-z-index);
+}
+
+.shared-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--shared-header-gap);
+  width: min(100%, var(--shared-header-content-width));
+  min-height: inherit;
+  margin: 0 auto;
+  padding-right: var(--shared-header-gutter);
+  padding-left: var(--shared-header-gutter);
+}
+
+.shared-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--shared-header-gap);
+  min-width: 0;
+}
+
+.shared-header__nav,
+.shared-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--shared-header-nav-gap);
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .shared-header {
+    min-height: var(--shared-header-mobile-height);
+  }
+
+  .shared-header__inner {
+    padding-right: var(--shared-header-gutter-mobile);
+    padding-left: var(--shared-header-gutter-mobile);
+  }
+}

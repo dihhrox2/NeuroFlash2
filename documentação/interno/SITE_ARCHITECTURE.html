@@ -34,8 +34,10 @@
 <li>curadoria legal externa: todo texto visivel ao publico e bloqueado para edicao interna; nenhuma refatoracao, atualizacao, otimizacao, ajuste de SEO, acessibilidade, performance ou manutencao pode alterar copy, labels, CTAs, metadados textuais visiveis em compartilhamento, avisos, FAQ, conteudo institucional ou qualquer texto exibido ao usuario sem aprovacao legal externa previa</li>
 <li>base visual da Home Essentia Health: <code>styles.css</code></li>
 <li>logica interativa da Home Essentia Health: <code>carousel.js</code></li>
+<li>infraestrutura global de header: <code>shared/header-utils.js</code> e <code>shared/header.css</code>, sem unificar visualmente os headers dos produtos</li>
+<li>rodape global do site: <code>shared/footer.js</code>, <code>shared/footer.css</code>, <code>shared/essentia-health-logo.png</code> e <code>shared/icons/</code></li>
 <li>base visual compartilhada do NeuroFlash: <code>neuroflash/shared/styles.css</code></li>
-<li>componentes compartilhados do NeuroFlash: <code>neuroflash/shared/includes.js</code></li>
+<li>componentes compartilhados do NeuroFlash: <code>neuroflash/shared/includes.js</code> para header e aviso legal do produto</li>
 <li>logicas interativas do NeuroFlash: <code>neuroflash/faq/script.js</code> e <code>neuroflash/home/hero-carousel.js</code></li>
 <li>fundo canonico compartilhado do NeuroFlash: <code>neuroflash/shared/background-neuroflash.jpg</code>, aplicado no <code>body</code> com comportamento fixo</li>
 <li>estrategia SEO atual: Home Essentia Health na raiz, NeuroFlash em <code>/neuroflash/</code>, Obsidian em <code>/obsidian/</code>, metadados por pagina, canonical, Open Graph/Twitter completos com URLs absolutas, headings semanticos, alt text descritivo, JSON-LD conservador e arquivos <code>robots.txt</code>/<code>sitemap.xml</code></li>
@@ -57,6 +59,7 @@
 <li><code>robots.txt</code>: arquivo tecnico de orientacao para crawlers, com referencia para o sitemap absoluto.</li>
 <li><code>sitemap.xml</code>: mapa XML com Home Essentia Health, paginas oficiais do NeuroFlash sob <code>/neuroflash/</code> e a pagina oficial Obsidian sob <code>/obsidian/</code>.</li>
 <li><code>assets/</code>: imagens da Home Essentia Health, incluindo logo, marca e cards de produtos.</li>
+<li><code>shared/</code>: camada compartilhada de site inteiro, com infraestrutura neutra de header, rodape global, logo institucional do rodape e icones de contato.</li>
 <li><code>styles.css</code>: estilos da Home Essentia Health.</li>
 <li><code>carousel.js</code>: carrossel manual de produtos da Home Essentia Health.</li>
 <li><code>neuroflash/</code>: subsite do produto NeuroFlash, com Home, FAQ, Quem Somos, assets, estilos compartilhados e scripts do produto.</li>
@@ -65,11 +68,13 @@
 </ul>
 <p>Ownership por area:</p>
 <ul>
-<li><code>index.html</code> + <code>styles.css</code> + <code>carousel.js</code> + <code>assets/images/</code>: Home Essentia Health, logo institucional, carrossel manual de produtos, entrada visual para <code>/neuroflash/</code> e <code>/obsidian/</code>, casca clara <code>site-shell</code> alinhada ao padrao estrutural do NeuroFlash e rodape completo espelhado do NeuroFlash com mapa, contatos e bloco institucional.</li>
-<li><code>neuroflash/shared/styles.css</code>: tokens, shell translucida, background fixo, header, superficies, CTA base, warning box, footer e primitivas compartilhadas nomeadas como <code>section-title</code>, <code>surface-section</code>, <code>surface-panel</code> e <code>media-block</code>.</li>
-<li><code>neuroflash/shared/includes.js</code>: injeta header, footer e aviso legal em marcadores <code>data-shared-*</code>, com helpers para links e blocos institucionais do subsite NeuroFlash; o logo Essentia Health do rodape aponta para a Home raiz em <code>../index.html</code> ou <code>../../index.html</code>, conforme a profundidade da pagina.</li>
+<li><code>index.html</code> + <code>styles.css</code> + <code>carousel.js</code> + <code>assets/images/</code>: Home Essentia Health, logo institucional, carrossel manual de produtos, entrada visual para <code>/neuroflash/</code> e <code>/obsidian/</code> e casca clara <code>site-shell</code> alinhada ao padrao estrutural do NeuroFlash.</li>
+<li><code>shared/header-utils.js</code> + <code>shared/header.css</code>: infraestrutura global de header para helpers de caminho, contexto, renderizacao segura e tokens estruturais neutros; nao define um header visual unico.</li>
+<li><code>shared/footer.js</code> + <code>shared/footer.css</code>: rodape global usado por Home, Obsidian e paginas NeuroFlash via <code>data-shared-footer</code>, com contexto por produto para variar apenas o mapa do site.</li>
+<li><code>shared/essentia-health-logo.png</code> e <code>shared/icons/</code>: assets globais do rodape institucional e contatos.</li>
+<li><code>neuroflash/shared/styles.css</code>: tokens, shell translucida, background fixo, header, superficies, CTA base, warning box e primitivas compartilhadas nomeadas como <code>section-title</code>, <code>surface-section</code>, <code>surface-panel</code> e <code>media-block</code>.</li>
+<li><code>neuroflash/shared/includes.js</code>: injeta header e aviso legal em marcadores <code>data-shared-*</code>, com helpers para links internos do subsite NeuroFlash.</li>
 <li><code>neuroflash/shared/background-neuroflash.jpg</code>: fundo visual canonico compartilhado por Home, Quem Somos e FAQ do NeuroFlash, fixo no viewport para efeito parallax.</li>
-<li><code>neuroflash/shared/icons/</code>: icones PNG compartilhados usados nos links de suporte e contato do rodape do NeuroFlash.</li>
 <li><code>neuroflash/index.html</code> + <code>neuroflash/home/styles.css</code> + <code>neuroflash/home/hero-carousel.js</code>: hero, carrossel desktop, grids especificos da Home do NeuroFlash, ajustes de layout da Home e CTA principal.</li>
 <li><code>neuroflash/home/index.html</code>: fallback tecnico interno do produto para a Home canonica do NeuroFlash.</li>
 <li><code>neuroflash/quem-somos/index.html</code> + <code>neuroflash/quem-somos/styles.css</code>: narrativa institucional, imagem dos fundadores e layout editorial do NeuroFlash.</li>
@@ -82,10 +87,25 @@
 </ul>
 <h2 id="componentes-e-comportamento">Componentes E Comportamento</h2>
 <h3 id="includes-compartilhados">Includes Compartilhados</h3>
-<p><code>neuroflash/shared/includes.js</code> centraliza os componentes compartilhados do produto:</p>
+<p><code>shared/header-utils.js</code> expõe <code>window.EssentiaShared.header</code> com helpers neutros de header:</p>
+<ul>
+<li>normalizacao de prefixos e caminhos</li>
+<li>deteccao simples de contexto da pagina</li>
+<li>renderizacao segura de includes sem vazar helpers para o escopo global</li>
+</ul>
+<p><code>shared/header.css</code> concentra tokens e classes estruturais neutras como largura, gutters, z-index, altura base, alinhamento interno, area de marca, area de navegacao e area de acoes. O visual continua dividido entre <code>styles.css</code>, <code>neuroflash/shared/styles.css</code> e <code>obsidian/styles.css</code>.</p>
+<p>Home raiz e NeuroFlash usam a estrutura comum de header. Obsidian permanece fora dessa refatoracao estrutural porque o header interage com a intro, <code>intro-dismissed</code> e o fade inicial do logo.</p>
+<p>Slots estruturais largos como <code>shared-header__inner</code> devem ficar em containers neutros, nao diretamente em links, para evitar que areas vazias do header virem clicaveis.</p>
+<p><code>shared/footer.js</code> centraliza o rodape global do site:</p>
+<ul>
+<li>renderiza <code>data-shared-footer</code> sem <code>fetch</code>, build step ou servidor local</li>
+<li>usa <code>data-footer-context</code> para escolher o mapa do site de Home, NeuroFlash ou Obsidian</li>
+<li>usa <code>data-footer-root-prefix</code> para resolver caminhos em raiz, subpastas e paginas aninhadas</li>
+</ul>
+<p>Scripts compartilhados do site devem permanecer encapsulados em escopo proprio, por exemplo via IIFE, para evitar colisao de nomes globais entre includes carregados na mesma pagina.</p>
+<p><code>neuroflash/shared/includes.js</code> centraliza os componentes compartilhados exclusivos do produto:</p>
 <ul>
 <li>header compartilhado via <code>data-shared-header</code></li>
-<li>footer compartilhado via <code>data-shared-footer</code>, com mapa do site, contatos e dados empresariais temporarios</li>
 <li>aviso legal via <code>data-shared-legal-warning</code></li>
 </ul>
 <p>O script calcula caminhos relativos para <code>neuroflash/</code>, <code>neuroflash/quem-somos/</code> e <code>neuroflash/faq/</code>, preserva <code>aria-current</code> na pagina ativa e evita <code>fetch</code>, mantendo compatibilidade com GitHub Pages e abertura local no Windows.</p>
@@ -101,7 +121,6 @@
 <li>casca compartilhada de secoes internas (<code>surface-section</code>)</li>
 <li>blocos de midia reutilizaveis com crop opcional (<code>media-block</code>)</li>
 <li>aviso legal</li>
-<li>footer institucional compartilhado</li>
 </ul>
 <p>Regras especificas de layout permanecem em <code>neuroflash/home/styles.css</code>, <code>neuroflash/faq/styles.css</code> ou <code>neuroflash/quem-somos/styles.css</code>. Em especial, <code>neuroflash/home/styles.css</code> deve ficar restrito ao hero, carrossel, grids e ajustes que so existem na Home do produto.</p>
 <h3 id="home">Home NeuroFlash</h3>
@@ -165,8 +184,8 @@
 <li>Home Essentia Health, Home NeuroFlash, Quem Somos, FAQ, fallback de <code>neuroflash/home/</code> e Obsidian devem ter <code>title</code>, <code>description</code> e <code>robots</code> unicos.</li>
 <li>Home Essentia Health, paginas oficiais do NeuroFlash e Obsidian usam <code>canonical</code>, <code>og:url</code> e imagens sociais absolutas com o dominio oficial.</li>
 <li>A Home Essentia Health usa JSON-LD basico para <code>Organization</code>, <code>WebSite</code> e <code>WebPage</code>.</li>
-<li>A Home NeuroFlash usa JSON-LD basico para <code>Organization</code>, <code>Brand</code>, <code>WebSite</code>, <code>WebPage</code> e <code>Product</code>, com URLs tecnicas absolutas sob <code>/neuroflash/</code>, mas sem preco, <code>Offer</code> ou disponibilidade enquanto a venda nao estiver liberada.</li>
-<li>Obsidian usa JSON-LD basico para <code>Organization</code>, <code>WebSite</code>, <code>WebPage</code> e <code>Product</code>, com URLs tecnicas absolutas sob <code>/obsidian/</code>, mas sem preco, <code>Offer</code> ou disponibilidade enquanto a venda nao estiver liberada.</li>
+<li>A Home NeuroFlash usa JSON-LD basico para <code>Organization</code>, <code>Brand</code>, <code>WebSite</code> e <code>WebPage</code>, com URLs tecnicas absolutas sob <code>/neuroflash/</code>; <code>Product</code> fica suspenso enquanto nao houver oferta, avaliacao ou review real e aprovado.</li>
+<li>Obsidian usa JSON-LD basico para <code>Organization</code>, <code>WebSite</code> e <code>WebPage</code>, com URLs tecnicas absolutas sob <code>/obsidian/</code>; <code>Product</code> fica suspenso enquanto nao houver oferta, avaliacao ou review real e aprovado.</li>
 <li>FAQ usa JSON-LD minimo de <code>WebPage</code> sobre o produto, e Quem Somos usa <code>AboutPage</code>, ambos com URLs tecnicas absolutas sob <code>/neuroflash/</code>.</li>
 <li>Home Essentia Health, Home NeuroFlash, Quem Somos, FAQ e Obsidian devem manter Open Graph e Twitter cards com imagem e texto alternativo coerentes.</li>
 <li>Sempre que a imagem social for conhecida, manter tambem <code>og:image:type</code>, <code>og:image:width</code> e <code>og:image:height</code>.</li>
@@ -190,6 +209,7 @@
 <li>tratar Home, Quem Somos e FAQ como um unico sistema visual</li>
 <li>preferir <code>shared/styles.css</code> para regras realmente identicas entre paginas</li>
 <li>manter includes sem <code>fetch</code> enquanto <code>file:///</code> for requisito</li>
+<li>encapsular scripts compartilhados para nao declarar <code>const</code>, <code>let</code> ou helpers reutilizaveis no escopo global da pagina</li>
 <li>substituir os dados ficticios do footer antes da publicacao publica</li>
 </ul>
 <p>Checklist rapido pos-alteracao:</p>

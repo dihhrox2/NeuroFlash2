@@ -26,6 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./shared/header.css">
+  <link rel="stylesheet" href="./shared/footer.css">
   <link rel="stylesheet" href="./styles.css">
   <script type="application/ld+json">
     {
@@ -71,13 +73,15 @@
 </head>
 <body>
   <div class="site-shell">
-    <header class="site-header" aria-label="Topo do site">
-      <a class="brand" href="./index.html" aria-label="Essentia Health">
-        <span class="brand-mark" aria-hidden="true">
-          <img src="./assets/images/essentia-health-logo-mark.png" alt="">
-        </span>
-        <span class="brand-name"><strong>Essentia</strong> <span>Health</span></span>
-      </a>
+    <header class="site-header shared-header shared-header--root shared-header--sticky" aria-label="Topo do site">
+      <div class="shared-header__inner">
+        <a class="brand shared-header__brand" href="./index.html" aria-label="Essentia Health">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="./assets/images/essentia-health-logo-mark.png" alt="">
+          </span>
+          <span class="brand-name"><strong>Essentia</strong> <span>Health</span></span>
+        </a>
+      </div>
     </header>
 
     <main id="inicio">
@@ -137,52 +141,9 @@
       </section>
     </main>
 
-    <footer class="site-footer footer">
-      <div class="footer-shell">
-        <section class="footer-brand" aria-label="Essentia Health">
-          <a class="footer-brand-link" href="./index.html">
-            <img class="footer-brand-logo" src="./assets/images/essentia-health-logo.png" alt="Essentia Health - Solucoes inteligentes em saude e bem-estar" width="1408" height="768" loading="lazy" decoding="async">
-          </a>
-        </section>
-
-        <nav class="footer-column footer-column--centered-title" aria-label="Mapa do site">
-          <h3>Mapa do site</h3>
-          <a href="./index.html">Home</a>
-          <a href="./neuroflash/index.html">NeuroFlash</a>
-          <a href="./obsidian/index.html">Obsidian</a>
-        </nav>
-
-        <address class="footer-column footer-contact">
-          <h3>Suporte e contato</h3>
-          <a href="mailto:contato@essentiahealth.com.br">
-            <img class="footer-contact-icon" src="./neuroflash/shared/icons/email.png" alt="" aria-hidden="true" width="315" height="315" loading="lazy" decoding="async">
-            <span>contato@essentiahealth.com.br</span>
-          </a>
-          <a href="https://www.instagram.com/essentiahealth.br">
-            <img class="footer-contact-icon" src="./neuroflash/shared/icons/instagram.png" alt="" aria-hidden="true" width="315" height="316" loading="lazy" decoding="async">
-            <span>@essentiahealth.br</span>
-          </a>
-          <a href="https://wa.me/5511999999999">
-            <img class="footer-contact-icon" src="./neuroflash/shared/icons/whatsapp.png" alt="" aria-hidden="true" width="316" height="316" loading="lazy" decoding="async">
-            <span>(11) 99999-9999</span>
-          </a>
-        </address>
-
-        <section class="footer-column footer-column--centered-title">
-          <h3>Institucional</h3>
-          <div class="footer-subgroup">
-            <p>CNPJ: 66.907.199/0001-44</p>
-            <p>Endereco: Av. Papa Joao Paulo II, 650, apto. 44 - Urbanova VI, Sao Jose dos Campos - SP</p>
-            <p>Atendimento: seg. a sex., 9h as 18h</p>
-          </div>
-        </section>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 Essentia Health.</p>
-      </div>
-    </footer>
+    <div data-shared-footer data-footer-context="root" data-footer-root-prefix="./"></div>
   </div>
+  <script src="./shared/footer.js" defer></script>
   <script src="./carousel.js" defer></script>
 </body>
 </html>
