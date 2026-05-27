@@ -1,7 +1,7 @@
 const root = document.documentElement;
-const introCurtain = document.querySelector("[data-intro-curtain]");
-const scrollFadeLogo = document.querySelector("[data-scroll-fade-logo]");
-const scrollFadeProducts = document.querySelectorAll("[data-scroll-fade-product]");
+const intro_curtain = document.querySelector("[data-intro-curtain]");
+const scroll_fade_logo = document.querySelector("[data-scroll-fade-logo]");
+const scroll_fade_products = document.querySelectorAll("[data-scroll-fade-product]");
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -12,38 +12,38 @@ if (!window.location.hash) {
 }
 
 const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
-const easeInOut = (value) => value * value * (3 - 2 * value);
+const ease_in_out = (value) => value * value * (3 - 2 * value);
 
-const updateIntro = () => {
-  const fadeProgress = easeInOut(clamp(window.scrollY / 420));
-  const headerProgress = easeInOut(clamp((window.scrollY - 210) / 210));
-  const opacity = 1 - fadeProgress;
+const update_intro = () => {
+  const fade_progress = ease_in_out(clamp(window.scrollY / 420));
+  const header_progress = ease_in_out(clamp((window.scrollY - 210) / 210));
+  const opacity = 1 - fade_progress;
 
-  root.classList.toggle("intro-dismissed", headerProgress > 0.1);
+  root.classList.toggle("intro-dismissed", header_progress > 0.1);
 
-  if (introCurtain) {
-    introCurtain.style.opacity = opacity.toFixed(3);
-    introCurtain.style.visibility = fadeProgress >= 1 ? "hidden" : "visible";
-    introCurtain.style.transform = `scale(${(1 + fadeProgress * 0.025).toFixed(3)})`;
+  if (intro_curtain) {
+    intro_curtain.style.opacity = opacity.toFixed(3);
+    intro_curtain.style.visibility = fade_progress >= 1 ? "hidden" : "visible";
+    intro_curtain.style.transform = `scale(${(1 + fade_progress * 0.025).toFixed(3)})`;
   }
 
-  if (scrollFadeLogo) {
-    scrollFadeLogo.style.opacity = headerProgress.toFixed(3);
+  if (scroll_fade_logo) {
+    scroll_fade_logo.style.opacity = header_progress.toFixed(3);
   }
 
-  scrollFadeProducts.forEach((scrollFadeProduct) => {
-    const productTop = scrollFadeProduct.getBoundingClientRect().top;
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const fadeStart = viewportHeight * 0.88;
-    const fadeEnd = viewportHeight * 0.42;
-    const productProgress = easeInOut(clamp((fadeStart - productTop) / (fadeStart - fadeEnd)));
-    const offset = 18 * (1 - productProgress);
+  scroll_fade_products.forEach((scroll_fade_product) => {
+    const product_top = scroll_fade_product.getBoundingClientRect().top;
+    const viewport_height = window.innerHeight || document.documentElement.clientHeight;
+    const fade_start = viewport_height * 0.88;
+    const fade_end = viewport_height * 0.42;
+    const product_progress = ease_in_out(clamp((fade_start - product_top) / (fade_start - fade_end)));
+    const offset = 18 * (1 - product_progress);
 
-    scrollFadeProduct.style.opacity = productProgress.toFixed(3);
-    scrollFadeProduct.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+    scroll_fade_product.style.opacity = product_progress.toFixed(3);
+    scroll_fade_product.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
   });
 };
 
-updateIntro();
-window.addEventListener("scroll", updateIntro, { passive: true });
-window.addEventListener("resize", updateIntro);
+update_intro();
+window.addEventListener("scroll", update_intro, { passive: true });
+window.addEventListener("resize", update_intro);

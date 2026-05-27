@@ -1,41 +1,41 @@
 (() => {
-const NESTED_PAGE_PATTERN = /\/(home|faq|quem-somos)\/(?:index\.html)?$/;
-const SITE_LINKS = [
-  { href: "index.html", page: "home", navLabel: "HOME" },
-  { href: "quem-somos/index.html", page: "quem-somos", navLabel: "QUEM SOMOS" },
-  { href: "faq/index.html", page: "faq", navLabel: "FAQ" },
+const nested_page_pattern = /\/(home|faq|quem-somos)\/(?:index\.html)?$/;
+const site_links = [
+  { href: "index.html", page: "home", nav_label: "HOME" },
+  { href: "quem-somos/index.html", page: "quem-somos", nav_label: "QUEM SOMOS" },
+  { href: "faq/index.html", page: "faq", nav_label: "FAQ" },
 ];
-const SHARED_INCLUDE_SELECTORS = [
+const shared_include_selectors = [
   ["[data-shared-header]", "header"],
-  ["[data-shared-legal-warning]", "legalWarning"],
+  ["[data-shared-legal-warning]", "legal_warning"],
 ];
-const headerUtils = window.EssentiaShared?.header;
+const header_utils = window.EssentiaShared?.header;
 
-const getNormalizedPath = () => (headerUtils?.getNormalizedPath ? headerUtils.getNormalizedPath() : window.location.pathname.replace(/\\/g, "/"));
+const get_normalized_path = () => (header_utils?.get_normalized_path ? header_utils.get_normalized_path() : window.location.pathname.replace(/\\/g, "/"));
 
-const getSharedPathPrefix = () => (NESTED_PAGE_PATTERN.test(getNormalizedPath()) ? "../" : "./");
-const getCurrentPage = () => {
-  const path = getNormalizedPath();
-  const currentLink = SITE_LINKS.find(({ page }) => path.includes(`/${page}/`));
+const get_shared_path_prefix = () => (nested_page_pattern.test(get_normalized_path()) ? "../" : "./");
+const get_current_page = () => {
+  const path = get_normalized_path();
+  const current_link = site_links.find(({ page }) => path.includes(`/${page}/`));
 
-  return currentLink?.page ?? "home";
+  return current_link?.page ?? "home";
 };
 
-const buildAnchor = (href, label, attributes = "") => `<a${attributes} href="${href}">${label}</a>`;
-const buildLinkGroup = (links) => links.map(({ href, label, attributes = "" }) => buildAnchor(href, label, attributes)).join("");
+const build_anchor = (href, label, attributes = "") => `<a${attributes} href="${href}">${label}</a>`;
+const build_link_group = (links) => links.map(({ href, label, attributes = "" }) => build_anchor(href, label, attributes)).join("");
 
-const buildNavLinks = (prefix, currentPage) =>
-  buildLinkGroup(
-    SITE_LINKS.map(({ href, navLabel, page }) => ({
+const build_nav_links = (prefix, current_page) =>
+  build_link_group(
+    site_links.map(({ href, nav_label, page }) => ({
       href: `${prefix}${href}`,
-      label: navLabel,
-      attributes: page === currentPage ? ' class="is-active" aria-current="page"' : "",
+      label: nav_label,
+      attributes: page === current_page ? ' class="is-active" aria-current="page"' : "",
     })),
   );
 
-const buildHeader = () => {
-  const prefix = getSharedPathPrefix();
-  const currentPage = getCurrentPage();
+const build_header = () => {
+  const prefix = get_shared_path_prefix();
+  const current_page = get_current_page();
 
   return `
     <header class="home-nav shared-header shared-header--neuroflash">
@@ -44,17 +44,17 @@ const buildHeader = () => {
           <a class="brand-mark" href="${prefix}index.html">NEURO<span>FLASH</span></a>
           <div class="price-badge home-badge">HARDCORE MODE</div>
         </div>
-        <nav class="home-menu shared-header__nav" aria-label="Navegacao principal">
-          ${buildNavLinks(prefix, currentPage)}
+        <nav class="home-menu shared-header__nav" aria-label="Navegação principal">
+          ${build_nav_links(prefix, current_page)}
         </nav>
       </div>
     </header>
   `.trim();
 };
 
-const sharedIncludes = {
-  header: buildHeader,
-  legalWarning: () => `
+const shared_includes = {
+  header: build_header,
+  legal_warning: () => `
     <aside class="warning-box">
       <h3>&#9888; HARDCORE MODE ONLY</h3>
       <p>
@@ -65,16 +65,16 @@ const sharedIncludes = {
   `.trim(),
 };
 
-const renderSharedInclude = (selector, includeName) => {
-  const include = sharedIncludes[includeName];
+const render_shared_include = (selector, include_name) => {
+  const include = shared_includes[include_name];
 
   if (!include) {
-    console.error(`Shared include failed: ${includeName} component is not registered.`);
+    console.error(`Shared include failed: ${include_name} component is not registered.`);
     return;
   }
 
-  if (headerUtils?.renderInclude) {
-    headerUtils.renderInclude(selector, include);
+  if (header_utils?.render_include) {
+    header_utils.render_include(selector, include);
     return;
   }
 
@@ -83,7 +83,7 @@ const renderSharedInclude = (selector, includeName) => {
   });
 };
 
-SHARED_INCLUDE_SELECTORS.forEach(([selector, includeName]) => {
-  renderSharedInclude(selector, includeName);
+shared_include_selectors.forEach(([selector, include_name]) => {
+  render_shared_include(selector, include_name);
 });
 })();

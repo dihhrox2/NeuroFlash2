@@ -41,8 +41,7 @@
   min-width: 0;
 }
 
-.shared-header__nav,
-.shared-header__actions {
+.shared-header__nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;

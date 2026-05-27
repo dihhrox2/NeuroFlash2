@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -38,35 +38,40 @@
 <li>Sempre declarar <code>width</code> e <code>height</code> no HTML quando a imagem aparecer como <code>&lt;img&gt;</code>.</li>
 <li>Imagens abaixo da dobra devem usar <code>loading=&quot;lazy&quot;</code> e <code>decoding=&quot;async&quot;</code>.</li>
 <li>Imagens criticas do primeiro impacto visual nao devem usar lazy loading.</li>
+<li>A dimensao do arquivo deve acompanhar o maior uso previsto no mockup Full HD; se o redimensionamento gerar arquivo maior, manter o original.</li>
 </ul>
 <h2 id="2-imagens-essentia-health">2. Imagens Essentia Health</h2>
 <ul>
 <li>Arquivo: <code>assets/images/essentia-health-logo.png</code></li>
 <li>Uso: logo principal da Home Essentia Health.</li>
-<li>Dimensao HTML: 1408 x 768 px</li>
+<li>Dimensao real: 779 x 540 px</li>
+<li>Dimensao HTML: 779 x 540 px</li>
 </ul>
 <ul>
 <li>Arquivo: <code>assets/images/essentia-health-logo-mark.png</code></li>
 <li>Uso: simbolo compacto no topo da Home Essentia Health.</li>
+<li>Dimensao real: 359 x 196 px</li>
+<li>Dimensao HTML: 359 x 196 px</li>
 </ul>
 <ul>
 <li>Arquivo: <code>assets/images/neuroflash.jpg</code></li>
 <li>Uso: packshot do primeiro card do carrossel de produtos da Home Essentia Health, com link operacional para <code>./neuroflash/index.html</code>.</li>
-<li>Dimensao recomendada: 1500 x 2000 px</li>
-<li>Dimensao HTML: 1500 x 2000 px</li>
+<li>Dimensao real: 600 x 800 px</li>
+<li>Dimensao HTML: 600 x 800 px</li>
 <li>Proporcao recomendada: 3:4 vertical</li>
 </ul>
 <ul>
 <li>Arquivo: <code>assets/images/obsidian.jpg</code></li>
 <li>Uso: imagem do segundo card do carrossel de produtos da Home Essentia Health.</li>
-<li>Dimensao real: 1500 x 2000 px</li>
-<li>Dimensao HTML: 1500 x 2000 px</li>
+<li>Dimensao real: 600 x 800 px</li>
+<li>Dimensao HTML: 600 x 800 px</li>
 <li>Proporcao recomendada: 3:4 vertical</li>
 </ul>
 <ul>
 <li>Arquivo: <code>assets/images/em-breve.jpg</code></li>
 <li>Uso: imagem dos dois placeholders restantes do carrossel de produtos da Home Essentia Health.</li>
-<li>Dimensao recomendada: 1500 x 2000 px</li>
+<li>Dimensao real: 600 x 800 px</li>
+<li>Dimensao HTML: 600 x 800 px</li>
 <li>Proporcao recomendada: 3:4 vertical</li>
 </ul>
 <h2 id="3-imagens-compartilhadas-neuroflash">3. Imagens Compartilhadas NeuroFlash</h2>
@@ -83,7 +88,8 @@
 <ul>
 <li>Arquivo: <code>shared/essentia-health-logo.png</code></li>
 <li>Uso: logo institucional da Essentia Health no rodape global.</li>
-<li>Dimensao HTML: 1504 x 768 px</li>
+<li>Dimensao real: 779 x 540 px</li>
+<li>Dimensao HTML: 779 x 540 px</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -94,17 +100,20 @@
 <ul>
 <li>Arquivo: <code>shared/icons/email.png</code></li>
 <li>Uso: icone de e-mail no rodape.</li>
-<li>Dimensao HTML: 18 x 18 px</li>
+<li>Dimensao real: 96 x 96 px</li>
+<li>Dimensao HTML: 96 x 96 px</li>
 </ul>
 <ul>
 <li>Arquivo: <code>shared/icons/instagram.png</code></li>
 <li>Uso: icone de Instagram no rodape.</li>
-<li>Dimensao HTML: 18 x 18 px</li>
+<li>Dimensao real: 96 x 96 px</li>
+<li>Dimensao HTML: 96 x 96 px</li>
 </ul>
 <ul>
 <li>Arquivo: <code>shared/icons/whatsapp.png</code></li>
 <li>Uso: icone de WhatsApp no rodape.</li>
-<li>Dimensao HTML: 18 x 18 px</li>
+<li>Dimensao real: 96 x 96 px</li>
+<li>Dimensao HTML: 96 x 96 px</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -116,24 +125,24 @@
 <ul>
 <li>Arquivo: <code>neuroflash/home/hero-focus.jpg</code></li>
 <li>Uso: primeira imagem do carrossel desktop da hero.</li>
-<li>Dimensao real: 2200 x 1400 px</li>
-<li>Dimensao HTML: 2200 x 1400 px</li>
+<li>Dimensao real: 1439 x 916 px</li>
+<li>Dimensao HTML: 1439 x 916 px</li>
 <li>Proporcao: 11:7</li>
 <li>Prioridade: imagem critica, carregamento imediato.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/hero-focus2.jpg</code></li>
 <li>Uso: slide adicional do carrossel desktop da hero.</li>
-<li>Dimensao real: 2200 x 1400 px</li>
-<li>Dimensao HTML: 2200 x 1400 px</li>
+<li>Dimensao real: 1439 x 916 px</li>
+<li>Dimensao HTML: 1439 x 916 px</li>
 <li>Proporcao: 11:7</li>
 <li>Prioridade: carregamento sob demanda via JavaScript.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/hero-focus3.jpg</code></li>
 <li>Uso: slide adicional do carrossel desktop da hero.</li>
-<li>Dimensao real: 2200 x 1400 px</li>
-<li>Dimensao HTML: 2200 x 1400 px</li>
+<li>Dimensao real: 1439 x 916 px</li>
+<li>Dimensao HTML: 1439 x 916 px</li>
 <li>Proporcao: 11:7</li>
 <li>Prioridade: carregamento sob demanda via JavaScript.</li>
 </ul>
@@ -148,8 +157,8 @@
 <ul>
 <li>Arquivo: <code>neuroflash/home/product-packshot2.jpg</code></li>
 <li>Uso: imagem principal do produto na Home.</li>
-<li>Dimensao real: 1400 x 2333 px</li>
-<li>Dimensao HTML: 1400 x 2333 px</li>
+<li>Dimensao real: 600 x 1000 px</li>
+<li>Dimensao HTML: 600 x 1000 px</li>
 <li>Orientacao: vertical</li>
 <li>Prioridade: imagem critica, carregamento imediato.</li>
 </ul>
@@ -164,30 +173,30 @@
 <ul>
 <li>Arquivo: <code>neuroflash/home/mental-ignition.jpg</code></li>
 <li>Uso: card de conceito visual.</li>
-<li>Dimensao real: 1600 x 1200 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Dimensao real: 600 x 450 px</li>
+<li>Dimensao HTML: 600 x 450 px</li>
 <li>Proporcao HTML: 4:3</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/focus-lock.jpg</code></li>
 <li>Uso: card de conceito visual.</li>
-<li>Dimensao real: 1024 x 1024 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
-<li>Proporcao HTML: 4:3</li>
+<li>Dimensao real: 600 x 600 px</li>
+<li>Dimensao HTML: 600 x 600 px</li>
+<li>Proporcao HTML: 1:1</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/pressure-mode.jpg</code></li>
 <li>Uso: card de conceito visual.</li>
-<li>Dimensao real: 1264 x 843 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
-<li>Proporcao HTML: 4:3</li>
+<li>Dimensao real: 600 x 400 px</li>
+<li>Dimensao HTML: 600 x 400 px</li>
+<li>Proporcao HTML: 3:2</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/clarity-rush.jpg</code></li>
 <li>Uso: card de conceito visual.</li>
-<li>Dimensao real: 1365 x 768 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
-<li>Proporcao HTML: 4:3</li>
+<li>Dimensao real: 600 x 338 px</li>
+<li>Dimensao HTML: 600 x 338 px</li>
+<li>Proporcao HTML: 16:9 aproximada</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -199,23 +208,23 @@
 <ul>
 <li>Arquivo: <code>neuroflash/home/treino.jpg</code></li>
 <li>Uso: contexto de treino intenso.</li>
-<li>Dimensao real: 1364 x 768 px</li>
-<li>Dimensao HTML: 1600 x 1000 px</li>
-<li>Proporcao HTML: 8:5</li>
+<li>Dimensao real: 799 x 450 px</li>
+<li>Dimensao HTML: 799 x 450 px</li>
+<li>Proporcao HTML: 16:9 aproximada</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/estudo.jpg</code></li>
 <li>Uso: contexto de estudos, provas e concentracao.</li>
-<li>Dimensao real: 1365 x 768 px</li>
-<li>Dimensao HTML: 1600 x 1000 px</li>
-<li>Proporcao HTML: 8:5</li>
+<li>Dimensao real: 800 x 450 px</li>
+<li>Dimensao HTML: 800 x 450 px</li>
+<li>Proporcao HTML: 16:9</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/game-competicao.jpg</code></li>
 <li>Uso: contexto de jogos, competicao e alta pressao.</li>
-<li>Dimensao real: 1264 x 842 px</li>
-<li>Dimensao HTML: 1600 x 1000 px</li>
-<li>Proporcao HTML: 8:5</li>
+<li>Dimensao real: 800 x 533 px</li>
+<li>Dimensao HTML: 800 x 533 px</li>
+<li>Proporcao HTML: 3:2 aproximada</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -227,22 +236,22 @@
 <ul>
 <li>Arquivo: <code>neuroflash/home/motocross.jpg</code></li>
 <li>Uso: galeria de intensidade e acao.</li>
-<li>Dimensao real: 1200 x 900 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Dimensao real: 800 x 600 px</li>
+<li>Dimensao HTML: 800 x 600 px</li>
 <li>Proporcao: 4:3</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/homem-terno.jpg</code></li>
 <li>Uso: galeria de rotina profissional e alta demanda.</li>
-<li>Dimensao real: 1200 x 900 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Dimensao real: 800 x 600 px</li>
+<li>Dimensao HTML: 800 x 600 px</li>
 <li>Proporcao: 4:3</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/mulher-ufc.jpg</code></li>
 <li>Uso: galeria de intensidade e esporte.</li>
-<li>Dimensao real: 1200 x 900 px</li>
-<li>Dimensao HTML: 1200 x 900 px</li>
+<li>Dimensao real: 800 x 600 px</li>
+<li>Dimensao HTML: 800 x 600 px</li>
 <li>Proporcao: 4:3</li>
 </ul>
 <p>Orientacoes:</p>
@@ -291,7 +300,8 @@
 <ul>
 <li>Arquivo: <code>obsidian/assets/logo-mini.png</code></li>
 <li>Uso: logo clicavel reduzido do header fixo da pagina Obsidian.</li>
-<li>Dimensao real: 512 x 512 px</li>
+<li>Dimensao real: 128 x 128 px</li>
+<li>Dimensao HTML: 128 x 128 px</li>
 <li>Prioridade: carregamento imediato no header.</li>
 </ul>
 <ul>
@@ -303,12 +313,6 @@
 <ul>
 <li>Arquivo: <code>obsidian/assets/apresentacao-1.png</code></li>
 <li>Uso: asset de referencia visual e imagem social Open Graph/Twitter; nao participa do layout atual da pagina.</li>
-<li>Dimensao real: 921 x 1152 px</li>
-<li>Orientacao: vertical</li>
-</ul>
-<ul>
-<li>Arquivo: <code>obsidian/assets/apresentacao-2.png</code></li>
-<li>Uso: asset de referencia visual para futuras iteracoes; nao participa do layout atual da pagina.</li>
 <li>Dimensao real: 921 x 1152 px</li>
 <li>Orientacao: vertical</li>
 </ul>

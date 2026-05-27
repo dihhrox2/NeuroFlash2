@@ -114,15 +114,6 @@ main {
   pointer-events: none;
 }
 
-.section-kicker {
-  margin: 0 0 16px;
-  color: var(--gold);
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
 h1,
 h2 {
   margin: 0;

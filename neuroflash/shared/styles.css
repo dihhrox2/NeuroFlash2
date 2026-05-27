@@ -174,16 +174,14 @@ body {
   white-space: nowrap;
 }
 
-.section-title,
-.section-heading {
+.section-title {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: var(--section-title-gap, 22px);
 }
 
-.section-title__accent,
-.heading-accent {
+.section-title__accent {
   width: 7px;
   height: 24px;
   background: linear-gradient(180deg, var(--lime), var(--cyan));
@@ -196,30 +194,25 @@ body {
   letter-spacing: 0.04em;
 }
 
-.section-title__text--section,
-.section-heading h2 {
+.section-title__text--section {
   font-size: 2rem;
   font-weight: 700;
 }
 
-.surface-section,
-.content-section {
+.surface-section {
   padding: var(--content-section-padding, 18px 18px 26px);
   position: relative;
 }
 
-.section-title--page,
-.content-section-title {
+.section-title--page {
   --section-title-gap: var(--content-section-title-gap, 22px);
 }
 
-.section-title--centered,
-.content-section-title--centered {
+.section-title--centered {
   justify-content: center;
 }
 
-.section-title__text--page,
-.content-section-title h1 {
+.section-title__text--page {
   font-size: var(--content-section-title-size, 2rem);
   font-weight: var(--content-section-title-weight, 700);
   line-height: var(--content-section-title-line-height, 1);
@@ -250,8 +243,7 @@ body {
   pointer-events: none;
 }
 
-.media-block,
-.media-frame {
+.media-block {
   display: grid;
   place-items: center;
   min-height: var(--media-block-min-height, 160px);
@@ -264,8 +256,7 @@ body {
   text-align: center;
 }
 
-.media-block--crop,
-.media-frame--crop {
+.media-block--crop {
   overflow: hidden;
   padding: 0;
   background: var(--media-block-crop-background, transparent);
@@ -343,13 +334,6 @@ body {
   box-shadow: 0 0 24px rgba(37, 186, 255, 0.18);
 }
 
-.cta-button.is-disabled {
-  cursor: default;
-  pointer-events: none;
-  opacity: 0.82;
-  filter: saturate(0.78);
-}
-
 @media (max-width: 768px) {
   body {
     background-attachment: scroll, scroll, scroll;
@@ -402,8 +386,7 @@ body {
     text-align: center;
   }
 
-  .section-title--page .section-title__accent,
-  .content-section-title .heading-accent {
+  .section-title--page .section-title__accent {
     width: 10px;
     height: clamp(42px, 11vw, 58px);
   }
@@ -441,8 +424,7 @@ body {
     padding-right: 18px;
   }
 
-  .surface-section,
-  .content-section {
+  .surface-section {
     width: min(100%, 1180px);
     margin: 0 auto;
     padding: var(--content-section-padding-desktop, var(--content-section-padding, 18px 18px 26px));

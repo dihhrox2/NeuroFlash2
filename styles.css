@@ -386,15 +386,6 @@ h3 {
   }
 }
 
-.card-number {
-  display: inline-flex;
-  margin-bottom: 38px;
-  color: var(--color-primary);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-}
-
 .info-card p,
 .mission p {
   color: var(--color-muted);

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -42,14 +42,15 @@
 <li>[ ] Obsidian: validar regulatorio final | contexto: antes de venda, confirmar composicao, rotulagem, descarte, advertencias e claims como antibacteriano, dermatologicamente testado, hipoalergenico ou flushable | prioridade: alta</li>
 <li>[ ] Empresa: substituir dados ficticios restantes do rodape por informacoes reais | contexto: CNPJ e endereco oficiais ja atualizados; telefone, WhatsApp, Instagram, horarios e politicas seguem pendentes antes da publicacao | prioridade: alta</li>
 <li>[x] Estrutura: centralizar rodape global em <code>shared/</code> | contexto: <code>shared/footer.js</code>, <code>shared/footer.css</code>, logo institucional e icones de contato agora atendem Home, Obsidian e NeuroFlash com mapa do site por contexto | prioridade: alta</li>
-<li>[x] Estrutura: encapsular scripts compartilhados para restaurar header NeuroFlash | contexto: <code>shared/footer.js</code> e <code>neuroflash/shared/includes.js</code> usam escopo proprio para evitar colisao global de helpers como <code>buildAnchor</code> | prioridade: alta</li>
+<li>[x] Estrutura: encapsular scripts compartilhados para restaurar header NeuroFlash | contexto: <code>shared/footer.js</code> e <code>neuroflash/shared/includes.js</code> usam escopo proprio para evitar colisao global de helpers como <code>build_anchor</code> | prioridade: alta</li>
 <li>[x] Estrutura: aplicar ossatura compartilhada nos headers de Home e NeuroFlash | contexto: <code>shared/header.css</code> define slots estruturais comuns, enquanto Obsidian permanece fora por depender do fade inicial do logo e da intro | prioridade: media</li>
 <li>[x] UX: limitar area clicavel do header da Home ao logo e nome | contexto: <code>shared-header__inner</code> fica em container neutro e o link permanece apenas na marca Essentia Health | prioridade: alta</li>
+<li>[x] Estrutura: remover assets e CSS sem uso confirmado | contexto: limpeza conservadora excluiu imagens duplicadas ou sem referencia publica, removeu aliases CSS sem consumidores reais e manteve rotas, copy publica, SEO tecnico e contratos <code>data-*</code> preservados | prioridade: media</li>
+<li>[x] Encoding: normalizar acentuacao e caixa operacional | contexto: documentacao interna movida para <code>documentacao/interno/</code> com nomes minusculos, referencias internas atualizadas, strings publicas corrigidas com acentuacao e identificadores locais seguros padronizados em scripts | prioridade: media</li>
 <li>[ ] Estrutura: avaliar unificacao visual futura dos headers somente com aprovacao especifica | contexto: hoje Home, NeuroFlash e Obsidian preservam headers proprios por diferenca de identidade e comportamento | prioridade: baixa</li>
 <li>[ ] Visual: tornar constante a transparencia dos elementos no mobile em todas as paginas | contexto: corrigir a percepcao de escurecimento gradual durante a rolagem | prioridade: alta</li>
 <li>[ ] Assets: limpar os metadados embutidos de todas as imagens do projeto | contexto: padronizar os arquivos antes da publicacao e evitar carregar informacoes desnecessarias | prioridade: media</li>
 <li>[x] Visual: compactar o rodape para reduzir espacos em branco | contexto: rodape da raiz refinado com mecanica dimensional do NeuroFlash, mapa simplificado, copyright institucional e linha inferior em largura total sem perder legibilidade | prioridade: media</li>
-<li>[ ] Encoding: revisar textos nao visiveis do site e do projeto para evitar acentuacao quebrada | contexto: ajustar metadados, textos tecnicos e strings auxiliares para escrita estavel, com versao sem acentos quando fizer sentido | prioridade: media</li>
 <li>[ ] Performance: estudar uma estrategia para aliviar a renderizacao de elementos fora da viewport | contexto: avaliar recursos nativos ou abordagem leve compativel com site estatico e <code>file:///</code> | prioridade: baixa</li>
 </ul>
       </article>

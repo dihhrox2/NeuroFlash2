@@ -1,25 +1,25 @@
-const HERO_DESKTOP_QUERY = window.matchMedia("(min-width: 769px)");
-const HERO_REDUCED_MOTION_QUERY = window.matchMedia("(prefers-reduced-motion: reduce)");
-const scheduleIdleWork =
+const hero_desktop_query = window.matchMedia("(min-width: 769px)");
+const hero_reduced_motion_query = window.matchMedia("(prefers-reduced-motion: reduce)");
+const schedule_idle_work =
   "requestIdleCallback" in window
     ? (callback) => window.requestIdleCallback(callback, { timeout: 1800 })
     : (callback) => window.setTimeout(callback, 280);
-const cancelIdleWork =
+const cancel_idle_work =
   "cancelIdleCallback" in window
     ? (id) => window.cancelIdleCallback(id)
     : (id) => window.clearTimeout(id);
-const HERO_EXTRA_SLIDES = [
+const hero_extra_slides = [
   {
     src: "./home/hero-focus2.jpg",
     alt: "Profissional apresentando em um palco corporativo sob luzes neon em ambiente de alta demanda.",
   },
   {
     src: "./home/hero-focus3.jpg",
-    alt: "Reuniao executiva com lider apresentando decisao estrategica em ambiente de pressao.",
+    alt: "Reunião executiva com líder apresentando decisão estratégica em ambiente de pressão.",
   },
 ];
 
-const createHeroSlide = ({ src, alt }) => {
+const create_hero_slide = ({ src, alt }) => {
   const slide = document.createElement("div");
   const image = document.createElement("img");
 
@@ -30,8 +30,8 @@ const createHeroSlide = ({ src, alt }) => {
   image.className = "media-block__image media-cover-image media-image--hero";
   image.src = src;
   image.alt = alt;
-  image.width = 2200;
-  image.height = 1400;
+  image.width = 1439;
+  image.height = 916;
   image.loading = "lazy";
   image.decoding = "async";
 
@@ -40,7 +40,7 @@ const createHeroSlide = ({ src, alt }) => {
   return slide;
 };
 
-const initializeHeroCarousel = () => {
+const initialize_hero_carousel = () => {
   const carousel = document.querySelector("[data-hero-carousel]");
 
   if (!carousel) {
@@ -48,44 +48,44 @@ const initializeHeroCarousel = () => {
   }
 
   const track = carousel.querySelector(".hero-carousel-track");
-  const previousButton = carousel.querySelector(".hero-carousel-control--prev");
-  const nextButton = carousel.querySelector(".hero-carousel-control--next");
+  const previous_button = carousel.querySelector(".hero-carousel-control--prev");
+  const next_button = carousel.querySelector(".hero-carousel-control--next");
   const indicators = carousel.querySelector(".hero-carousel-indicators");
 
-  if (!track || !previousButton || !nextButton || !indicators) {
+  if (!track || !previous_button || !next_button || !indicators) {
     return;
   }
 
   let slides = Array.from(track.querySelectorAll("[data-hero-slide]"));
-  let indicatorButtons = [];
-  let currentIndex = 0;
-  let autoplayTimer = null;
-  let isTransitioning = false;
-  let hydrationFrame = null;
-  let hydrationTask = null;
-  let controlsBound = false;
+  let indicator_buttons = [];
+  let current_index = 0;
+  let autoplay_timer = null;
+  let is_transitioning = false;
+  let hydration_frame = null;
+  let hydration_task = null;
+  let controls_bound = false;
 
-  const autoplayInterval = Number(carousel.dataset.autoplayInterval) || 5000;
-  const fadeDuration = 1000;
+  const autoplay_interval = Number(carousel.dataset.autoplayInterval) || 5000;
+  const fade_duration = 1000;
 
-  const clearAutoplay = () => {
-    if (autoplayTimer !== null) {
-      window.clearInterval(autoplayTimer);
-      autoplayTimer = null;
+  const clear_autoplay = () => {
+    if (autoplay_timer !== null) {
+      window.clearInterval(autoplay_timer);
+      autoplay_timer = null;
     }
   };
 
-  const syncMotionPreference = () => {
-    carousel.classList.toggle("is-reduced-motion", HERO_REDUCED_MOTION_QUERY.matches);
+  const sync_motion_preference = () => {
+    carousel.classList.toggle("is-reduced-motion", hero_reduced_motion_query.matches);
   };
 
-  const updateIndicators = () => {
-    indicatorButtons.forEach((button, index) => {
-      const isActive = index === currentIndex;
+  const update_indicators = () => {
+    indicator_buttons.forEach((button, index) => {
+      const is_active = index === current_index;
 
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
-      if (isActive) {
+      button.classList.toggle("is-active", is_active);
+      button.setAttribute("aria-pressed", String(is_active));
+      if (is_active) {
         button.setAttribute("aria-current", "true");
       } else {
         button.removeAttribute("aria-current");
@@ -93,93 +93,93 @@ const initializeHeroCarousel = () => {
     });
   };
 
-  const updateSlides = () => {
+  const update_slides = () => {
     slides.forEach((slide, index) => {
-      const isActive = index === currentIndex;
+      const is_active = index === current_index;
 
-      slide.classList.toggle("is-active", isActive);
+      slide.classList.toggle("is-active", is_active);
       slide.classList.remove("is-fading-out", "is-fading-in");
-      slide.setAttribute("aria-hidden", String(!isActive));
+      slide.setAttribute("aria-hidden", String(!is_active));
     });
 
-    updateIndicators();
+    update_indicators();
   };
 
-  const waitForFade = () => new Promise((resolve) => {
-    window.setTimeout(resolve, fadeDuration);
+  const wait_for_fade = () => new Promise((resolve) => {
+    window.setTimeout(resolve, fade_duration);
   });
 
-  const cancelScheduledHydration = () => {
-    if (hydrationFrame !== null) {
-      window.cancelAnimationFrame(hydrationFrame);
-      hydrationFrame = null;
+  const cancel_scheduled_hydration = () => {
+    if (hydration_frame !== null) {
+      window.cancelAnimationFrame(hydration_frame);
+      hydration_frame = null;
     }
 
-    if (hydrationTask !== null) {
-      cancelIdleWork(hydrationTask);
-      hydrationTask = null;
+    if (hydration_task !== null) {
+      cancel_idle_work(hydration_task);
+      hydration_task = null;
     }
   };
 
-  const goToSlide = async (nextIndex) => {
-    const targetIndex = (nextIndex + slides.length) % slides.length;
+  const go_to_slide = async (next_index) => {
+    const target_index = (next_index + slides.length) % slides.length;
 
-    if (targetIndex === currentIndex || isTransitioning) {
+    if (target_index === current_index || is_transitioning) {
       return;
     }
 
-    if (HERO_REDUCED_MOTION_QUERY.matches) {
-      currentIndex = targetIndex;
-      updateSlides();
+    if (hero_reduced_motion_query.matches) {
+      current_index = target_index;
+      update_slides();
       return;
     }
 
-    isTransitioning = true;
+    is_transitioning = true;
 
-    const currentSlide = slides[currentIndex];
-    const targetSlide = slides[targetIndex];
+    const current_slide = slides[current_index];
+    const target_slide = slides[target_index];
 
-    currentSlide.classList.add("is-fading-out");
-    await waitForFade();
+    current_slide.classList.add("is-fading-out");
+    await wait_for_fade();
 
-    currentSlide.classList.remove("is-active", "is-fading-out");
-    currentSlide.setAttribute("aria-hidden", "true");
+    current_slide.classList.remove("is-active", "is-fading-out");
+    current_slide.setAttribute("aria-hidden", "true");
 
-    currentIndex = targetIndex;
-    targetSlide.classList.add("is-active", "is-fading-in");
-    targetSlide.setAttribute("aria-hidden", "false");
-    updateIndicators();
+    current_index = target_index;
+    target_slide.classList.add("is-active", "is-fading-in");
+    target_slide.setAttribute("aria-hidden", "false");
+    update_indicators();
 
-    await waitForFade();
+    await wait_for_fade();
 
-    targetSlide.classList.remove("is-fading-in");
-    isTransitioning = false;
+    target_slide.classList.remove("is-fading-in");
+    is_transitioning = false;
   };
 
-  const startAutoplay = () => {
-    clearAutoplay();
+  const start_autoplay = () => {
+    clear_autoplay();
 
-    if (!HERO_DESKTOP_QUERY.matches || slides.length < 2) {
+    if (!hero_desktop_query.matches || slides.length < 2) {
       return;
     }
 
-    autoplayTimer = window.setInterval(() => {
-      goToSlide(currentIndex + 1);
-    }, autoplayInterval);
+    autoplay_timer = window.setInterval(() => {
+      go_to_slide(current_index + 1);
+    }, autoplay_interval);
   };
 
-  const buildIndicators = () => {
+  const build_indicators = () => {
     indicators.innerHTML = "";
 
-    indicatorButtons = slides.map((_, index) => {
+    indicator_buttons = slides.map((_, index) => {
       const button = document.createElement("button");
 
       button.type = "button";
       button.className = "hero-carousel-indicator";
       button.setAttribute("aria-label", `Mostrar imagem ${index + 1} de ${slides.length}`);
       button.addEventListener("click", () => {
-        goToSlide(index);
-        startAutoplay();
+        go_to_slide(index);
+        start_autoplay();
       });
 
       indicators.append(button);
@@ -187,93 +187,93 @@ const initializeHeroCarousel = () => {
     });
   };
 
-  const bindControls = () => {
-    if (controlsBound) {
+  const bind_controls = () => {
+    if (controls_bound) {
       return;
     }
 
-    previousButton.addEventListener("click", () => {
-      goToSlide(currentIndex - 1);
-      startAutoplay();
+    previous_button.addEventListener("click", () => {
+      go_to_slide(current_index - 1);
+      start_autoplay();
     });
 
-    nextButton.addEventListener("click", () => {
-      goToSlide(currentIndex + 1);
-      startAutoplay();
+    next_button.addEventListener("click", () => {
+      go_to_slide(current_index + 1);
+      start_autoplay();
     });
 
-    controlsBound = true;
+    controls_bound = true;
   };
 
-  const hydrateSlides = () => {
+  const hydrate_slides = () => {
     if (carousel.dataset.hydrated === "true") {
-      syncMotionPreference();
-      updateSlides();
-      startAutoplay();
+      sync_motion_preference();
+      update_slides();
+      start_autoplay();
       return;
     }
 
-    HERO_EXTRA_SLIDES.forEach((slideData) => {
-      track.append(createHeroSlide(slideData));
+    hero_extra_slides.forEach((slide_data) => {
+      track.append(create_hero_slide(slide_data));
     });
 
     slides = Array.from(track.querySelectorAll("[data-hero-slide]"));
-    buildIndicators();
-    bindControls();
-    syncMotionPreference();
-    updateSlides();
+    build_indicators();
+    bind_controls();
+    sync_motion_preference();
+    update_slides();
 
     carousel.dataset.hydrated = "true";
-    previousButton.hidden = false;
-    nextButton.hidden = false;
+    previous_button.hidden = false;
+    next_button.hidden = false;
     indicators.hidden = false;
-    startAutoplay();
+    start_autoplay();
   };
 
-  const scheduleHydration = () => {
+  const schedule_hydration = () => {
     if (carousel.dataset.hydrated === "true") {
-      syncMotionPreference();
-      updateSlides();
-      startAutoplay();
+      sync_motion_preference();
+      update_slides();
+      start_autoplay();
       return;
     }
 
-    if (hydrationFrame !== null || hydrationTask !== null) {
+    if (hydration_frame !== null || hydration_task !== null) {
       return;
     }
 
-    hydrationFrame = window.requestAnimationFrame(() => {
-      hydrationFrame = null;
-      hydrationTask = scheduleIdleWork(() => {
-        hydrationTask = null;
+    hydration_frame = window.requestAnimationFrame(() => {
+      hydration_frame = null;
+      hydration_task = schedule_idle_work(() => {
+        hydration_task = null;
 
-        if (!HERO_DESKTOP_QUERY.matches) {
+        if (!hero_desktop_query.matches) {
           return;
         }
 
-        hydrateSlides();
+        hydrate_slides();
       });
     });
   };
 
-  const handleViewportChange = () => {
-    if (HERO_DESKTOP_QUERY.matches) {
-      scheduleHydration();
+  const handle_viewport_change = () => {
+    if (hero_desktop_query.matches) {
+      schedule_hydration();
       return;
     }
 
-    cancelScheduledHydration();
-    clearAutoplay();
+    cancel_scheduled_hydration();
+    clear_autoplay();
   };
 
-  syncMotionPreference();
-  HERO_DESKTOP_QUERY.addEventListener("change", handleViewportChange);
-  HERO_REDUCED_MOTION_QUERY.addEventListener("change", () => {
-    syncMotionPreference();
-    startAutoplay();
+  sync_motion_preference();
+  hero_desktop_query.addEventListener("change", handle_viewport_change);
+  hero_reduced_motion_query.addEventListener("change", () => {
+    sync_motion_preference();
+    start_autoplay();
   });
 
-  handleViewportChange();
+  handle_viewport_change();
 };
 
-initializeHeroCarousel();
+initialize_hero_carousel();

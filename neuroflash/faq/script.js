@@ -1,4 +1,4 @@
-const faqItems = Array.from(document.querySelectorAll(".faq-item"))
+const faq_items = Array.from(document.querySelectorAll(".faq-item"))
   .map((item, index) => {
     const button = item.querySelector(".faq-question");
     const answer = item.querySelector(".faq-answer");
@@ -7,65 +7,65 @@ const faqItems = Array.from(document.querySelectorAll(".faq-item"))
       return null;
     }
 
-    const answerId = answer.id || `faq-answer-${index + 1}`;
+    const answer_id = answer.id || `faq-answer-${index + 1}`;
 
-    answer.id = answerId;
-    button.setAttribute("aria-controls", answerId);
+    answer.id = answer_id;
+    button.setAttribute("aria-controls", answer_id);
 
     return { item, button, answer };
   })
   .filter(Boolean);
 
-let syncFrame = null;
-const mobileFaqQuery = window.matchMedia("(max-width: 768px)");
+let sync_frame = null;
+const mobile_faq_query = window.matchMedia("(max-width: 768px)");
 
-const setItemOpenState = (faqItem, isOpen) => {
-  faqItem.item.classList.toggle("is-open", isOpen);
-  faqItem.button.setAttribute("aria-expanded", String(isOpen));
-  faqItem.answer.setAttribute("aria-hidden", String(!isOpen));
-  faqItem.answer.style.maxHeight = isOpen && !mobileFaqQuery.matches ? `${faqItem.answer.scrollHeight}px` : "0px";
+const set_item_open_state = (faq_item, is_open) => {
+  faq_item.item.classList.toggle("is-open", is_open);
+  faq_item.button.setAttribute("aria-expanded", String(is_open));
+  faq_item.answer.setAttribute("aria-hidden", String(!is_open));
+  faq_item.answer.style.maxHeight = is_open && !mobile_faq_query.matches ? `${faq_item.answer.scrollHeight}px` : "0px";
 
-  if (isOpen && mobileFaqQuery.matches) {
-    faqItem.answer.style.maxHeight = "none";
+  if (is_open && mobile_faq_query.matches) {
+    faq_item.answer.style.maxHeight = "none";
   }
 };
 
-const closeOtherItems = (activeItem) => {
-  faqItems.forEach((faqItem) => {
-    if (faqItem !== activeItem) {
-      setItemOpenState(faqItem, false);
+const close_other_items = (active_item) => {
+  faq_items.forEach((faq_item) => {
+    if (faq_item !== active_item) {
+      set_item_open_state(faq_item, false);
     }
   });
 };
 
-const syncFaqHeights = () => {
-  faqItems.forEach((faqItem) => {
-    setItemOpenState(faqItem, faqItem.item.classList.contains("is-open"));
+const sync_faq_heights = () => {
+  faq_items.forEach((faq_item) => {
+    set_item_open_state(faq_item, faq_item.item.classList.contains("is-open"));
   });
 };
 
-const scheduleFaqSync = () => {
-  if (syncFrame !== null) {
+const schedule_faq_sync = () => {
+  if (sync_frame !== null) {
     return;
   }
 
-  syncFrame = window.requestAnimationFrame(() => {
-    syncFrame = null;
-    syncFaqHeights();
+  sync_frame = window.requestAnimationFrame(() => {
+    sync_frame = null;
+    sync_faq_heights();
   });
 };
 
-faqItems.forEach((faqItem) => {
-  setItemOpenState(faqItem, faqItem.item.classList.contains("is-open"));
+faq_items.forEach((faq_item) => {
+  set_item_open_state(faq_item, faq_item.item.classList.contains("is-open"));
 
-  faqItem.button.addEventListener("click", () => {
-    const shouldOpen = !faqItem.item.classList.contains("is-open");
+  faq_item.button.addEventListener("click", () => {
+    const should_open = !faq_item.item.classList.contains("is-open");
 
-    closeOtherItems(faqItem);
-    setItemOpenState(faqItem, shouldOpen);
+    close_other_items(faq_item);
+    set_item_open_state(faq_item, should_open);
   });
 });
 
-window.addEventListener("load", scheduleFaqSync);
-window.addEventListener("resize", scheduleFaqSync);
-mobileFaqQuery.addEventListener("change", syncFaqHeights);
+window.addEventListener("load", schedule_faq_sync);
+window.addEventListener("resize", schedule_faq_sync);
+mobile_faq_query.addEventListener("change", sync_faq_heights);

@@ -1,22 +1,22 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>CHANGELOG | Documentacao Interna NeuroFlash</title>
+  <title>changelog | Documentacao Interna NeuroFlash</title>
   <link rel="stylesheet" href="doc-layout.css">
 </head>
 <body>
   <main class="doc-shell" id="topo">
     <header class="doc-header">
       <p class="doc-kicker">Documentacao interna NeuroFlash</p>
-      <h1>CHANGELOG</h1>
+      <h1>changelog</h1>
       <p class="doc-meta">Arquivo interno de manutencao. Nao faz parte da navegacao publica do site.</p>
     </header>
     <div class="doc-layout">
       <article class="doc-content">
-<h1 id="changelog">CHANGELOG</h1>
+<h1 id="changelog">changelog</h1>
 <h2 id="objetivo">Objetivo</h2>
 <p>Este arquivo registra os marcos relevantes da evolucao do site Neuroflash. Ele deve permanecer curto, legivel e focado em mudancas que alteram estrutura, comportamento, documentacao ou direcao de manutencao.</p>
 <h2 id="como-registrar-novas-entradas">Como Registrar Novas Entradas</h2>
@@ -31,9 +31,24 @@
 <ul>
 <li>agrupar microajustes do mesmo dia e do mesmo tema em uma unica entrada</li>
 <li>separar entradas apenas quando a natureza da mudanca for diferente</li>
-<li>usar o <code>SITE_ARCHITECTURE.html</code> para o estado atual e este arquivo para a trilha historica</li>
+<li>usar o <code>site_architecture.html</code> para o estado atual e este arquivo para a trilha historica</li>
 </ul>
 <h2 id="historico-consolidado">Historico Consolidado</h2>
+<h2 id="2026-05-27-normalizacao-de-acentuacao-e-caixa">2026-05-27 - Normalizacao de acentuacao e caixa</h2>
+<ul>
+<li>Mudanca: a documentacao interna foi movida para <code>documentacao/interno/</code> com nomes de arquivos minusculos, referencias internas foram atualizadas, textos publicos sem acento foram corrigidos e identificadores locais seguros em scripts foram normalizados para ASCII minusculo.</li>
+<li>Impacto: reduz risco operacional em caminhos e nomes tecnicos, melhora a apresentacao publica de copy e metadados e preserva rotas, contratos <code>data-*</code>, arquivos tecnicos obrigatorios e sentido editorial da copy.</li>
+</ul>
+<h2 id="2026-05-27-otimizacao-de-imagens-por-mockup-full-hd">2026-05-27 - Otimizacao de imagens por mockup Full HD</h2>
+<ul>
+<li>Mudanca: 22 imagens publicas foram redimensionadas para dimensoes compativeis com o maior uso observado no mockup Full HD, mantendo nomes, caminhos e formatos; 5 arquivos foram preservados porque a versao reduzida ficaria maior em bytes.</li>
+<li>Impacto: reduz aproximadamente 1,15 MB nos assets processados, diminui custo de download, decode e rolagem, e sincroniza atributos tecnicos <code>width</code>/<code>height</code> e documentacao interna sem alterar textos publicos, rotas ou metadados editoriais.</li>
+</ul>
+<h2 id="2026-05-27-refatoracao-conservadora-de-assets-css-e-rodape">2026-05-27 - Refatoracao conservadora de assets, CSS e rodape</h2>
+<ul>
+<li>Mudanca: removidos assets sem uso publico confirmado, duplicatas antigas do rodape dentro de <code>neuroflash/shared/</code>, aliases CSS sem consumidores reais e duplicacao interna de copy entre contextos <code>root</code> e <code>obsidian</code> em <code>shared/footer.js</code>.</li>
+<li>Impacto: reduz peso morto e superficie de manutencao sem alterar rotas, SEO tecnico, textos publicos, marcadores <code>data-*</code>, aparencia esperada ou compatibilidade estatica do site.</li>
+</ul>
 <h2 id="2026-05-23-remocao-temporaria-de-product-schema">2026-05-23 - Remocao temporaria de Product schema</h2>
 <ul>
 <li>Mudanca: os schemas <code>Product</code> foram removidos temporariamente de <code>obsidian/index.html</code>, <code>neuroflash/index.html</code> e <code>neuroflash/faq/index.html</code>, junto com referencias <code>#product</code> associadas.</li>
@@ -161,7 +176,7 @@
 </ul>
 <h2 id="2026-05-21-referencia-de-imagens-da-pagina-essentia-health">2026-05-21 - Referencia de imagens da pagina Essentia Health</h2>
 <ul>
-<li>Mudanca: o <code>SITE_IMAGE_GUIDE.html</code> passou a documentar os tamanhos e proporcoes recomendados para <code>neuroflash.jpg</code> e <code>em-breve.jpg</code> na pagina isolada <code>essentia-health/</code>.</li>
+<li>Mudanca: o <code>site_image_guide.html</code> passou a documentar os tamanhos e proporcoes recomendados para <code>neuroflash.jpg</code> e <code>em-breve.jpg</code> na pagina isolada <code>essentia-health/</code>.</li>
 <li>Impacto: futuras trocas de imagens do carrossel passam a ter referencia tecnica de <code>1500 x 2000 px</code>, proporcao <code>3:4</code> e <code>aspect-ratio: 3 / 4</code>, sem alterar arquivos publicos do site.</li>
 </ul>
 <h2 id="2026-05-21-troca-do-packshot-neuroflash">2026-05-21 - Troca do packshot NeuroFlash</h2>
@@ -286,7 +301,7 @@
 </ul>
 <h2 id="2026-05-12-documentacao-html-interna">2026-05-12 - Documentacao HTML interna</h2>
 <ul>
-<li>Mudanca: a documentacao oficial foi convertida de Markdown para HTML interno em <code>documentação/interno/</code>, com layout proprio de leitura, CSS isolado do site publico e referencias documentais atualizadas para <code>.html</code>.</li>
+<li>Mudanca: a documentacao oficial foi convertida de Markdown para HTML interno em <code>documentacao/interno/</code>, com layout proprio de leitura, CSS isolado do site publico e referencias documentais atualizadas para <code>.html</code>.</li>
 <li>Impacto: melhora a leitura humana dos registros do projeto sem expor a documentacao na navegacao publica do site e deixa o historico em ordem decrescente, com as atualizacoes mais recentes no topo.</li>
 </ul>
 <h2 id="2026-05-11-logo-institucional-no-rodape-compartilhado">2026-05-11 - Logo institucional no rodape compartilhado</h2>
@@ -301,12 +316,12 @@
 </ul>
 <h2 id="2026-05-11-conversao-de-documentos-texto-para-markdown">2026-05-11 - Conversao de documentos texto para Markdown</h2>
 <ul>
-<li>Mudanca: <code>COISAS_A_FAZER.html</code> e <code>SITE_IMAGE_GUIDE.html</code> passaram a substituir os antigos arquivos de texto puro, com referencias internas atualizadas para HTML.</li>
+<li>Mudanca: <code>coisas_a_fazer.html</code> e <code>site_image_guide.html</code> passaram a substituir os antigos arquivos de texto puro, com referencias internas atualizadas para HTML.</li>
 <li>Impacto: manteve o conteudo tecnico e a fila de pendencias em formato editavel e versionavel, reduzindo duplicidade entre documentos <code>.txt</code> e <code>.html</code>.</li>
 </ul>
 <h2 id="2026-05-11-guia-de-uso-do-canva-para-criativos">2026-05-11 - Guia de uso do Canva para criativos</h2>
 <ul>
-<li>Mudanca: criado <code>CANVA_CRIATIVOS_GUIDE.html</code> com diretrizes para o Codex usar Canva na producao de criativos, imagens de apoio e materiais comerciais alinhados a identidade visual, assets, copy e restricoes do NeuroFlash.</li>
+<li>Mudanca: criado <code>canva_criativos_guide.html</code> com diretrizes para o Codex usar Canva na producao de criativos, imagens de apoio e materiais comerciais alinhados a identidade visual, assets, copy e restricoes do NeuroFlash.</li>
 <li>Impacto: documenta o fluxo recomendado de geracao, revisao e salvamento de pecas no Canva, reduzindo risco de ingles indesejado, acentuacao quebrada, dados inventados ou promessas inadequadas em criativos futuros.</li>
 </ul>
 <h2 id="2026-05-10-ajustes-visuais-da-pagina-quem-somos">2026-05-10 - Ajustes visuais da pagina Quem Somos</h2>
@@ -336,7 +351,7 @@
 </ul>
 <h2 id="2026-05-10-guia-geral-de-imagens-do-site">2026-05-10 - Guia geral de imagens do site</h2>
 <ul>
-<li>Mudanca: o guia tecnico de imagens da Home foi renomeado para <code>SITE_IMAGE_GUIDE.html</code> e expandido para cobrir Home, Quem Somos, FAQ, background compartilhado e icones do rodape, com dimensoes reais, dimensoes declaradas e orientacoes de substituicao.</li>
+<li>Mudanca: o guia tecnico de imagens da Home foi renomeado para <code>site_image_guide.html</code> e expandido para cobrir Home, Quem Somos, FAQ, background compartilhado e icones do rodape, com dimensoes reais, dimensoes declaradas e orientacoes de substituicao.</li>
 <li>Impacto: a documentacao de assets ficou alinhada ao site multi-page atual e evita manter informacoes de mockups limitadas apenas a Home.</li>
 </ul>
 <h2 id="2026-05-10-refinos-visuais-da-home-e-rodape">2026-05-10 - Refinos visuais da Home e rodape</h2>
@@ -416,7 +431,7 @@
 </ul>
 <h2 id="2026-05-09-centralizacao-da-documentacao">2026-05-09 - Centralizacao da documentacao</h2>
 <ul>
-<li>Mudanca: a pasta <code>logs/</code> foi renomeada para <code>documentação/</code>, o guia tecnico de imagens da Home foi movido para a pasta documental e foi criado <code>COISAS_A_FAZER.html</code> para registrar tarefas futuras em Markdown simples.</li>
+<li>Mudanca: a pasta <code>logs/</code> foi renomeada para <code>documentacao/</code>, o guia tecnico de imagens da Home foi movido para a pasta documental e foi criado <code>coisas_a_fazer.html</code> para registrar tarefas futuras em Markdown simples.</li>
 <li>Impacto: centralizou a documentacao permanente do projeto, deixou a Home focada em pagina e assets e criou uma fila leve de pendencias legivel por humanos e agentes de IA.</li>
 </ul>
 <h2 id="2026-05-09-refatoracao-compartilhada-sem-build">2026-05-09 - Refatoracao compartilhada sem build</h2>
@@ -441,17 +456,17 @@
 </ul>
 <h2 id="2026-05-08-enxugamento-da-documentacao-arquitetural">2026-05-08 - Enxugamento da documentacao arquitetural</h2>
 <ul>
-<li>Mudanca: o <code>SITE_ARCHITECTURE.html</code> foi reescrito em formato operacional curto, com correcao de encoding, remocao de repeticoes e consolidacao das informacoes de estrutura, ownership, comportamento e manutencao.</li>
+<li>Mudanca: o <code>site_architecture.html</code> foi reescrito em formato operacional curto, com correcao de encoding, remocao de repeticoes e consolidacao das informacoes de estrutura, ownership, comportamento e manutencao.</li>
 <li>Impacto: tornou a documentacao mais estavel, rapida de atualizar e menos propensa a erros de edicao ou ruido de codificacao.</li>
 </ul>
-<h2 id="2026-05-08-enxugamento-estrutural-do-changelog">2026-05-08 - Enxugamento estrutural do CHANGELOG</h2>
+<h2 id="2026-05-08-enxugamento-estrutural-do-changelog">2026-05-08 - Enxugamento estrutural do changelog</h2>
 <ul>
-<li>Mudanca: o proprio <code>CHANGELOG.html</code> foi consolidado em blocos tematicos curtos, com agrupamento por dia e assunto, remocao de redundancias e padronizacao em portugues UTF-8.</li>
+<li>Mudanca: o proprio <code>changelog.html</code> foi consolidado em blocos tematicos curtos, com agrupamento por dia e assunto, remocao de redundancias e padronizacao em portugues UTF-8.</li>
 <li>Impacto: deixou o historico mais facil de consultar, reduziu ruido de microcorrecoes e estabeleceu um formato mais sustentavel para futuras entradas.</li>
 </ul>
 <h2 id="2026-05-07-criacao-da-documentacao-base-e-limpeza-estrutural-inicial">2026-05-07 - Criacao da documentacao-base e limpeza estrutural inicial</h2>
 <ul>
-<li>Mudanca: criados o <code>CHANGELOG.html</code> e o mapeamento inicial da arquitetura, removidos arquivos legados da raiz e simplificada a estrutura oficial do projeto em torno de <code>index.html</code>, <code>home/</code> e <code>faq/</code>.</li>
+<li>Mudanca: criados o <code>changelog.html</code> e o mapeamento inicial da arquitetura, removidos arquivos legados da raiz e simplificada a estrutura oficial do projeto em torno de <code>index.html</code>, <code>home/</code> e <code>faq/</code>.</li>
 <li>Impacto: estabeleceu uma base documental para evolucao futura e reduziu o risco de manutencao sobre codigo e arquivos que ja nao participavam das paginas oficiais.</li>
 </ul>
 <h2 id="2026-05-07-ajustes-visuais-da-home-da-faq-e-do-guia-tecnico-de-imagens">2026-05-07 - Ajustes visuais da home, da FAQ e do guia tecnico de imagens</h2>
@@ -466,6 +481,9 @@
 <li class="toc-level-2"><a href="#objetivo">Objetivo</a></li>
 <li class="toc-level-2"><a href="#como-registrar-novas-entradas">Como Registrar Novas Entradas</a></li>
 <li class="toc-level-2"><a href="#historico-consolidado">Historico Consolidado</a></li>
+<li class="toc-level-2"><a href="#2026-05-27-normalizacao-de-acentuacao-e-caixa">2026-05-27 - Normalizacao de acentuacao e caixa</a></li>
+<li class="toc-level-2"><a href="#2026-05-27-otimizacao-de-imagens-por-mockup-full-hd">2026-05-27 - Otimizacao de imagens por mockup Full HD</a></li>
+<li class="toc-level-2"><a href="#2026-05-27-refatoracao-conservadora-de-assets-css-e-rodape">2026-05-27 - Refatoracao conservadora de assets, CSS e rodape</a></li>
 <li class="toc-level-2"><a href="#2026-05-23-area-clicavel-do-header-da-home">2026-05-23 - Area clicavel do header da Home</a></li>
 <li class="toc-level-2"><a href="#2026-05-23-infraestrutura-compartilhada-de-header">2026-05-23 - Infraestrutura compartilhada de header</a></li>
 <li class="toc-level-2"><a href="#2026-05-23-correcao-do-header-neuroflash-apos-rodape-global">2026-05-23 - Correcao do header NeuroFlash apos rodape global</a></li>
@@ -539,7 +557,7 @@
 <li class="toc-level-2"><a href="#2026-05-08-refatoracao-da-base-compartilhada-de-estilo-e-comportamento">2026-05-08 - Refatoracao da base compartilhada de estilo e comportamento</a></li>
 <li class="toc-level-2"><a href="#2026-05-08-compatibilidade-local-e-compartilhamento-do-aviso-legal">2026-05-08 - Compatibilidade local e compartilhamento do aviso legal</a></li>
 <li class="toc-level-2"><a href="#2026-05-08-enxugamento-da-documentacao-arquitetural">2026-05-08 - Enxugamento da documentacao arquitetural</a></li>
-<li class="toc-level-2"><a href="#2026-05-08-enxugamento-estrutural-do-changelog">2026-05-08 - Enxugamento estrutural do CHANGELOG</a></li>
+<li class="toc-level-2"><a href="#2026-05-08-enxugamento-estrutural-do-changelog">2026-05-08 - Enxugamento estrutural do changelog</a></li>
 <li class="toc-level-2"><a href="#2026-05-07-criacao-da-documentacao-base-e-limpeza-estrutural-inicial">2026-05-07 - Criacao da documentacao-base e limpeza estrutural inicial</a></li>
 <li class="toc-level-2"><a href="#2026-05-07-ajustes-visuais-da-home-da-faq-e-do-guia-tecnico-de-imagens">2026-05-07 - Ajustes visuais da home, da FAQ e do guia tecnico de imagens</a></li>
         </ol>

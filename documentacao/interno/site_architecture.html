@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -32,6 +32,7 @@
 <li>dominio publico oficial: <code>https://essentiahealth.com.br/</code></li>
 <li>compatibilidade local: as paginas devem funcionar em <code>file:///</code></li>
 <li>curadoria legal externa: todo texto visivel ao publico e bloqueado para edicao interna; nenhuma refatoracao, atualizacao, otimizacao, ajuste de SEO, acessibilidade, performance ou manutencao pode alterar copy, labels, CTAs, metadados textuais visiveis em compartilhamento, avisos, FAQ, conteudo institucional ou qualquer texto exibido ao usuario sem aprovacao legal externa previa</li>
+<li>padrao operacional de escrita: nomes de arquivos, pastas, referencias tecnicas e identificadores internos devem usar ASCII minusculo sempre que a plataforma permitir; textos publicos devem renderizar com acentuacao correta e caixa da copy preservada</li>
 <li>base visual da Home Essentia Health: <code>styles.css</code></li>
 <li>logica interativa da Home Essentia Health: <code>carousel.js</code></li>
 <li>infraestrutura global de header: <code>shared/header-utils.js</code> e <code>shared/header.css</code>, sem unificar visualmente os headers dos produtos</li>
@@ -41,8 +42,8 @@
 <li>logicas interativas do NeuroFlash: <code>neuroflash/faq/script.js</code> e <code>neuroflash/home/hero-carousel.js</code></li>
 <li>fundo canonico compartilhado do NeuroFlash: <code>neuroflash/shared/background-neuroflash.jpg</code>, aplicado no <code>body</code> com comportamento fixo</li>
 <li>estrategia SEO atual: Home Essentia Health na raiz, NeuroFlash em <code>/neuroflash/</code>, Obsidian em <code>/obsidian/</code>, metadados por pagina, canonical, Open Graph/Twitter completos com URLs absolutas, headings semanticos, alt text descritivo, JSON-LD conservador e arquivos <code>robots.txt</code>/<code>sitemap.xml</code></li>
-<li>trilha oficial de mudancas: <code>CHANGELOG.html</code></li>
-<li>fila simples de tarefas futuras: <code>COISAS_A_FAZER.html</code></li>
+<li>trilha oficial de mudancas: <code>changelog.html</code></li>
+<li>fila simples de tarefas futuras: <code>coisas_a_fazer.html</code></li>
 </ul>
 <p>Stack real:</p>
 <ul>
@@ -64,7 +65,7 @@
 <li><code>carousel.js</code>: carrossel manual de produtos da Home Essentia Health.</li>
 <li><code>neuroflash/</code>: subsite do produto NeuroFlash, com Home, FAQ, Quem Somos, assets, estilos compartilhados e scripts do produto.</li>
 <li><code>obsidian/</code>: pagina unica estatica do produto Obsidian, com HTML, CSS, JavaScript e assets proprios; conectada pela Home Essentia Health, indexavel, incluida no <code>sitemap.xml</code> e sem subpaginas.</li>
-<li><code>documentação/interno/</code>: documentacao permanente, historico, arquitetura, guia tecnico de imagens e lista de tarefas futuras.</li>
+<li><code>documentacao/interno/</code>: documentacao permanente, historico, arquitetura, guia tecnico de imagens e lista de tarefas futuras.</li>
 </ul>
 <p>Ownership por area:</p>
 <ul>
@@ -80,10 +81,10 @@
 <li><code>neuroflash/quem-somos/index.html</code> + <code>neuroflash/quem-somos/styles.css</code>: narrativa institucional, imagem dos fundadores e layout editorial do NeuroFlash.</li>
 <li><code>neuroflash/faq/index.html</code> + <code>neuroflash/faq/styles.css</code> + <code>neuroflash/faq/script.js</code>: acordeao, protocolos e suporte complementar do NeuroFlash.</li>
 <li><code>obsidian/index.html</code> + <code>obsidian/styles.css</code> + <code>obsidian/script.js</code> + <code>obsidian/assets/</code>: pagina unica estatica do Obsidian, com abertura logo-only, banner visual, secoes de produto espelhadas, manifesto e rodape; nao possui subpaginas, FAQ, lista VIP ou checkout.</li>
-<li><code>CHANGELOG.html</code>: historico tecnico.</li>
-<li><code>SITE_ARCHITECTURE.html</code>: fotografia arquitetural atual e guia de manutencao.</li>
-<li><code>SITE_IMAGE_GUIDE.html</code>: guia tecnico de imagens do site.</li>
-<li><code>COISAS_A_FAZER.html</code>: lista simples de tarefas futuras para humanos e agentes de IA.</li>
+<li><code>changelog.html</code>: historico tecnico.</li>
+<li><code>site_architecture.html</code>: fotografia arquitetural atual e guia de manutencao.</li>
+<li><code>site_image_guide.html</code>: guia tecnico de imagens do site.</li>
+<li><code>coisas_a_fazer.html</code>: lista simples de tarefas futuras para humanos e agentes de IA.</li>
 </ul>
 <h2 id="componentes-e-comportamento">Componentes E Comportamento</h2>
 <h3 id="includes-compartilhados">Includes Compartilhados</h3>
@@ -93,7 +94,7 @@
 <li>deteccao simples de contexto da pagina</li>
 <li>renderizacao segura de includes sem vazar helpers para o escopo global</li>
 </ul>
-<p><code>shared/header.css</code> concentra tokens e classes estruturais neutras como largura, gutters, z-index, altura base, alinhamento interno, area de marca, area de navegacao e area de acoes. O visual continua dividido entre <code>styles.css</code>, <code>neuroflash/shared/styles.css</code> e <code>obsidian/styles.css</code>.</p>
+<p><code>shared/header.css</code> concentra tokens e classes estruturais neutras como largura, gutters, z-index, altura base, alinhamento interno, area de marca e area de navegacao. O visual continua dividido entre <code>styles.css</code>, <code>neuroflash/shared/styles.css</code> e <code>obsidian/styles.css</code>; slots sem uso, como uma area global de acoes, devem ficar fora da camada compartilhada ate existir uso real.</p>
 <p>Home raiz e NeuroFlash usam a estrutura comum de header. Obsidian permanece fora dessa refatoracao estrutural porque o header interage com a intro, <code>intro-dismissed</code> e o fade inicial do logo.</p>
 <p>Slots estruturais largos como <code>shared-header__inner</code> devem ficar em containers neutros, nao diretamente em links, para evitar que areas vazias do header virem clicaveis.</p>
 <p><code>shared/footer.js</code> centraliza o rodape global do site:</p>
@@ -122,6 +123,7 @@
 <li>blocos de midia reutilizaveis com crop opcional (<code>media-block</code>)</li>
 <li>aviso legal</li>
 </ul>
+<p>Aliases antigos ou sem chamada, como <code>content-section</code>, <code>content-section-title</code>, <code>heading-accent</code>, <code>media-frame</code> e estados desativados sem uso, nao devem voltar para a camada compartilhada sem uma pagina consumidora real.</p>
 <p>Regras especificas de layout permanecem em <code>neuroflash/home/styles.css</code>, <code>neuroflash/faq/styles.css</code> ou <code>neuroflash/quem-somos/styles.css</code>. Em especial, <code>neuroflash/home/styles.css</code> deve ficar restrito ao hero, carrossel, grids e ajustes que so existem na Home do produto.</p>
 <h3 id="home">Home NeuroFlash</h3>
 <p>A Home do produto em <code>neuroflash/index.html</code> segue majoritariamente estatica, mas possui JavaScript proprio e pequeno para hidratar o carrossel desktop da hero. O CSS local da Home concentra hero, carrossel, grids e ajustes de layout exclusivos da Home, enquanto <code>neuroflash/shared/styles.css</code> fornece as primitivas visuais base e <code>neuroflash/home/hero-carousel.js</code> controla troca automatica, setas laterais, indicadores inferiores e pausa por hover/focus apenas na imagem principal da hero.</p>
@@ -142,7 +144,7 @@
 <li><code>product-packshot2.jpg</code></li>
 <li><code>treino.jpg</code></li>
 </ul>
-<p><code>SITE_IMAGE_GUIDE.html</code> orienta enquadramento, dimensoes reais, dimensoes recomendadas, proporcoes e convencao de nomes para assets da Home, Quem Somos, FAQ, background compartilhado e icones do rodape. Novos assets devem usar nomes ASCII, sem acentos, cedilha ou espacos.</p>
+<p><code>site_image_guide.html</code> orienta enquadramento, dimensoes reais, dimensoes recomendadas, proporcoes e convencao de nomes para assets da Home, Quem Somos, FAQ, background compartilhado e icones do rodape. Novos assets devem usar nomes ASCII, sem acentos, cedilha ou espacos.</p>
 <p>Politica de performance de imagens:</p>
 <ul>
 <li>a hero desktop usa <code>hero-focus.jpg</code>, <code>hero-focus2.jpg</code> e <code>hero-focus3.jpg</code> em carrossel com fade; a primeira imagem permanece prioritaria e os slides adicionais entram via JavaScript somente depois da primeira pintura util, com hidrata&#231;&#227;o adiada e carregamento sob demanda.</li>
@@ -150,11 +152,12 @@
 <li>imagens abaixo da dobra usam lazy loading nativo com <code>decoding=&quot;async&quot;</code> e dimensoes declaradas no HTML.</li>
 <li>a imagem principal da hero e seu carrossel devem permanecer desktop-only em tempo de rede, evitando download desnecessario no mobile.</li>
 <li>o background compartilhado permanece em CSS no <code>body</code>, sem lazy loading, porque faz parte da identidade visual global.</li>
+<li>assets rastericos em uso publico devem ser dimensionados para o maior mockup Full HD confirmado; nomes, caminhos e formatos permanecem estaveis, e arquivos sociais ou reducoes que aumentem bytes ficam no tamanho original.</li>
 </ul>
 <h3 id="quem-somos">Quem Somos</h3>
 <p>A pagina <code>quem-somos/</code> nao possui JavaScript proprio. Ela reutiliza header, footer, shell, fundo fixo e superficies compartilhadas, com CSS local para a narrativa institucional, a imagem <code>fundadores.jpg</code>, a proporcao do titulo de pagina no desktop e o posicionamento do CTA contextual da FAQ abaixo da foto dos fundadores.</p>
 <h3 id="essentia-health-isolada">Essentia Health Isolada</h3>
-<p>A Home Essentia Health vive na raiz em <code>index.html</code>. A ordem visual e logo, produtos, sobre a empresa, missao e footer. O layout usa uma casca clara <code>site-shell</code> full-width e uma regua interna de <code>1180px</code>, com gutters de <code>18px</code> no desktop e <code>14px</code> no mobile, sem linhas verticais laterais de contorno. O logo do header aponta para <code>./index.html</code>, sem ancora <code>#inicio</code>, para recarregar no topo real em abertura local. A secao de produtos usa apenas o rotulo compacto "Produtos" alinhado ao inicio do carrossel acima de <code>carousel.js</code>, com carrossel manual circular, sem autoplay, primeiro card com <code>assets/images/neuroflash.jpg</code> apontando operacionalmente para <code>./neuroflash/index.html</code>, segundo card com <code>assets/images/obsidian.jpg</code> apontando para <code>./obsidian/index.html</code> e dois placeholders <code>assets/images/em-breve.jpg</code>. O carrossel mantem contornos no conjunto e nos cards, proporcao vertical <code>4:3</code> e exibicao responsiva de tres cards no desktop, dois no tablet e um no mobile. O rodape da raiz reutiliza a mecanica dimensional real do rodape NeuroFlash, preserva fundo transparente e paleta clara, mantem mapa do site com <code>Home</code>, <code>NeuroFlash</code> e <code>Obsidian</code>, copyright <code>&copy; 2026 Essentia Health.</code> e barra inferior com linha horizontal em largura total. As dimensoes recomendadas desses assets estao registradas em <code>SITE_IMAGE_GUIDE.html</code>.</p>
+<p>A Home Essentia Health vive na raiz em <code>index.html</code>. A ordem visual e logo, produtos, sobre a empresa, missao e footer. O layout usa uma casca clara <code>site-shell</code> full-width e uma regua interna de <code>1180px</code>, com gutters de <code>18px</code> no desktop e <code>14px</code> no mobile, sem linhas verticais laterais de contorno. O logo do header aponta para <code>./index.html</code>, sem ancora <code>#inicio</code>, para recarregar no topo real em abertura local. A secao de produtos usa apenas o rotulo compacto "Produtos" alinhado ao inicio do carrossel acima de <code>carousel.js</code>, com carrossel manual circular, sem autoplay, primeiro card com <code>assets/images/neuroflash.jpg</code> apontando operacionalmente para <code>./neuroflash/index.html</code>, segundo card com <code>assets/images/obsidian.jpg</code> apontando para <code>./obsidian/index.html</code> e dois placeholders <code>assets/images/em-breve.jpg</code>. O carrossel mantem contornos no conjunto e nos cards, proporcao vertical <code>4:3</code> e exibicao responsiva de tres cards no desktop, dois no tablet e um no mobile. O rodape da raiz reutiliza a mecanica dimensional real do rodape NeuroFlash, preserva fundo transparente e paleta clara, mantem mapa do site com <code>Home</code>, <code>NeuroFlash</code> e <code>Obsidian</code>, copyright <code>&copy; 2026 Essentia Health.</code> e barra inferior com linha horizontal em largura total. As dimensoes recomendadas desses assets estao registradas em <code>site_image_guide.html</code>.</p>
 <h3 id="faq">FAQ</h3>
 <p>O acordeao em <code>faq/script.js</code>:</p>
 <ul>
@@ -202,8 +205,8 @@
 <p>Entram no bloqueio: titulos, paragrafos, labels, CTAs, textos de botoes, FAQ, avisos legais, alt text, aria-label, metadados com copy publica, Open Graph/Twitter text, JSON-LD textual, dados institucionais exibidos, mensagens de suporte e qualquer string que possa aparecer para usuarios, buscadores ou previews sociais.</p>
 <p>Regras de atualizacao:</p>
 <ul>
-<li>registrar mudancas relevantes em <code>CHANGELOG.html</code></li>
-<li>registrar pendencias futuras em <code>COISAS_A_FAZER.html</code></li>
+<li>registrar mudancas relevantes em <code>changelog.html</code></li>
+<li>registrar pendencias futuras em <code>coisas_a_fazer.html</code></li>
 <li>atualizar este arquivo quando mudar estrutura, ownership, fluxo de entrada, assets canonicos ou estrategia compartilhada</li>
 <li>nao alterar texto visivel ao publico sem aprovacao legal externa previa, mesmo quando a alteracao parecer pequena, corretiva ou benefica</li>
 <li>tratar Home, Quem Somos e FAQ como um unico sistema visual</li>
@@ -227,7 +230,7 @@
 <li>confirmar que <code>googlef8f43337a075e3ac.html</code> permanece na raiz se a verificacao do Google ainda estiver ativa</li>
 <li>confirmar que CTAs nao usam <code>href=&quot;#&quot;</code></li>
 <li>confirmar que nenhum texto publico foi alterado sem aprovacao legal externa registrada</li>
-<li>atualizar <code>CHANGELOG.html</code> se a mudanca for estrutural, visual relevante ou comportamental</li>
+<li>atualizar <code>changelog.html</code> se a mudanca for estrutural, visual relevante ou comportamental</li>
 </ul>
 <h2 id="notas-de-evolucao">Notas De Evolucao</h2>
 <p>A evolucao recomendada continua leve. Introduzir Node.js, build, framework, CI/CD ou backend apenas quando houver necessidade real de conteudo dinamico, automacao de publicacao, testes automatizados robustos ou multiplos fluxos de distribuicao.</p>
