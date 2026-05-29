@@ -34,6 +34,51 @@
 <li>usar o <code>site_architecture.html</code> para o estado atual e este arquivo para a trilha historica</li>
 </ul>
 <h2 id="historico-consolidado">Historico Consolidado</h2>
+<h2 id="2026-05-29-pagina-nossa-missao-obsidian">2026-05-29 - Pagina Nossa Missao Obsidian</h2>
+<ul>
+<li>Mudanca: criado <code>obsidian/nossa-missao/index.html</code> como pagina publica indexavel com copy autorizada, metadados proprios, JSON-LD <code>AboutPage</code>, header Obsidian estatico, footer compartilhado e inclusao em <code>sitemap.xml</code>; em refinamentos posteriores, o marcador visual "Obsidian" foi removido da hero, o titulo foi reduzido e centralizado, o conteudo passou a usar a mesma regua editorial da pagina Nossa Missao NeuroFlash, o fundo da pagina voltou a ser preto plano como a Home Obsidian, o header ganhou atalhos <code>Home</code> e <code>Nossa missao</code> com estado ativo, a tentativa de alinhar o header Obsidian por gutters compartilhados foi revertida e a escala visual do header passou a seguir a referencia do NeuroFlash sem alterar o produto.</li>
+<li>Impacto: Obsidian deixa de ser somente pagina unica e passa a ter um pequeno conjunto publico com Home e Nossa Missao, preservando a intro, o fade do header, o carrossel, a copy existente da Home e a excecao de header proprio do produto, com navegacao mais clara entre as duas paginas.</li>
+</ul>
+<h2 id="2026-05-29-wordmark-no-header-obsidian">2026-05-29 - Wordmark no header Obsidian</h2>
+<ul>
+<li>Mudanca: o header fixo do Obsidian passou a exibir a marca textual <code>obsidian-nome.png</code> ao lado do simbolo <code>logo-mini.png</code>, ambos dentro do mesmo link de retorno para <code>#intro-completa</code>; o asset transparente tem <code>320 x 39</code> e e exibido 30% menor no layout.</li>
+<li>Impacto: reforca a identidade do produto no topo sem alterar intro, fade do header, copy publica, metadados, JSON-LD, carrossel, footer ou rotas.</li>
+</ul>
+<h2 id="2026-05-29-espacamento-mobile-da-secao-missao-home">2026-05-29 - Espacamento mobile da secao Missao Home</h2>
+<ul>
+<li>Mudanca: a secao <code>Missao</code> da Home raiz passou a compensar os gutters tambem no breakpoint mobile, mantendo a mesma margem lateral visual dos demais blocos.</li>
+<li>Impacto: corrige o alinhamento em telas pequenas sem alterar copy publica, estrutura HTML, metadados, JSON-LD, carrossel, header ou footer.</li>
+</ul>
+<h2 id="2026-05-28-nossa-missao-da-home-essentia">2026-05-28 - Nossa Missao Da Home Essentia</h2>
+<ul>
+<li>Mudanca: o bloco institucional <code>#sobre</code> da Home raiz passou de <code>Sobre a empresa</code> para <code>Nossa missao</code>, com substituicao da copy publica pelo texto institucional fornecido explicitamente no pedido de implementacao e remocao posterior do titulo intermediario do card.</li>
+<li>Impacto: atualiza o posicionamento editorial da Essentia Health na Home sem alterar rotas, metadados, JSON-LD, carrossel, secao Missao existente, header, footer ou estrutura de navegacao.</li>
+</ul>
+<h2 id="2026-05-28-nossa-missao-neuroflash">2026-05-28 - Nossa Missao NeuroFlash</h2>
+<ul>
+<li>Mudanca: a pagina publica <code>neuroflash/quem-somos/</code> passou a se apresentar como <code>Nossa Missao</code> no header, titulo, rodape, metadados e JSON-LD, com substituicao integral da narrativa pelo texto institucional fornecido no pedido de implementacao.</li>
+<li>Impacto: alinha a pagina ao novo posicionamento institucional aprovado no prompt, remove da experiencia publica a foto dos fundadores e o CTA contextual para FAQ, e preserva a URL tecnica existente para nao quebrar links.</li>
+</ul>
+<h2 id="2026-05-28-refinos-de-largura-e-mobile">2026-05-28 - Refino de larguras e mobile</h2>
+<ul>
+<li>Mudanca: a Home raiz passou a alinhar carrossel de produtos, bloco <code>Sobre</code> e secao <code>Missao</code> pela mesma regua visual de <code>1180px</code>; o logo fixo do header Obsidian foi alinhado ao container geral; e o carrossel mobile de formatos do Obsidian recebeu ordem imagem-primeiro, copy centralizada, area de imagem ampliada, copy mais compacta e controles aproximados.</li>
+<li>Impacto: reduz inconsistencias de largura entre Home, NeuroFlash e Obsidian, melhora o enquadramento mobile do carrossel de formatos sem alterar copy publica, HTML, metadados, scripts ou comportamento desktop.</li>
+</ul>
+<h2 id="2026-05-28-jpgs-leves-no-obsidian">2026-05-28 - JPGs leves no Obsidian</h2>
+<ul>
+<li>Mudanca: <code>obsidian/index.html</code> passou a usar as versoes <code>.jpg</code> existentes de <code>logo</code>, <code>produto-large</code>, <code>produto-small</code> e <code>apresentacao-1</code>, incluindo metadados sociais para <code>apresentacao-1.jpg</code> com <code>image/jpeg</code>.</li>
+<li>Impacto: reduz peso de carregamento dos assets Obsidian sem alterar copy publica, dimensoes declaradas, layout, scripts, intro, header, footer ou comportamento do carrossel.</li>
+</ul>
+<h2 id="2026-05-28-hero-vertical-obsidian">2026-05-28 - Hero vertical Obsidian</h2>
+<ul>
+<li>Mudanca: a secao inicial de produto de <code>obsidian/index.html</code> deixou de usar o banner wide <code>hero-baner.jpg</code> com copy sobreposta e passou a usar copy lateral ao lado da imagem vertical <code>hero-baner-2.jpg</code>, com dimensoes declaradas de <code>921 x 1152</code>.</li>
+<li>Impacto: aproxima a hero do comportamento visual das demais secoes do Obsidian, melhora a organizacao responsiva no mobile e preserva copy publica, intro, header, fade por scroll, metadados e carrossel de formatos.</li>
+</ul>
+<h2 id="2026-05-28-carrossel-de-formatos-obsidian">2026-05-28 - Carrossel de formatos Obsidian</h2>
+<ul>
+<li>Mudanca: a secao <code>Formatos</code> de <code>obsidian/index.html</code> passou a usar um carrossel manual em que cada slide agrupa copy lateral e imagem como um unico bloco de informacao, com setas, indicadores e controle em <code>obsidian/script.js</code>.</li>
+<li>Impacto: permite alternar blocos completos de formato sem alterar metadados, navegacao, intro, fade do header ou copy publica nova; os textos usados no carrossel foram reaproveitados da propria pagina.</li>
+</ul>
 <h2 id="2026-05-27-normalizacao-de-acentuacao-e-caixa">2026-05-27 - Normalizacao de acentuacao e caixa</h2>
 <ul>
 <li>Mudanca: a documentacao interna foi movida para <code>documentacao/interno/</code> com nomes de arquivos minusculos, referencias internas foram atualizadas, textos publicos sem acento foram corrigidos e identificadores locais seguros em scripts foram normalizados para ASCII minusculo.</li>
@@ -91,8 +136,8 @@
 </ul>
 <h2 id="2026-05-22-consolidacao-da-pagina-estatica-obsidian">2026-05-22 - Consolidacao da pagina estatica Obsidian</h2>
 <ul>
-<li>Mudanca: a documentacao interna foi sincronizada com o estado atual de <code>obsidian/index.html</code>, que agora usa intro preta logo-only, header reduzido, banner <code>hero-baner.jpg</code>, duas secoes de produto espelhadas com <code>produto-large.png</code> e <code>produto-small.png</code>, manifesto e rodape.</li>
-<li>Impacto: o estado atual deixa de ser documentado como experiencia cinematografica de scroll ou pagina com situacoes, FAQ, lista VIP e cards de formato; Obsidian permanece pagina unica, conectada pela Home, <code>noindex</code>, fora do sitemap e sem subpaginas.</li>
+<li>Mudanca: a documentacao interna foi sincronizada com o estado da epoca de <code>obsidian/index.html</code>, entao usando intro preta logo-only, header reduzido, banner <code>hero-baner.jpg</code>, duas secoes de produto espelhadas com <code>produto-large.png</code> e <code>produto-small.png</code>, manifesto e rodape.</li>
+<li>Impacto: naquele momento, o Obsidian deixou de ser documentado como experiencia cinematografica de scroll ou pagina com situacoes, FAQ, lista VIP e cards de formato; Obsidian permanecia pagina unica, conectada pela Home, <code>noindex</code>, fora do sitemap e sem subpaginas.</li>
 </ul>
 <h2 id="2026-05-22-obsidian-com-conteudo-estatico">2026-05-22 - Obsidian com conteudo estatico</h2>
 <ul>
@@ -481,6 +526,15 @@
 <li class="toc-level-2"><a href="#objetivo">Objetivo</a></li>
 <li class="toc-level-2"><a href="#como-registrar-novas-entradas">Como Registrar Novas Entradas</a></li>
 <li class="toc-level-2"><a href="#historico-consolidado">Historico Consolidado</a></li>
+<li class="toc-level-2"><a href="#2026-05-29-pagina-nossa-missao-obsidian">2026-05-29 - Pagina Nossa Missao Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-29-wordmark-no-header-obsidian">2026-05-29 - Wordmark no header Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-29-espacamento-mobile-da-secao-missao-home">2026-05-29 - Espacamento mobile da secao Missao Home</a></li>
+<li class="toc-level-2"><a href="#2026-05-28-nossa-missao-da-home-essentia">2026-05-28 - Nossa Missao Da Home Essentia</a></li>
+<li class="toc-level-2"><a href="#2026-05-28-nossa-missao-neuroflash">2026-05-28 - Nossa Missao NeuroFlash</a></li>
+<li class="toc-level-2"><a href="#2026-05-28-refinos-de-largura-e-mobile">2026-05-28 - Refino de larguras e mobile</a></li>
+<li class="toc-level-2"><a href="#2026-05-28-jpgs-leves-no-obsidian">2026-05-28 - JPGs leves no Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-28-hero-vertical-obsidian">2026-05-28 - Hero vertical Obsidian</a></li>
+<li class="toc-level-2"><a href="#2026-05-28-carrossel-de-formatos-obsidian">2026-05-28 - Carrossel de formatos Obsidian</a></li>
 <li class="toc-level-2"><a href="#2026-05-27-normalizacao-de-acentuacao-e-caixa">2026-05-27 - Normalizacao de acentuacao e caixa</a></li>
 <li class="toc-level-2"><a href="#2026-05-27-otimizacao-de-imagens-por-mockup-full-hd">2026-05-27 - Otimizacao de imagens por mockup Full HD</a></li>
 <li class="toc-level-2"><a href="#2026-05-27-refatoracao-conservadora-de-assets-css-e-rodape">2026-05-27 - Refatoracao conservadora de assets, CSS e rodape</a></li>

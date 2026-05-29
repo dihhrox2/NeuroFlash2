@@ -7,11 +7,12 @@ const footer_context_links = {
   ],
   neuroflash: [
     { href: "neuroflash/index.html", label: "Home" },
-    { href: "neuroflash/quem-somos/index.html", label: "Quem Somos" },
+    { href: "neuroflash/quem-somos/index.html", label: "Nossa Missão" },
     { href: "neuroflash/faq/index.html", label: "FAQ" },
   ],
   obsidian: [
-    { href: "#intro-completa", label: "Home" },
+    { href: "obsidian/index.html#intro-completa", label: "Home" },
+    { href: "obsidian/nossa-missao/index.html", label: "Nossa Missão" },
   ],
 };
 

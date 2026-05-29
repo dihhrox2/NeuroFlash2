@@ -2,7 +2,7 @@
 const nested_page_pattern = /\/(home|faq|quem-somos)\/(?:index\.html)?$/;
 const site_links = [
   { href: "index.html", page: "home", nav_label: "HOME" },
-  { href: "quem-somos/index.html", page: "quem-somos", nav_label: "QUEM SOMOS" },
+  { href: "quem-somos/index.html", page: "quem-somos", nav_label: "NOSSA MISSÃO" },
   { href: "faq/index.html", page: "faq", nav_label: "FAQ" },
 ];
 const shared_include_selectors = [

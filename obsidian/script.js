@@ -2,6 +2,7 @@ const root = document.documentElement;
 const intro_curtain = document.querySelector("[data-intro-curtain]");
 const scroll_fade_logo = document.querySelector("[data-scroll-fade-logo]");
 const scroll_fade_products = document.querySelectorAll("[data-scroll-fade-product]");
+const format_carousel = document.querySelector("[data-format-carousel]");
 
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
@@ -47,3 +48,64 @@ const update_intro = () => {
 update_intro();
 window.addEventListener("scroll", update_intro, { passive: true });
 window.addEventListener("resize", update_intro);
+
+if (format_carousel) {
+  const track = format_carousel.querySelector("[data-format-carousel-track]");
+  const slides = Array.from(format_carousel.querySelectorAll("[data-format-carousel-slide]"));
+  const previous_button = format_carousel.querySelector("[data-format-carousel-prev]");
+  const next_button = format_carousel.querySelector("[data-format-carousel-next]");
+  const indicators = format_carousel.querySelector("[data-format-carousel-indicators]");
+  let current_index = 0;
+
+  const sync_format_carousel = () => {
+    if (!track || !previous_button || !next_button || !indicators || slides.length === 0) {
+      return;
+    }
+
+    current_index = (current_index + slides.length) % slides.length;
+    track.style.transform = `translateX(${-current_index * 100}%)`;
+
+    slides.forEach((slide, index) => {
+      slide.setAttribute("aria-hidden", String(index !== current_index));
+    });
+
+    Array.from(indicators.children).forEach((button, index) => {
+      const is_active = index === current_index;
+
+      button.classList.toggle("is-active", is_active);
+      button.setAttribute("aria-current", is_active ? "true" : "false");
+    });
+
+    const has_multiple_slides = slides.length > 1;
+    previous_button.disabled = !has_multiple_slides;
+    next_button.disabled = !has_multiple_slides;
+  };
+
+  if (track && previous_button && next_button && indicators) {
+    slides.forEach((_, index) => {
+      const button = document.createElement("button");
+
+      button.type = "button";
+      button.className = "format-carousel-indicator";
+      button.setAttribute("aria-label", `Mostrar formato ${index + 1} de ${slides.length}`);
+      button.addEventListener("click", () => {
+        current_index = index;
+        sync_format_carousel();
+      });
+
+      indicators.append(button);
+    });
+
+    previous_button.addEventListener("click", () => {
+      current_index -= 1;
+      sync_format_carousel();
+    });
+
+    next_button.addEventListener("click", () => {
+      current_index += 1;
+      sync_format_carousel();
+    });
+
+    sync_format_carousel();
+  }
+}
