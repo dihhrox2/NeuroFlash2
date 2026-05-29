@@ -22,7 +22,7 @@
 <ol>
 <li><code>index.html</code> funciona como Home canonica da Essentia Health e pagina principal indexavel</li>
 <li><code>neuroflash/index.html</code> funciona como Home canonica do produto NeuroFlash</li>
-<li><code>neuroflash/quem-somos/index.html</code> apresenta a pagina Nossa Missao do NeuroFlash, mantendo a URL tecnica antiga por compatibilidade</li>
+<li><code>neuroflash/quem-somos/index.html</code> apresenta a pagina Nossa Missao do NeuroFlash, servida publicamente como <code>/neuroflash/quem-somos/</code></li>
 <li><code>neuroflash/faq/index.html</code> cobre duvidas, protocolos e alertas complementares do NeuroFlash</li>
 <li><code>obsidian/index.html</code> apresenta a Home estatica do produto Obsidian, conectada pelo card e pelo rodape da Home Essentia Health, indexavel e incluida no sitemap</li>
 <li><code>obsidian/nossa-missao/index.html</code> apresenta a pagina Nossa Missao do Obsidian, indexavel e incluida no sitemap</li>
@@ -31,7 +31,7 @@
 <ul>
 <li>hospedagem-alvo: GitHub Pages</li>
 <li>dominio publico oficial: <code>https://essentiahealth.com.br/</code></li>
-<li>compatibilidade local: as paginas devem funcionar em <code>file:///</code></li>
+<li>compatibilidade local: as paginas devem funcionar preferencialmente por servidor local; URLs publicas devem usar caminhos limpos com barra final em vez de expor <code>index.html</code></li>
 <li>curadoria legal externa: todo texto visivel ao publico e bloqueado para edicao interna; nenhuma refatoracao, atualizacao, otimizacao, ajuste de SEO, acessibilidade, performance ou manutencao pode alterar copy, labels, CTAs, metadados textuais visiveis em compartilhamento, avisos, FAQ, conteudo institucional ou qualquer texto exibido ao usuario sem aprovacao legal externa previa</li>
 <li>padrao operacional de escrita: nomes de arquivos, pastas, referencias tecnicas e identificadores internos devem usar ASCII minusculo sempre que a plataforma permitir; textos publicos devem renderizar com acentuacao correta e caixa da copy preservada</li>
 <li>base visual da Home Essentia Health: <code>styles.css</code></li>
@@ -154,11 +154,16 @@
 <li>a imagem principal da hero e seu carrossel devem permanecer desktop-only em tempo de rede, evitando download desnecessario no mobile.</li>
 <li>o background compartilhado permanece em CSS no <code>body</code>, sem lazy loading, porque faz parte da identidade visual global.</li>
 <li>assets rastericos em uso publico devem ser dimensionados para o maior mockup Full HD confirmado; nomes, caminhos e formatos permanecem estaveis, e arquivos sociais ou reducoes que aumentem bytes ficam no tamanho original.</li>
+<li>Home Essentia Health, NeuroFlash, Obsidian e rodape global usam variantes menores em <code>srcset</code>/<code>sizes</code> quando a versao reduzida realmente diminui bytes; os arquivos originais permanecem como fallback e como referencia de maior tamanho.</li>
+<li>imagens candidatas a LCP devem permanecer descobertas diretamente no HTML, sem <code>loading="lazy"</code> e com <code>fetchpriority="high"</code> quando forem o primeiro impacto visual da rota.</li>
+<li><code>favicon.ico</code> fica na raiz e deve ser declarado nas paginas publicas com caminho absoluto <code>/favicon.ico</code>.</li>
+<li>o rodape compartilhado usa titulos visuais como <code>h2.footer-heading</code> para preservar ordem semantica de headings nas paginas publicas; a aparencia continua controlada por <code>shared/footer.css</code>.</li>
+<li>o alerta de cache curto do Lighthouse deve ser tratado em hospedagem/CDN quando houver controle de headers; em GitHub Pages puro, nao criar churn de nomes versionados apenas para contornar TTL de asset.</li>
 </ul>
 <h3 id="nossa-missao-neuroflash">Nossa Missao NeuroFlash</h3>
 <p>A pagina <code>quem-somos/</code> permanece na mesma URL tecnica por compatibilidade, mas se apresenta publicamente como <code>Nossa Missao</code>. Ela nao possui JavaScript proprio e reutiliza header, footer, shell, fundo fixo e superficies compartilhadas, com CSS local para a narrativa institucional e a proporcao do titulo de pagina no desktop. A foto dos fundadores e o CTA contextual da FAQ nao fazem mais parte da experiencia publica.</p>
 <h3 id="essentia-health-isolada">Essentia Health Isolada</h3>
-<p>A Home Essentia Health vive na raiz em <code>index.html</code>. A ordem visual e logo, produtos, bloco institucional Nossa Missao, secao Missao e footer. O layout usa uma casca clara <code>site-shell</code> full-width e uma regua interna de <code>1180px</code>, com gutters de <code>18px</code> no desktop e <code>14px</code> no mobile, sem linhas verticais laterais de contorno. O logo do header aponta para <code>./index.html</code>, sem ancora <code>#inicio</code>, para recarregar no topo real em abertura local. As secoes Produtos, Nossa Missao e Missao devem permanecer alinhadas pela mesma largura util do container; no mobile, a secao Missao tambem compensa os gutters laterais para manter o mesmo respiro dos demais blocos. A secao de produtos usa apenas o rotulo compacto "Produtos" alinhado ao inicio do carrossel acima de <code>carousel.js</code>, com carrossel manual circular, sem autoplay, primeiro card com <code>assets/images/neuroflash.jpg</code> apontando operacionalmente para <code>./neuroflash/index.html</code>, segundo card com <code>assets/images/obsidian.jpg</code> apontando para <code>./obsidian/index.html</code> e dois placeholders <code>assets/images/em-breve.jpg</code>. O carrossel mantem contornos no conjunto e nos cards, proporcao vertical <code>4:3</code> e exibicao responsiva de tres cards no desktop, dois no tablet e um no mobile. O rodape da raiz reutiliza a mecanica dimensional real do rodape NeuroFlash, preserva fundo transparente e paleta clara, mantem mapa do site com <code>Home</code>, <code>NeuroFlash</code> e <code>Obsidian</code>, copyright <code>&copy; 2026 Essentia Health.</code> e barra inferior com linha horizontal em largura total. As dimensoes recomendadas desses assets estao registradas em <code>site_image_guide.html</code>.</p>
+<p>A Home Essentia Health vive na raiz em <code>index.html</code>. A ordem visual e logo, produtos, bloco institucional Nossa Missao, secao Missao e footer. O layout usa uma casca clara <code>site-shell</code> full-width e uma regua interna de <code>1180px</code>, com gutters de <code>18px</code> no desktop e <code>14px</code> no mobile, sem linhas verticais laterais de contorno. O logo do header aponta para <code>./</code>, sem ancora <code>#inicio</code>, para recarregar no topo real em servidor local e URL publica limpa. As secoes Produtos, Nossa Missao e Missao devem permanecer alinhadas pela mesma largura util do container; no mobile, a secao Missao tambem compensa os gutters laterais para manter o mesmo respiro dos demais blocos. A secao de produtos usa apenas o rotulo compacto "Produtos" alinhado ao inicio do carrossel acima de <code>carousel.js</code>, com carrossel manual circular, sem autoplay, primeiro card com <code>assets/images/neuroflash.jpg</code> apontando operacionalmente para <code>./neuroflash/</code>, segundo card com <code>assets/images/obsidian.jpg</code> apontando para <code>./obsidian/</code> e dois placeholders <code>assets/images/em-breve.jpg</code>; esses cards possuem variantes <code>-360</code> e <code>-540</code> via <code>srcset</code>, e o primeiro card pode receber prioridade quando for LCP em mobile. Slides com <code>aria-hidden="true"</code> nao devem manter links focaveis, e os indicadores precisam ter area clicavel minima de <code>24px</code> mesmo com ponto visual compacto. O carrossel mantem contornos no conjunto e nos cards, proporcao vertical <code>4:3</code> e exibicao responsiva de tres cards no desktop, dois no tablet e um no mobile. O rodape da raiz reutiliza a mecanica dimensional real do rodape NeuroFlash, preserva fundo transparente e paleta clara, mantem mapa do site com <code>Home</code>, <code>NeuroFlash</code> e <code>Obsidian</code>, copyright <code>&copy; 2026 Essentia Health.</code> e barra inferior com linha horizontal em largura total. As dimensoes recomendadas desses assets estao registradas em <code>site_image_guide.html</code>.</p>
 <h3 id="faq">FAQ</h3>
 <p>O acordeao em <code>faq/script.js</code>:</p>
 <ul>
@@ -174,7 +179,7 @@
 <li>o mobile usa um perfil de performance mais leve, sem <code>background-attachment: fixed</code> e sem <code>backdrop-filter</code> nos blocos compartilhados mais caros.</li>
 <li>blocos estaticos abaixo da dobra podem usar <code>content-visibility: auto</code> via utilitario compartilhado, sem aplicar essa tecnica ao acordeao da FAQ.</li>
 <li>blocos estaticos abaixo da dobra em <code>quem-somos/</code> e o rodape compartilhado podem participar desse adiamento de renderizacao.</li>
-<li><code>obsidian/index.html</code> usa uma abertura logo-only em tela preta, seguida por uma pagina estatica em fluxo normal de leitura: faixa preta inicial, header com <code>logo-mini.png</code>, <code>obsidian-nome.png</code> clicaveis para <code>#intro-completa</code>, escala de componentes reduzida em relacao ao header NeuroFlash e atalhos <code>Home</code>/<code>Nossa Missao</code> com estado ativo, hero com copy lateral e imagem vertical <code>hero-baner-2.jpg</code>, secao <code>Preparo</code> com <code>produto-large.jpg</code> a esquerda e copy a direita, secao <code>Formatos</code> como carrossel manual de blocos completos de copy e imagem, manifesto e rodape. <code>obsidian/nossa-missao/index.html</code> reutiliza o mesmo header visual em modo estatico, com fundo preto plano, logo e atalho Home apontando para a Home Obsidian, titulo centralizado em escala editorial e bloco narrativo alinhado a regua de largura, padding e paragrafo da pagina Nossa Missao NeuroFlash, preservando a estetica escura do Obsidian. No mobile, a hero e os slides de formatos priorizam imagem antes da copy; o carrossel de formatos compacta copy e controles para preservar o maior enquadramento possivel da imagem. Quando houver paridade visual, a pagina Obsidian deve preferir as versoes <code>.jpg</code> mais leves dos assets rastericos locais.</li>
+<li><code>obsidian/index.html</code> usa uma abertura logo-only em tela preta, seguida por uma pagina estatica em fluxo normal de leitura: faixa preta inicial, header com <code>logo-mini.png</code>, <code>obsidian-nome.png</code> clicaveis para <code>#intro-completa</code>, escala de componentes reduzida em relacao ao header NeuroFlash e atalhos <code>Home</code>/<code>Nossa Missao</code> com estado ativo, hero com copy lateral e imagem vertical <code>hero-baner-2.jpg</code>, secao <code>Preparo</code> com <code>produto-large.jpg</code> a esquerda e copy a direita, secao <code>Formatos</code> como carrossel manual de blocos completos de copy e imagem, manifesto e rodape. As imagens de intro, header, hero, preparo e formatos podem usar variantes responsivas menores em <code>srcset</code>, mantendo os originais como fallback. <code>obsidian/nossa-missao/index.html</code> reutiliza o mesmo header visual em modo estatico, com fundo preto plano, logo e atalho Home apontando para a Home Obsidian, titulo centralizado em escala editorial e bloco narrativo alinhado a regua de largura, padding e paragrafo da pagina Nossa Missao NeuroFlash, preservando a estetica escura do Obsidian. No mobile, a hero e os slides de formatos priorizam imagem antes da copy; o carrossel de formatos compacta copy e controles para preservar o maior enquadramento possivel da imagem. Quando houver paridade visual, a pagina Obsidian deve preferir as versoes <code>.jpg</code> mais leves dos assets rastericos locais.</li>
 <li><code>obsidian/script.js</code> usa a posicao de rolagem para esconder a intro preta, revelar o header e aplicar fades de entrada no banner e imagens de produto; tambem controla o carrossel manual de formatos com setas e indicadores, sem bibliotecas, build step, <code>fetch</code> ou servidor local.</li>
 <li>A pagina Obsidian preserva compatibilidade com <code>noscript</code>, exibindo diretamente o conteudo estatico e o header quando JavaScript estiver indisponivel.</li>
 </ul>
@@ -194,6 +199,8 @@
 <li>Home Essentia Health, Home NeuroFlash, Nossa Missao, FAQ e Obsidian devem manter Open Graph e Twitter cards com imagem e texto alternativo coerentes.</li>
 <li>Sempre que a imagem social for conhecida, manter tambem <code>og:image:type</code>, <code>og:image:width</code> e <code>og:image:height</code>.</li>
 <li><code>robots.txt</code> e <code>sitemap.xml</code> ficam na raiz do projeto e apontam para o dominio oficial.</li>
+<li>Links publicos internos devem preferir URLs limpas com barra final, como <code>/neuroflash/</code>, <code>/neuroflash/faq/</code> e <code>/obsidian/</code>; <code>index.html</code> permanece como arquivo fisico e compatibilidade tecnica, nao como URL publica preferencial.</li>
+<li>O aviso "Pagina alternativa com tag canonica adequada" pode permanecer temporariamente no Google Search Console para URLs antigas com <code>index.html</code> ate novo rastreamento.</li>
 <li>A antiga pagina isolada <code>essentia-health/</code> foi promovida para a raiz; nao manter pasta publica duplicada com esse nome.</li>
 <li><code>FAQPage</code> schema deve ser avaliado com cautela, porque rich results de FAQ sao restritos e nao devem ser tratados como ganho garantido.</li>
 <li>Imagens editoriais devem manter <code>alt</code> descritivo, natural e sem excesso de palavras-chave.</li>
@@ -214,13 +221,14 @@
 <li>preferir <code>shared/styles.css</code> para regras realmente identicas entre paginas</li>
 <li>manter includes sem <code>fetch</code> enquanto <code>file:///</code> for requisito</li>
 <li>encapsular scripts compartilhados para nao declarar <code>const</code>, <code>let</code> ou helpers reutilizaveis no escopo global da pagina</li>
+<li>considerar boas praticas do Lighthouse em novas paginas, modificacoes e refatoracoes, cobrindo Performance, Acessibilidade, Boas praticas e SEO sem perseguir pontuacao artificial quando o alerta vier de ambiente local, extensoes, antivirus, HTTP local, cache de hospedagem sem controle de headers ou requisito externo ao codigo</li>
 <li>substituir os dados ficticios do footer antes da publicacao publica</li>
 </ul>
 <p>Checklist rapido pos-alteracao:</p>
 <ul>
 <li>validar <code>index.html -&gt; neuroflash/</code></li>
 <li>validar <code>neuroflash/index.html -&gt; neuroflash/quem-somos/ -&gt; neuroflash/faq/</code></li>
-<li>validar <code>neuroflash/home/index.html -&gt; neuroflash/index.html</code></li>
+<li>validar <code>neuroflash/home/index.html -&gt; neuroflash/</code></li>
 <li>validar navegacao entre Home NeuroFlash, Nossa Missao e FAQ</li>
 <li>validar retorno da FAQ para a Home</li>
 <li>revisar visual em mobile e desktop</li>
@@ -231,6 +239,7 @@
 <li>confirmar que <code>googlef8f43337a075e3ac.html</code> permanece na raiz se a verificacao do Google ainda estiver ativa</li>
 <li>confirmar que CTAs nao usam <code>href=&quot;#&quot;</code></li>
 <li>confirmar que nenhum texto publico foi alterado sem aprovacao legal externa registrada</li>
+<li>em novas paginas ou refatoracoes com impacto visual, rodar Lighthouse localmente nas rotas afetadas e separar achados reais do projeto de ruido de ambiente antes de alterar codigo</li>
 <li>atualizar <code>changelog.html</code> se a mudanca for estrutural, visual relevante ou comportamental</li>
 </ul>
 <h2 id="notas-de-evolucao">Notas De Evolucao</h2>

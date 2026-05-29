@@ -34,6 +34,16 @@
 <li>usar o <code>site_architecture.html</code> para o estado atual e este arquivo para a trilha historica</li>
 </ul>
 <h2 id="historico-consolidado">Historico Consolidado</h2>
+<h2 id="2026-05-29-melhorias-lighthouse-sitewide">2026-05-29 - Melhorias Lighthouse sitewide</h2>
+<ul>
+<li>Mudanca: as seis rotas publicas passaram a declarar <code>favicon.ico</code>, as imagens LCP de Home, NeuroFlash e Obsidian receberam prioridade explicita, o carrossel da Home deixou de manter links focaveis em slides ocultos e os indicadores ganharam area de toque minima; imagens publicas de Home, NeuroFlash, Obsidian e rodape ganharam variantes responsivas menores quando houve reducao real de bytes.</li>
+<li>Impacto: reduz bytes baixados em imagens dimensionadas abaixo do arquivo original e corrige alertas reais de acessibilidade/semantica do Lighthouse sem alterar copy publica, metadados, JSON-LD, URLs canonicas, sitemap, fontes externas, CSS compartilhado de produto alem do necessario ou contratos de navegacao.</li>
+</ul>
+<h2 id="2026-05-29-normalizacao-de-urls-publicas">2026-05-29 - Normalizacao de URLs publicas</h2>
+<ul>
+<li>Mudanca: links publicos internos da Home, NeuroFlash, Obsidian, footer compartilhado e fallback tecnico passaram a apontar para URLs limpas com barra final, sem expor <code>index.html</code> como URL publica preferencial.</li>
+<li>Impacto: reduz a descoberta de duplicatas tecnicas pelo Google Search Console, preservando canonicals, <code>og:url</code>, JSON-LD, <code>robots.txt</code>, <code>sitemap.xml</code>, copy publica e estrutura estatica sem adicionar redirects servidor-side.</li>
+</ul>
 <h2 id="2026-05-29-pagina-nossa-missao-obsidian">2026-05-29 - Pagina Nossa Missao Obsidian</h2>
 <ul>
 <li>Mudanca: criado <code>obsidian/nossa-missao/index.html</code> como pagina publica indexavel com copy autorizada, metadados proprios, JSON-LD <code>AboutPage</code>, header Obsidian estatico, footer compartilhado e inclusao em <code>sitemap.xml</code>; em refinamentos posteriores, o marcador visual "Obsidian" foi removido da hero, o titulo foi reduzido e centralizado, o conteudo passou a usar a mesma regua editorial da pagina Nossa Missao NeuroFlash, o fundo da pagina voltou a ser preto plano como a Home Obsidian, o header ganhou atalhos <code>Home</code> e <code>Nossa missao</code> com estado ativo, a tentativa de alinhar o header Obsidian por gutters compartilhados foi revertida e a escala visual do header passou a seguir a referencia do NeuroFlash sem alterar o produto.</li>
@@ -526,6 +536,8 @@
 <li class="toc-level-2"><a href="#objetivo">Objetivo</a></li>
 <li class="toc-level-2"><a href="#como-registrar-novas-entradas">Como Registrar Novas Entradas</a></li>
 <li class="toc-level-2"><a href="#historico-consolidado">Historico Consolidado</a></li>
+<li class="toc-level-2"><a href="#2026-05-29-melhorias-lighthouse-sitewide">2026-05-29 - Melhorias Lighthouse sitewide</a></li>
+<li class="toc-level-2"><a href="#2026-05-29-normalizacao-de-urls-publicas">2026-05-29 - Normalizacao de URLs publicas</a></li>
 <li class="toc-level-2"><a href="#2026-05-29-pagina-nossa-missao-obsidian">2026-05-29 - Pagina Nossa Missao Obsidian</a></li>
 <li class="toc-level-2"><a href="#2026-05-29-wordmark-no-header-obsidian">2026-05-29 - Wordmark no header Obsidian</a></li>
 <li class="toc-level-2"><a href="#2026-05-29-espacamento-mobile-da-secao-missao-home">2026-05-29 - Espacamento mobile da secao Missao Home</a></li>

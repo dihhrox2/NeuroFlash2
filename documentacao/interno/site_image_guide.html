@@ -46,18 +46,28 @@
 <li>Uso: logo principal da Home Essentia Health.</li>
 <li>Dimensao real: 779 x 540 px</li>
 <li>Dimensao HTML: 779 x 540 px</li>
+<li>Prioridade: imagem LCP da Home raiz, carregada sem lazy loading e com <code>fetchpriority="high"</code>.</li>
+<li>Observacao: manter arquivo original enquanto reducoes rastericas gerarem arquivo maior que o original.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>assets/images/essentia-health-logo-mark.png</code></li>
 <li>Uso: simbolo compacto no topo da Home Essentia Health.</li>
 <li>Dimensao real: 359 x 196 px</li>
 <li>Dimensao HTML: 359 x 196 px</li>
+<li>Variante responsiva: <code>assets/images/essentia-health-logo-mark-112.png</code> para uso reduzido no header.</li>
+</ul>
+<ul>
+<li>Arquivo: <code>favicon.ico</code></li>
+<li>Uso: icone do site declarado nas paginas publicas com <code>/favicon.ico</code>.</li>
+<li>Origem: derivado do simbolo compacto da Essentia Health.</li>
+<li>Observacao: manter na raiz para evitar 404 em navegadores, Lighthouse e rastreadores.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>assets/images/neuroflash.jpg</code></li>
-<li>Uso: packshot do primeiro card do carrossel de produtos da Home Essentia Health, com link operacional para <code>./neuroflash/index.html</code>.</li>
+<li>Uso: packshot do primeiro card do carrossel de produtos da Home Essentia Health, com link operacional para <code>./neuroflash/</code>.</li>
 <li>Dimensao real: 600 x 800 px</li>
 <li>Dimensao HTML: 600 x 800 px</li>
+<li>Variantes responsivas: <code>assets/images/neuroflash-360.jpg</code> e <code>assets/images/neuroflash-540.jpg</code> para cards exibidos em largura reduzida/intermediaria.</li>
 <li>Proporcao recomendada: 3:4 vertical</li>
 </ul>
 <ul>
@@ -65,6 +75,7 @@
 <li>Uso: imagem do segundo card do carrossel de produtos da Home Essentia Health.</li>
 <li>Dimensao real: 600 x 800 px</li>
 <li>Dimensao HTML: 600 x 800 px</li>
+<li>Variantes responsivas: <code>assets/images/obsidian-360.jpg</code> e <code>assets/images/obsidian-540.jpg</code> para cards exibidos em largura reduzida/intermediaria.</li>
 <li>Proporcao recomendada: 3:4 vertical</li>
 </ul>
 <ul>
@@ -72,6 +83,7 @@
 <li>Uso: imagem dos dois placeholders restantes do carrossel de produtos da Home Essentia Health.</li>
 <li>Dimensao real: 600 x 800 px</li>
 <li>Dimensao HTML: 600 x 800 px</li>
+<li>Variantes responsivas: <code>assets/images/em-breve-360.jpg</code> e <code>assets/images/em-breve-540.jpg</code> para cards exibidos em largura reduzida/intermediaria.</li>
 <li>Proporcao recomendada: 3:4 vertical</li>
 </ul>
 <h2 id="3-imagens-compartilhadas-neuroflash">3. Imagens Compartilhadas NeuroFlash</h2>
@@ -90,6 +102,7 @@
 <li>Uso: logo institucional da Essentia Health no rodape global.</li>
 <li>Dimensao real: 779 x 540 px</li>
 <li>Dimensao HTML: 779 x 540 px</li>
+<li>Variante responsiva: <code>shared/essentia-health-logo-240.png</code> para o rodape.</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -102,18 +115,21 @@
 <li>Uso: icone de e-mail no rodape.</li>
 <li>Dimensao real: 96 x 96 px</li>
 <li>Dimensao HTML: 96 x 96 px</li>
+<li>Variantes responsivas: <code>shared/icons/email-32.png</code> e <code>shared/icons/email-64.png</code>.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>shared/icons/instagram.png</code></li>
 <li>Uso: icone de Instagram no rodape.</li>
 <li>Dimensao real: 96 x 96 px</li>
 <li>Dimensao HTML: 96 x 96 px</li>
+<li>Variantes responsivas: <code>shared/icons/instagram-32.png</code> e <code>shared/icons/instagram-64.png</code>.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>shared/icons/whatsapp.png</code></li>
 <li>Uso: icone de WhatsApp no rodape.</li>
 <li>Dimensao real: 96 x 96 px</li>
 <li>Dimensao HTML: 96 x 96 px</li>
+<li>Variantes responsivas: <code>shared/icons/whatsapp-32.png</code> e <code>shared/icons/whatsapp-64.png</code>.</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -161,6 +177,7 @@
 <li>Dimensao HTML: 600 x 1000 px</li>
 <li>Orientacao: vertical</li>
 <li>Prioridade: imagem critica, carregamento imediato.</li>
+<li>Variante responsiva: <code>neuroflash/home/product-packshot2-420.jpg</code> para exibicoes reduzidas.</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -211,6 +228,7 @@
 <li>Dimensao real: 799 x 450 px</li>
 <li>Dimensao HTML: 799 x 450 px</li>
 <li>Proporcao HTML: 16:9 aproximada</li>
+<li>Variante responsiva: <code>neuroflash/home/treino-576.jpg</code>.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/estudo.jpg</code></li>
@@ -218,6 +236,7 @@
 <li>Dimensao real: 800 x 450 px</li>
 <li>Dimensao HTML: 800 x 450 px</li>
 <li>Proporcao HTML: 16:9</li>
+<li>Variante responsiva: <code>neuroflash/home/estudo-576.jpg</code>.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>neuroflash/home/game-competicao.jpg</code></li>
@@ -225,6 +244,7 @@
 <li>Dimensao real: 800 x 533 px</li>
 <li>Dimensao HTML: 800 x 533 px</li>
 <li>Proporcao HTML: 3:2 aproximada</li>
+<li>Variante responsiva: <code>neuroflash/home/game-competicao-576.jpg</code>.</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>
@@ -290,10 +310,11 @@
 </ul>
 <h2 id="6-obsidian">6. Obsidian</h2>
 <ul>
-<li>Arquivo: <code>obsidian/assets/logo.png</code></li>
+<li>Arquivo: <code>obsidian/assets/logo.jpg</code></li>
 <li>Uso: logo principal na intro preta logo-only da pagina Obsidian.</li>
 <li>Dimensao real: 1024 x 1024 px</li>
 <li>Prioridade: carregamento imediato na intro.</li>
+<li>Variante responsiva: <code>obsidian/assets/logo-320.jpg</code> para a intro.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>obsidian/assets/logo-mini.png</code></li>
@@ -301,6 +322,7 @@
 <li>Dimensao real: 128 x 128 px</li>
 <li>Dimensao HTML: 128 x 128 px</li>
 <li>Prioridade: carregamento imediato no header.</li>
+<li>Variante responsiva: <code>obsidian/assets/logo-mini-64.png</code>.</li>
 </ul>
 <ul>
 <li>Arquivo: <code>obsidian/assets/obsidian-nome.png</code></li>
@@ -309,30 +331,35 @@
 <li>Dimensao HTML: 320 x 39 px</li>
 <li>Dimensao visual: 224 px de largura no desktop, com limite menor no mobile.</li>
 <li>Prioridade: carregamento imediato no header.</li>
+<li>Variante responsiva: <code>obsidian/assets/obsidian-nome-192.png</code>.</li>
 </ul>
 <ul>
-<li>Arquivo: <code>obsidian/assets/hero-baner.jpg</code></li>
-<li>Uso: banner visual principal da primeira secao de conteudo apos a faixa preta inicial.</li>
-<li>Dimensao real: 2200 x 1400 px</li>
-<li>Orientacao: horizontal</li>
-</ul>
-<ul>
-<li>Arquivo: <code>obsidian/assets/apresentacao-1.png</code></li>
-<li>Uso: asset de referencia visual e imagem social Open Graph/Twitter; nao participa do layout atual da pagina.</li>
+<li>Arquivo: <code>obsidian/assets/hero-baner-2.jpg</code></li>
+<li>Uso: imagem vertical da hero de conteudo apos a faixa preta inicial.</li>
 <li>Dimensao real: 921 x 1152 px</li>
 <li>Orientacao: vertical</li>
+<li>Variante responsiva: <code>obsidian/assets/hero-baner-2-640.jpg</code>.</li>
 </ul>
 <ul>
-<li>Arquivo: <code>obsidian/assets/produto-large.png</code></li>
+<li>Arquivo: <code>obsidian/assets/apresentacao-1.jpg</code></li>
+<li>Uso: imagem do carrossel de formatos e imagem social Open Graph/Twitter.</li>
+<li>Dimensao real: 921 x 1152 px</li>
+<li>Orientacao: vertical</li>
+<li>Variante responsiva: <code>obsidian/assets/apresentacao-1-640.jpg</code>.</li>
+</ul>
+<ul>
+<li>Arquivo: <code>obsidian/assets/produto-large.jpg</code></li>
 <li>Uso: imagem da secao <code>Preparo</code>, posicionada a esquerda da copy em desktop.</li>
 <li>Dimensao real: 921 x 1152 px</li>
 <li>Orientacao: vertical</li>
+<li>Variante responsiva: <code>obsidian/assets/produto-large-640.jpg</code>.</li>
 </ul>
 <ul>
-<li>Arquivo: <code>obsidian/assets/produto-small.png</code></li>
-<li>Uso: imagem da secao <code>Formatos</code>, posicionada a direita da copy em desktop e com o mesmo limite visual de largura de <code>produto-large.png</code>.</li>
+<li>Arquivo: <code>obsidian/assets/produto-small.jpg</code></li>
+<li>Uso: imagem da secao <code>Formatos</code>, posicionada a direita da copy em desktop e com o mesmo limite visual de largura de <code>produto-large.jpg</code>.</li>
 <li>Dimensao real: 921 x 1152 px</li>
 <li>Orientacao: vertical</li>
+<li>Variante responsiva: <code>obsidian/assets/produto-small-640.jpg</code>.</li>
 </ul>
 <p>Orientacoes:</p>
 <ul>

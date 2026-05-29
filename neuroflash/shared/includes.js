@@ -1,9 +1,9 @@
 (() => {
 const nested_page_pattern = /\/(home|faq|quem-somos)\/(?:index\.html)?$/;
 const site_links = [
-  { href: "index.html", page: "home", nav_label: "HOME" },
-  { href: "quem-somos/index.html", page: "quem-somos", nav_label: "NOSSA MISSÃO" },
-  { href: "faq/index.html", page: "faq", nav_label: "FAQ" },
+  { href: "", page: "home", nav_label: "HOME" },
+  { href: "quem-somos/", page: "quem-somos", nav_label: "NOSSA MISSÃO" },
+  { href: "faq/", page: "faq", nav_label: "FAQ" },
 ];
 const shared_include_selectors = [
   ["[data-shared-header]", "header"],
@@ -41,7 +41,7 @@ const build_header = () => {
     <header class="home-nav shared-header shared-header--neuroflash">
       <div class="home-nav-inner shared-header__inner">
         <div class="home-brand shared-header__brand">
-          <a class="brand-mark" href="${prefix}index.html">NEURO<span>FLASH</span></a>
+          <a class="brand-mark" href="${prefix}">NEURO<span>FLASH</span></a>
           <div class="price-badge home-badge">HARDCORE MODE</div>
         </div>
         <nav class="home-menu shared-header__nav" aria-label="Navegação principal">
@@ -56,7 +56,7 @@ const shared_includes = {
   header: build_header,
   legal_warning: () => `
     <aside class="warning-box">
-      <h3>&#9888; HARDCORE MODE ONLY</h3>
+      <p class="warning-box__title">&#9888; HARDCORE MODE ONLY</p>
       <p>
         Uso restrito a maiores de 18 anos. Se voc&ecirc; tem sensibilidade &agrave; cafe&iacute;na ou hist&oacute;rico card&iacute;aco,
         este produto <strong>N&Atilde;O</strong> &eacute; para voc&ecirc;. Performance exige responsabilidade.

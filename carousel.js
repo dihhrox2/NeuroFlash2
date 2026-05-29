@@ -52,8 +52,16 @@ if (carousel) {
 
     slides.forEach((slide, index) => {
       const is_visible = index >= current_index && index < current_index + visible_count;
+      const focusable_items = slide.querySelectorAll("a, button, input, select, textarea, [tabindex]");
 
       slide.setAttribute("aria-hidden", String(!is_visible));
+      focusable_items.forEach((item) => {
+        if (is_visible) {
+          item.removeAttribute("tabindex");
+        } else {
+          item.setAttribute("tabindex", "-1");
+        }
+      });
     });
   };
 

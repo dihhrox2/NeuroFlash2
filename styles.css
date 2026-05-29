@@ -363,21 +363,31 @@ h3 {
 .carousel-indicators {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
 }
 
 .carousel-indicator {
-  width: 10px;
-  height: 10px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(63, 159, 145, 0.25);
+  background: transparent;
   cursor: pointer;
 }
 
-.carousel-indicator.is-active {
-  width: 28px;
+.carousel-indicator::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(63, 159, 145, 0.25);
+}
+
+.carousel-indicator.is-active::before {
+  width: 20px;
   background: var(--color-primary);
 }
 

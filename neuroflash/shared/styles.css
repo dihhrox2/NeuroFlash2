@@ -283,9 +283,10 @@ body {
   box-shadow: 0 0 26px rgba(207, 255, 24, 0.22);
 }
 
-.warning-box h3 {
+.warning-box__title {
   margin: 0 0 10px;
   font-family: var(--font-display);
+  font-weight: 800;
   font-size: 1.55rem;
   line-height: 1;
   text-align: center;
