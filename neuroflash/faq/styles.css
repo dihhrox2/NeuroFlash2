@@ -35,7 +35,6 @@
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  opacity: 1;
   transition: max-height 180ms ease;
 }
 
@@ -74,11 +73,7 @@
   line-height: 1.6;
 }
 
-.faq-item.is-open .faq-answer {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
   .faq-answer {
     transition: none;
   }

@@ -1,20 +1,14 @@
 :root {
   --color-bg: #f7fbf7;
-  --color-bg-soft: #eef8f2;
   --color-surface: #ffffff;
   --color-primary: #3f9f91;
-  --color-primary-soft: #8ed8be;
   --color-primary-dark: #1f6f66;
   --color-text: #1e3430;
   --color-muted: #5f746f;
   --color-border: #d8e9e2;
-  --shadow-soft: 0 24px 70px rgba(31, 111, 102, 0.12);
   --content-width: 1180px;
-  --max-width: var(--content-width);
   --page-gutter: 18px;
   --page-gutter-mobile: 14px;
-  --font-body: "Inter", sans-serif;
-  --font-display: "Barlow Condensed", sans-serif;
 }
 
 * {
@@ -392,6 +386,10 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .carousel-track,
   .carousel-button,
   .info-card {

@@ -1,279 +1,199 @@
-const hero_desktop_query = window.matchMedia("(min-width: 769px)");
-const hero_reduced_motion_query = window.matchMedia("(prefers-reduced-motion: reduce)");
-const schedule_idle_work =
-  "requestIdleCallback" in window
-    ? (callback) => window.requestIdleCallback(callback, { timeout: 1800 })
-    : (callback) => window.setTimeout(callback, 280);
-const cancel_idle_work =
-  "cancelIdleCallback" in window
-    ? (id) => window.cancelIdleCallback(id)
-    : (id) => window.clearTimeout(id);
-const hero_extra_slides = [
-  {
-    src: "./home/hero-focus2.jpg",
-    alt: "Profissional apresentando em um palco corporativo sob luzes neon em ambiente de alta demanda.",
-  },
-  {
-    src: "./home/hero-focus3.jpg",
-    alt: "Reunião executiva com líder apresentando decisão estratégica em ambiente de pressão.",
-  },
-];
-
-const create_hero_slide = ({ src, alt }) => {
-  const slide = document.createElement("div");
-  const image = document.createElement("img");
-
-  slide.className = "hero-carousel-slide";
-  slide.setAttribute("data-hero-slide", "");
-  slide.setAttribute("aria-hidden", "true");
-
-  image.className = "media-block__image media-cover-image media-image--hero";
-  image.src = src;
-  image.alt = alt;
-  image.width = 1439;
-  image.height = 916;
-  image.loading = "lazy";
-  image.decoding = "async";
-
-  slide.append(image);
-
-  return slide;
-};
-
-const initialize_hero_carousel = () => {
+(() => {
   const carousel = document.querySelector("[data-hero-carousel]");
-
-  if (!carousel) {
-    return;
-  }
-
+  if (!carousel) return;
   const track = carousel.querySelector(".hero-carousel-track");
   const previous_button = carousel.querySelector(".hero-carousel-control--prev");
   const next_button = carousel.querySelector(".hero-carousel-control--next");
   const indicators = carousel.querySelector(".hero-carousel-indicators");
+  if (!track || !previous_button || !next_button || !indicators) return;
 
-  if (!track || !previous_button || !next_button || !indicators) {
-    return;
-  }
-
+  const desktop_query = matchMedia("(min-width: 769px)");
+  const extra_slides = [
+    {
+      src: "./home/hero-focus2.jpg",
+      alt: "Profissional apresentando em um palco corporativo sob luzes neon em ambiente de alta demanda.",
+    },
+    {
+      src: "./home/hero-focus3.jpg",
+      alt: "Reunião executiva com líder apresentando decisão estratégica em ambiente de pressão.",
+    },
+  ];
   let slides = Array.from(track.querySelectorAll("[data-hero-slide]"));
-  let indicator_buttons = [];
+  let buttons = [];
   let current_index = 0;
   let autoplay_timer = null;
-  let is_transitioning = false;
-  let hydration_frame = null;
   let hydration_task = null;
-  let controls_bound = false;
-
-  const autoplay_interval = Number(carousel.dataset.autoplayInterval) || 5000;
-  const fade_duration = 1000;
-
+  let transition = null;
+  let in_view = false;
+  let hovering = carousel.matches(":hover");
+  const interval = Number(carousel.dataset.autoplayInterval) || 5000;
+  const fade_duration = 450;
+  const can_run = () => desktop_query.matches && !document.hidden && in_view;
   const clear_autoplay = () => {
-    if (autoplay_timer !== null) {
-      window.clearInterval(autoplay_timer);
-      autoplay_timer = null;
-    }
+    clearTimeout(autoplay_timer);
+    autoplay_timer = null;
   };
-
-  const sync_motion_preference = () => {
-    carousel.classList.toggle("is-reduced-motion", hero_reduced_motion_query.matches);
-  };
-
-  const update_indicators = () => {
-    indicator_buttons.forEach((button, index) => {
-      const is_active = index === current_index;
-
-      button.classList.toggle("is-active", is_active);
-      button.setAttribute("aria-pressed", String(is_active));
-      if (is_active) {
-        button.setAttribute("aria-current", "true");
-      } else {
-        button.removeAttribute("aria-current");
-      }
-    });
-  };
-
-  const update_slides = () => {
+  const sync_slides = () => {
     slides.forEach((slide, index) => {
-      const is_active = index === current_index;
-
-      slide.classList.toggle("is-active", is_active);
+      slide.classList.toggle("is-active", index === current_index);
       slide.classList.remove("is-fading-out", "is-fading-in");
-      slide.setAttribute("aria-hidden", String(!is_active));
+      slide.setAttribute("aria-hidden", String(index !== current_index));
     });
-
-    update_indicators();
+    buttons.forEach((button, index) => {
+      const active = index === current_index;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+      if (active) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
   };
-
-  const wait_for_fade = () => new Promise((resolve) => {
-    window.setTimeout(resolve, fade_duration);
-  });
-
-  const cancel_scheduled_hydration = () => {
-    if (hydration_frame !== null) {
-      window.cancelAnimationFrame(hydration_frame);
-      hydration_frame = null;
-    }
-
-    if (hydration_task !== null) {
-      cancel_idle_work(hydration_task);
-      hydration_task = null;
-    }
-  };
-
-  const go_to_slide = async (next_index) => {
-    const target_index = (next_index + slides.length) % slides.length;
-
-    if (target_index === current_index || is_transitioning) {
-      return;
-    }
-
-    if (hero_reduced_motion_query.matches) {
-      current_index = target_index;
-      update_slides();
-      return;
-    }
-
-    is_transitioning = true;
-
-    const current_slide = slides[current_index];
-    const target_slide = slides[target_index];
-
-    current_slide.classList.add("is-fading-out");
-    await wait_for_fade();
-
-    current_slide.classList.remove("is-active", "is-fading-out");
-    current_slide.setAttribute("aria-hidden", "true");
-
-    current_index = target_index;
-    target_slide.classList.add("is-active", "is-fading-in");
-    target_slide.setAttribute("aria-hidden", "false");
-    update_indicators();
-
-    await wait_for_fade();
-
-    target_slide.classList.remove("is-fading-in");
-    is_transitioning = false;
-  };
-
-  const start_autoplay = () => {
+  const sync_autoplay = () => {
     clear_autoplay();
-
-    if (!hero_desktop_query.matches || slides.length < 2) {
-      return;
-    }
-
-    autoplay_timer = window.setInterval(() => {
-      go_to_slide(current_index + 1);
-    }, autoplay_interval);
+    if (!can_run() || hovering || carousel.contains(document.activeElement) || transition || slides.length < 2) return;
+    autoplay_timer = setTimeout(() => go_to_slide(current_index + 1), interval);
   };
-
-  const build_indicators = () => {
-    indicators.innerHTML = "";
-
-    indicator_buttons = slides.map((_, index) => {
+  const cancel_transition = () => {
+    transition?.abort();
+    transition = null;
+    sync_slides();
+  };
+  const wait_for_fade = (signal) => new Promise((resolve, reject) => {
+    const cancel = () => {
+      clearTimeout(timer);
+      reject(new DOMException("Cancelled", "AbortError"));
+    };
+    const timer = setTimeout(() => {
+      signal.removeEventListener("abort", cancel);
+      resolve();
+    }, fade_duration);
+    signal.addEventListener("abort", cancel, { once: true });
+  });
+  const prepare_image = (image, signal) => new Promise((resolve) => {
+    let finished = false;
+    const finish = (ready) => {
+      if (finished) return;
+      finished = true;
+      clearTimeout(timeout);
+      image.removeEventListener("load", loaded);
+      image.removeEventListener("error", failed);
+      signal.removeEventListener("abort", failed);
+      resolve(ready && !signal.aborted);
+    };
+    const loaded = () => {
+      if (image.decode) image.decode().then(() => finish(true), () => finish(false));
+      else finish(image.naturalWidth > 0);
+    };
+    const failed = () => finish(false);
+    const timeout = setTimeout(failed, 15000);
+    image.addEventListener("load", loaded);
+    image.addEventListener("error", failed);
+    signal.addEventListener("abort", failed, { once: true });
+    if (image.dataset.src) {
+      image.src = image.dataset.src;
+      delete image.dataset.src;
+    }
+    if (image.complete && image.getAttribute("src")) {
+      if (image.naturalWidth) loaded();
+      else failed();
+    }
+  });
+  async function go_to_slide(next_index) {
+    if (!can_run() || transition || slides.length < 2) return;
+    const target_index = (next_index + slides.length) % slides.length;
+    if (target_index === current_index) return;
+    clear_autoplay();
+    const controller = new AbortController();
+    transition = controller;
+    try {
+      const target_slide = slides[target_index];
+      if (!await prepare_image(target_slide.querySelector("img"), controller.signal) || controller.signal.aborted) return;
+      slides[current_index].classList.add("is-fading-out");
+      await wait_for_fade(controller.signal);
+      if (controller.signal.aborted) return;
+      current_index = target_index;
+      sync_slides();
+      target_slide.classList.add("is-fading-in");
+      await wait_for_fade(controller.signal);
+      target_slide.classList.remove("is-fading-in");
+    } catch (error) {
+      if (error.name !== "AbortError") console.error(error);
+    } finally {
+      if (transition === controller) {
+        transition = null;
+        sync_autoplay();
+      }
+    }
+  }
+  const hydrate = () => {
+    hydration_task = null;
+    if (!desktop_query.matches || carousel.dataset.hydrated === "true") return;
+    extra_slides.forEach(({ src, alt }) => {
+      const slide = document.createElement("div");
+      slide.className = "hero-carousel-slide";
+      slide.setAttribute("data-hero-slide", "");
+      slide.setAttribute("aria-hidden", "true");
+      const image = document.createElement("img");
+      image.className = "media-block__image media-image--hero";
+      image.dataset.src = src;
+      image.alt = alt;
+      image.width = 1439;
+      image.height = 916;
+      image.decoding = "async";
+      slide.append(image);
+      track.append(slide);
+    });
+    slides = Array.from(track.querySelectorAll("[data-hero-slide]"));
+    buttons = slides.map((_, index) => {
       const button = document.createElement("button");
-
       button.type = "button";
       button.className = "hero-carousel-indicator";
       button.setAttribute("aria-label", `Mostrar imagem ${index + 1} de ${slides.length}`);
-      button.addEventListener("click", () => {
-        go_to_slide(index);
-        start_autoplay();
-      });
-
-      indicators.append(button);
+      button.addEventListener("click", () => go_to_slide(index));
       return button;
     });
-  };
-
-  const bind_controls = () => {
-    if (controls_bound) {
-      return;
-    }
-
-    previous_button.addEventListener("click", () => {
-      go_to_slide(current_index - 1);
-      start_autoplay();
-    });
-
-    next_button.addEventListener("click", () => {
-      go_to_slide(current_index + 1);
-      start_autoplay();
-    });
-
-    controls_bound = true;
-  };
-
-  const hydrate_slides = () => {
-    if (carousel.dataset.hydrated === "true") {
-      sync_motion_preference();
-      update_slides();
-      start_autoplay();
-      return;
-    }
-
-    hero_extra_slides.forEach((slide_data) => {
-      track.append(create_hero_slide(slide_data));
-    });
-
-    slides = Array.from(track.querySelectorAll("[data-hero-slide]"));
-    build_indicators();
-    bind_controls();
-    sync_motion_preference();
-    update_slides();
-
+    indicators.replaceChildren(...buttons);
     carousel.dataset.hydrated = "true";
-    previous_button.hidden = false;
-    next_button.hidden = false;
-    indicators.hidden = false;
-    start_autoplay();
+    previous_button.hidden = next_button.hidden = indicators.hidden = false;
+    sync_slides();
+    sync_autoplay();
   };
-
-  const schedule_hydration = () => {
-    if (carousel.dataset.hydrated === "true") {
-      sync_motion_preference();
-      update_slides();
-      start_autoplay();
-      return;
-    }
-
-    if (hydration_frame !== null || hydration_task !== null) {
-      return;
-    }
-
-    hydration_frame = window.requestAnimationFrame(() => {
-      hydration_frame = null;
-      hydration_task = schedule_idle_work(() => {
-        hydration_task = null;
-
-        if (!hero_desktop_query.matches) {
-          return;
-        }
-
-        hydrate_slides();
-      });
-    });
+  const cancel_hydration = () => {
+    if (hydration_task === null) return;
+    if ("requestIdleCallback" in window) cancelIdleCallback(hydration_task);
+    else clearTimeout(hydration_task);
+    hydration_task = null;
   };
-
-  const handle_viewport_change = () => {
-    if (hero_desktop_query.matches) {
-      schedule_hydration();
-      return;
+  const sync_context = () => {
+    if (!can_run()) cancel_transition();
+    if (!desktop_query.matches) cancel_hydration();
+    else if (carousel.dataset.hydrated !== "true" && hydration_task === null) {
+      hydration_task = "requestIdleCallback" in window
+        ? requestIdleCallback(hydrate, { timeout: 1800 })
+        : setTimeout(hydrate, 280);
     }
-
-    cancel_scheduled_hydration();
+    sync_autoplay();
+  };
+  previous_button.addEventListener("click", () => go_to_slide(current_index - 1));
+  next_button.addEventListener("click", () => go_to_slide(current_index + 1));
+  carousel.addEventListener("mouseenter", () => { hovering = true; sync_autoplay(); });
+  carousel.addEventListener("mouseleave", () => { hovering = false; sync_autoplay(); });
+  carousel.addEventListener("focusin", clear_autoplay);
+  carousel.addEventListener("focusout", () => queueMicrotask(sync_autoplay));
+  document.addEventListener("visibilitychange", sync_context);
+  desktop_query.addEventListener("change", sync_context);
+  window.addEventListener("pagehide", () => {
     clear_autoplay();
-  };
-
-  sync_motion_preference();
-  hero_desktop_query.addEventListener("change", handle_viewport_change);
-  hero_reduced_motion_query.addEventListener("change", () => {
-    sync_motion_preference();
-    start_autoplay();
+    cancel_hydration();
+    cancel_transition();
   });
-
-  handle_viewport_change();
-};
-
-initialize_hero_carousel();
+  window.addEventListener("pageshow", sync_context);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      in_view = entry.isIntersecting;
+      sync_context();
+    }).observe(carousel);
+  } else {
+    in_view = true;
+  }
+  sync_context();
+})();

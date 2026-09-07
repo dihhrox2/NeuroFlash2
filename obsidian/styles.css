@@ -1,7 +1,4 @@
 :root {
-  --black: #050505;
-  --panel: #0a0a0a;
-  --line: rgba(220, 220, 220, 0.16);
   --bone: #b9bec4;
   --muted: rgba(185, 190, 196, 0.76);
   --gold: #b08a45;
@@ -94,7 +91,6 @@ a {
 
 [data-scroll-fade-logo] {
   opacity: 0;
-  will-change: opacity;
 }
 
 .obsidian-nav {
@@ -142,7 +138,6 @@ a {
   opacity: 1;
   transform: scale(1);
   transition: visibility 0ms linear 120ms;
-  will-change: opacity, transform;
 }
 
 .intro-curtain img {
@@ -297,7 +292,6 @@ p {
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   transition: transform 280ms ease;
-  will-change: transform;
 }
 
 .format-carousel-slide {
@@ -370,7 +364,6 @@ p {
 [data-scroll-fade-product] {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
-  will-change: opacity, transform;
 }
 
 .product-presentation-section--reversed .presentation-product {
@@ -419,9 +412,6 @@ p {
 
 .manifesto-section {
   display: block;
-}
-
-.manifesto-section {
   text-align: center;
 }
 
@@ -506,11 +496,6 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .static-hero {
-    min-height: calc(var(--intro-scroll-space) + var(--header-height));
-    padding: 0;
-  }
-
   h1 {
     font-size: clamp(3.8rem, 18vw, 6.8rem);
   }
@@ -542,10 +527,6 @@ p {
     margin-right: auto;
     font-size: clamp(0.9rem, 4vw, 1.08rem);
     line-height: 1.45;
-  }
-
-  .formats-section {
-    grid-template-columns: 1fr;
   }
 
   .format-carousel-slide {
